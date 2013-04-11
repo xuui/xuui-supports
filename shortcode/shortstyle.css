@@ -1,0 +1,4 @@
+/* xuui Shortstyle */
+#xuui_downbut a{float:left;display:block;background:transparent url(dlbutton.png) no-repeat left top;border:none;padding:0 0 0 40px;height:33px;font:12px Tahoma, Arial;color:#123;text-decoration:none;text-shadow:0 1px 1px #fff;}
+#xuui_downbut a span{float:left;display:block;background:transparent url(dlbutton.png) no-repeat right top;padding:0 10px 0 0;line-height:33px;cursor:pointer;}
+#xuui_downbut a:hover{color:#000;text-shadow:0 1px 1px #fff;}
