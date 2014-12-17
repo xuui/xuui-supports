@@ -20,6 +20,7 @@ function xuui_supportinit(){load_textdomain('xuui',plugin_dir_path(__FILE__).'la
 
 /* Add Action */
 add_action('plugins_loaded','xuui_supportinit');//Get plugin languages.
+add_action('login_head','xuui_login_style');//自定义登录样式
 add_action('wp_before_admin_bar_render','xuui_adminbar_remove',0);//移除 Admin Bar 上的 WordPress Logo
 /* Add Action End */
 
