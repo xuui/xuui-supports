@@ -1,5 +1,6 @@
 <?php
 /*** The Disable Google Fonts Plugin */
+/*
 if ( ! defined( 'ABSPATH' ) ) exit;
 class Disable_Google_Fonts {
 	public function __construct() {
@@ -44,4 +45,5 @@ class Disable_Google_Fonts {
 	}
 }
 $disable_google_fonts=new Disable_Google_Fonts;
+*/
 ?>

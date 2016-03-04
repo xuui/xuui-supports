@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: iLost CMS v1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-10 13:47+0800\n"
-"PO-Revision-Date: 2013-04-10 13:48+0800\n"
+"POT-Creation-Date: 2016-03-04 09:41+0800\n"
+"PO-Revision-Date: 2016-03-04 09:41+0800\n"
 "Last-Translator: Xu.hel <xu.hel@outlook.com>\n"
 "Language-Team: Xu.Design <xu@xuui.net>\n"
 "Language: zh_CN\n"
@@ -13,17 +13,17 @@ msgstr ""
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-Generator: Poedit 1.5.5\n"
+"X-Generator: Poedit 1.8.7\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../xuui-supports.php:31
+#: ../core.php:4
 msgid "weibo"
 msgstr "新浪微博"
 
-#: ../xuui-supports.php:32
+#: ../core.php:5
 msgid "qq weibo"
 msgstr "腾讯微博"
 
-#: ../xuui-supports.php:33
+#: ../core.php:6
 msgid "iMessage"
 msgstr "iMessage"
