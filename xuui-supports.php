@@ -19,15 +19,29 @@ require_once(XUUI_PLUGIN_DIR.'core.php');
 /* Action */
 add_action('plugins_loaded','xuui_supportinit');// Get plugin languages.
 add_action('login_head','xuui_login_style');// Login
-//add_action('wp_before_admin_bar_render','xuui_adminbar_remove',0);//移除 Admin Bar 上的 WordPress Logo
+
+/* Remove wp_head. */
+add_action('wp_before_admin_bar_render','xuui_adminbar_remove',0);//Remove adminbar 上的 WordPress Logo
+remove_action('wp_head','wp_generator');
+remove_action('wp_head','rsd_link');
+remove_action('wp_head','wlwmanifest_link');
+//remove_action('wp_head','feed_links',2);
+remove_action('wp_head','feed_links_extra',3);
+remove_action('wp_head','index_rel_link');
+remove_action('wp_head','parent_post_rel_link',10,0); 
+remove_action('wp_head','start_post_rel_link',10,0); 
+remove_action('wp_head','adjacent_posts_rel_link_wp_head',10,0);
+remove_action('wp_head','wp_shortlink_wp_head',10,0);
+remove_action('template_redirect','wp_shortlink_header',11,0);
+
 /* Action End */
 
 /* Filter */
-//add_filter('pre_option_link_manager_enabled','__return_true');//恢复链接管理菜单 
+add_filter('pre_option_link_manager_enabled','__return_true');// Add Link Manager 
 //add_filter('user_contactmethods','xuui_user_contactmethods');//增加额外的联系字段
 /* Filter End */
 
-/* Core Function */
-//require_once(xuui_path('disable-google-fonts.php'));
-/* Core Function End */
+/* Ex Plugin */
+require_once(XUUI_PLUGIN_DIR.'disable-google-fonts.php');
+/* Ex Plugin End */
 ?>
