@@ -2,7 +2,7 @@
 /* Exit if accessed directly */
 if(!defined('ABSPATH')) exit;
 add_filter('gettext_with_context','xuui_disable_open_sans',888,4);
-add_action('after_setup_theme','register_theme_fonts_disabler',1);
+add_action('after_setup_theme','xuui_register_theme_fonts_disabler',1);
 function xuui_disable_open_sans($translations,$text,$context,$domain){
   if('Open Sans font: on or off'==$context && 'on'==$text){$translations='off';}
   return $translations;
@@ -39,7 +39,7 @@ function xuui_disable_montserrat($translations,$text,$context,$domain){
   if('Montserrat font: on or off'==$context && 'on'==$text){$translations='off';}
   return $translations;
 }
-function register_theme_fonts_disabler(){
+function xuui_register_theme_fonts_disabler(){
   $template=get_template();
   switch($template){
     case 'twentysixteen' :
