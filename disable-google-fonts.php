@@ -1,16 +1,14 @@
 <?php //The Disable Google Fonts.
 add_filter('gettext_with_context','xuui_disable_open_sans',888,4);
-add_filter('gettext_with_context',array($this,'xuui_disable_source_sans_pro'),888,4);
-/*
-add_filter('gettext_with_context',array($this,'xuui_disable_merriweather'),888,4);
-add_filter('gettext_with_context',array($this,'xuui_disable_montserrat'),888,4);
-add_filter('gettext_with_context',array($this,''),888,4);
-add_filter('gettext_with_context',array($this,'xuui_disable_noto_sans'),888,4);
-add_filter('gettext_with_context',array($this,'xuui_disable_noto_serif'),888,4);
-add_filter('gettext_with_context',array($this,'xuui_disable_inconsolata'),888,4);
-add_filter('gettext_with_context',array($this,'xuui_disable_lato'),888,4);
-add_filter('gettext_with_context',array($this,'xuui_disable_bitter'),888,4);
-*/
+add_filter('gettext_with_context','xuui_disable_source_sans_pro',888,4);
+add_filter('gettext_with_context','xuui_disable_merriweather',888,4);
+add_filter('gettext_with_context','xuui_disable_montserrat',888,4);
+add_filter('gettext_with_context','xuui_disable_noto_sans',888,4);
+add_filter('gettext_with_context','xuui_disable_noto_serif',888,4);
+add_filter('gettext_with_context','xuui_disable_inconsolata',888,4);
+add_filter('gettext_with_context','xuui_disable_lato',888,4);
+add_filter('gettext_with_context','xuui_disable_bitter',888,4);
+
 function xuui_disable_open_sans($translations,$text,$context,$domain){
   if('Open Sans font: on or off'==$context && 'on'==$text){$translations='off';}
   return $translations;
