@@ -1,9 +1,14 @@
 <?php //Core.
-/*
-//自定义登录样式
-function xuui_login_style(){
-  echo "<style type=\"text/css\">@import url(\"".xuui_url('ui-login/login.css')."\");</style>\n";
+function xuui_supportinit(){
+  load_textdomain('xuui',XUUI_PLUGIN_DIR.'languages/'.get_locale().'.mo');
 }
+
+// Login
+function xuui_login_style(){
+  echo "<style type=\"text/css\">@import url(\"".XUUI_PLUGIN_URL.'ui-login/login.css'."\");</style>\n";
+}
+
+/*
 //移除 Admin Bar 上的 WordPress Logo
 function xuui_adminbar_remove(){
   global $wp_admin_bar;
