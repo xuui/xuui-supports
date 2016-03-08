@@ -43,5 +43,6 @@ add_filter('pre_option_link_manager_enabled','__return_true');// Add Link Manage
 
 /* Ex Plugin */
 require_once(XUUI_PLUGIN_DIR.'disable-google-fonts.php');
+require_once(XUUI_PLUGIN_DIR.'shortcode.php');
 /* Ex Plugin End */
 ?>
