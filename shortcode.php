@@ -1,15 +1,20 @@
 <?php //The Shortcode.
 function xuui_shortcode_style(){
   //if(is_single())
-  echo '<link rel="stylesheet" href="'.XUUI_PLUGIN_URL.'shortcode/shortcode.css'.'" media="screen" />';
+  echo "<link rel=\"stylesheet\" id=\"shortcode\" href=\"".XUUI_PLUGIN_URL."shortcode/shortcode.css\" />\n";
 }
 add_action('wp_head','xuui_shortcode_style');
 
 function xuui_shortDownbtn($atts,$content=null){
   extract(shortcode_atts(array("href"=>'http://'),$atts));
   return '<div id="xuui_downbut"><a href="'.$href.'"target="_blank"><span>'.$content.'</span></a><div class="clear"></div></div>';
+  return '<div id="istudio_downbut"><a href="'.$href.'"target="_blank"><span>'.$content.'</span></a><div class="clear"></div></div>';
 }
 function xuui_shortVideo($atts,$content=null){
+  extract(shortcode_atts(array("auto"=>'0'),$atts));
+  return'<embed src="'.XUUI_PLUGIN_URL.'shortcode/xuvideo.swf?auto='.$auto.'&flv='.$content.'" menu="false" quality="high" wmode="transparent" bgcolor="#ffffff" width="560" height="315" name="flvideo" align="middle" allowScriptAccess="sameDomain" allowFullScreen="false" type="application/x-shockwave-flash" pluginspage="http://www.adobe.com/go/getflashplayer_cn" />';
+}
+function xuui_shortflVideo($atts,$content=null){
   extract(shortcode_atts(array("auto"=>'0'),$atts));
   return'<embed src="'.XUUI_PLUGIN_URL.'shortcode/xuvideo.swf?auto='.$auto.'&flv='.$content.'" menu="false" quality="high" wmode="transparent" bgcolor="#ffffff" width="560" height="315" name="flvideo" align="middle" allowScriptAccess="sameDomain" allowFullScreen="false" type="application/x-shockwave-flash" pluginspage="http://www.adobe.com/go/getflashplayer_cn" />';
 }
@@ -21,7 +26,7 @@ function xuui_shortAudio($atts,$content=null){
 add_shortcode('Downlink','xuui_shortDownbtn');
 add_shortcode('download','xuui_shortDownbtn');
 add_shortcode('video','xuui_shortVideo');
-add_shortcode('flv','xuui_shortVideo');
+add_shortcode('flv','xuui_shortflVideo');
 add_shortcode('mp4','xuui_shortVideo');
 add_shortcode('audio','xuui_shortAudio ');
 add_shortcode('mp3','xuui_shortAudio');
