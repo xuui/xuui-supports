@@ -19,6 +19,7 @@ require_once(XUUI_PLUGIN_DIR.'core.php');
 /* Action */
 add_action('plugins_loaded','xuui_supportinit');// Get plugin languages.
 add_action('login_head','xuui_login_style');// Login
+add_action('pre_ping','xuui_no_self_ping');// No Self Ping
 
 /* Remove wp_head. */
 add_action('wp_before_admin_bar_render','xuui_adminbar_remove',0);//Remove adminbar 上的 WordPress Logo
