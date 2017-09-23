@@ -37,6 +37,14 @@ remove_action('template_redirect','wp_shortlink_header',11,0);
 
 /* Action End */
 
+/* super easy way to move javascript to footer */
+remove_action('wp_head', 'wp_print_scripts');
+remove_action('wp_head', 'wp_print_head_scripts', 9);
+remove_action('wp_head', 'wp_enqueue_scripts', 1);
+add_action('wp_footer', 'wp_print_scripts', 5);
+add_action('wp_footer', 'wp_enqueue_scripts', 5);
+add_action('wp_footer', 'wp_print_head_scripts', 5);
+
 /* Filter */
 add_filter('pre_option_link_manager_enabled','__return_true');// Add Link Manager 
 //add_filter('user_contactmethods','xuui_user_contactmethods');//增加额外的联系字段
