@@ -2,7 +2,7 @@
 body.login{background:#e5e5e5 url(logo_bg.png) repeat;font-size:14px;line-height:24px;}
 
 .login h1 a{background-image:url(login_logo.png);background-size:auto;margin:0 auto 16px;width:auto;height:48px;}
-.login form{margin-top:0;padding:40px 40px 24px;}
+.login form{margin-top:0;padding:40px;}
 
 #login{padding:8% 0;}
 #login form p,.login label{display:block;height:40px;}
@@ -17,10 +17,14 @@ body.login{background:#e5e5e5 url(logo_bg.png) repeat;font-size:14px;line-height
 #user_pass{background-position:0 -40px;}
 
 #login form .forgetmenot,#login form .submit{}
-.login form .forgetmenot{padding-top:8px;}
-.login form .forgetmenot label{height:24px;font-size:14px;line-height:24px;}
+#login form p.forgetmenot,#login form .forgetmenot label{height:32px;font-size:14px;line-height:32px;}
+#login form .forgetmenot{float:none;padding-top:0;}
+#login form .forgetmenot label{height:32px;font-size:14px;line-height:32px;}
 
-#login .button-primary{background:#009aaa;border-color:#009aaa;padding:8px 20px;height:40px;line-height:24px;font-size:15px;font-weight:300;box-shadow:none;text-shadow:0 1px 1px rgba(0,0,0,.24);}
+#login .button-primary{background:#009aaa;border-color:#009aaa;padding:8px 20px;width:100%;height:40px;line-height:24px;font-size:15px;font-weight:300;box-shadow:none;text-shadow:0 1px 1px rgba(0,0,0,.24);}
+
+.login #nav{float:right;margin:16px 0;}
 
 .login #login_error,.login .message,.login .success{padding:8px 16px;}
 .login #login_error{background:#c62828;border:none;border-radius:2px;box-shadow:0 1px 5px 0 rgba(0,0,0,.24);color:#fff;}
+
