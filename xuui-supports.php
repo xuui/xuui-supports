@@ -14,13 +14,12 @@ Author URI: http://xuui.net/
 
 define('XUUI_PLUGIN_URL',plugin_dir_url(__FILE__));
 define('XUUI_PLUGIN_DIR',plugin_dir_path(__FILE__));
-add_action('plugins_loaded','xuui_supportinit');// Get plugin languages.
+//add_action('plugins_loaded','xuui_supportinit');// Get plugin languages.
 
 
-require_once(XUUI_PLUGIN_DIR.'tuning.php');
-/*
-
-require_once(XUUI_PLUGIN_DIR.'utility.php');
+require_once(XUUI_PLUGIN_DIR.'utility/tuning.php');
+require_once(XUUI_PLUGIN_DIR.'utility/utility.php');
+require_once(XUUI_PLUGIN_DIR.'custom/custom.php');
 
 
 
