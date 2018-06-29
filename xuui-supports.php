@@ -59,4 +59,17 @@ remove_action('template_redirect','wp_shortlink_header',11,0);
 require_once(XUUI_PLUGIN_DIR.'disable-google-fonts.php');
 require_once(XUUI_PLUGIN_DIR.'shortcode.php');
 /* Ex Plugin End */
+
+
+function xuui_isMobile(){
+  $userAgent=$_SERVER['HTTP_USER_AGENT'];// 从HTTP_USER_AGENT中查找手机浏览器的关键字
+  if(preg_match('/(iPhone|Android)/i',$userAgent)){
+    echo 'match:true';
+    return true;
+  }else{
+    echo 'match:false';
+    return false;
+  }
+}
+//xuui_isMobile();
 ?>
