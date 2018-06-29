@@ -1,15 +1,57 @@
-html,body.login{background:#cfcfcf url(logo_bg.png) repeat;}
+@import url("http://cdn.xuui.net/Ionicons/css/ionicons.css");
+*{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;}
+body.login{background:#e5e5e5 url(logo_bg.png) repeat;
+    font-size:14px;line-height:24px;
+}
 
-#login{border-radius:5px;/*margin:114px auto 0;padding:0;*/}
+
+.login h1 a{background-image:url(login_logo.png);background-size:auto;margin:0 auto 16px;width:auto;height:48px;}
+.login form{margin-top:0;padding:40px 40px 24px;}
+
+
+#login{padding:72px 0;}
+#login form p,.login label{display:block;height:40px;}
+#login form p{margin-bottom:16px;}
+.login label{position:relative;}
+
+.login form .input,.login input[type="text"]{margin:0;padding:8px 8px;height:40px;line-height:24px;font-size:14px;border:0;box-shadow:none;}
+
+.login label .input{position:absolute;z-index:1;top:0;background:#f5f5f5;border-bottom:1px solid #a9a9a9;}
+.login label .input:focus{border-color:#009aaa;border-bottom-width:2px;padding-bottom:8px;}
+
+
+#user_login,#user_pass{background:#f5f5f5 url(login_icon.png) no-repeat;padding-left:32px;}
+#user_login{background-position:0 0px;}
+#user_pass{background-position:0 -40px;}
+
+#login form .forgetmenot,#login form .submit{}
+.login form .forgetmenot{padding-top:8px;}
+.login form .forgetmenot label{height:24px;font-size:14px;line-height:24px;}
+
+
+#login .button-primary{background:#009aaa;border-color:#009aaa;padding:8px 20px;height:40px;line-height:24px;font-size:15px;font-weight:300;box-shadow:none;text-shadow:0 1px 1px rgba(0,0,0,.24);}
+
+.login #login_error,.login .message,.login .success{padding:8px 16px;}
+.login #login_error{background:#c62828;
+
+border:none;
+border-radius:2px;
+box-shadow:0 1px 5px 0 rgba(0,0,0,.24);
+color:#fff;
+}
+/*
+#login{border-radius:5px;/*margin:114px auto 0;padding:0;*}
+/*
 #loginform{background:#fff;border:none;border-radius:5px;box-shadow:none;margin:10px 0 0;box-shadow:0 1px 3px rgba(0,0,0,.3);}
 /*
 #loginform{background:#fff;border:none;border-radius:5px;box-shadow:none;margin:0;}
 #login{background:#fff;border-radius:5px;box-shadow:0 1px 3px rgba(0,0,0,.3);margin:114px auto 0;padding:0;}
 */
-#login h1 a{background-image:url(login_logo.png);background-size:auto;width:auto;}
+/*
 .login label{color:#666;}
 .login form .input,.login input[type="text"]{border-color:#ccc;}
 textarea:focus,input[type="text"]:focus,input[type="password"]:focus,input[type="file"]:focus,input[type="button"]:focus,input[type="submit"]:focus,input[type="reset"]:focus,input[type="email"]:focus,input[type="number"]:focus,input[type="search"]:focus,input[type="tel"]:focus,input[type="url"]:focus,select:focus{border-color:#888;}
 .login #nav,.login #backtoblog{margin:0;}
 .login #nav{padding:12px 16px 5px;}
 .login #backtoblog{padding:5px 16px 16px;}
+*/
