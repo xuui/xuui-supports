@@ -71,5 +71,5 @@ function xuui_isMobile(){
     return false;
   }
 }
-//xuui_isMobile();
+// xuui_isMobile();
 ?>
