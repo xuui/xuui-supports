@@ -1,8 +1,9 @@
 *{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;}
-body.login{background:#e5e5e5 url(logo_bg.png) repeat;font-size:14px;line-height:24px;}
+body{font:400 14px/24px 'Monospaced Number','Chinese Quote',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'PingFang SC','Hiragino Sans GB','Microsoft YaHei UI','Microsoft YaHei','Helvetica Neue',Helvetica,Arial,sans-serif;}
+body.login{background:#e5e5e5 url(logo_bg.png) repeat;}
 
-.login h1 a{background-image:url(login_logo.png);background-size:auto;margin:0 auto 16px;width:auto;height:48px;}
-.login form{margin-top:0;padding:40px;}
+.login h1 a{background-image:url(login_logo.png);background-size:256px 64px;margin:0 auto 16px;width:auto;height:64px;}
+.login form{border-radius:2px;margin-top:0;padding:32px;}
 
 #login{padding:8% 0;}
 #login form p,.login label{display:block;height:40px;}
@@ -21,10 +22,11 @@ body.login{background:#e5e5e5 url(logo_bg.png) repeat;font-size:14px;line-height
 #login form .forgetmenot{float:none;padding-top:0;}
 #login form .forgetmenot label{height:32px;font-size:14px;line-height:32px;}
 
-#login .button-primary{background:#009aaa;border-color:#009aaa;padding:8px 20px;width:100%;height:40px;line-height:24px;font-size:15px;font-weight:300;box-shadow:none;text-shadow:0 1px 1px rgba(0,0,0,.24);}
+#login .button-primary{background:#009aaa;border-color:#009aaa;border-radius:2px;margin:0;padding:8px 20px;width:100%;height:40px;line-height:24px;font-size:15px;font-weight:300;box-shadow:none;text-shadow:0 1px 1px rgba(0,0,0,.24);}
 
 .login #nav{float:right;margin:16px 0;}
 
 .login #login_error,.login .message,.login .success{padding:8px 16px;}
 .login #login_error{background:#c62828;border:none;border-radius:2px;box-shadow:0 1px 5px 0 rgba(0,0,0,.24);color:#fff;}
+.login #login_error a{color:#fff;}
 
