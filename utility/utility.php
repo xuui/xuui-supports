@@ -3,6 +3,7 @@
  * @package xuui-supports
  * @version 1.0
  */
+/* Wordpress 实用功能增强. */
 
 // Add Link Manager.
 add_filter('pre_option_link_manager_enabled','__return_true');

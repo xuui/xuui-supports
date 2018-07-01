@@ -3,6 +3,7 @@
  * @package xuui-supports
  * @version 1.0
  */
+/* Wordpress 个性化定制.*/
 
 add_action('login_head','xuui_login_style');//自定义登录样式
 function xuui_login_style(){
