@@ -13,9 +13,10 @@ body.login{background:#e5e5e5 url(logo_bg.png) repeat;}
 .login label .input{position:absolute;z-index:1;top:0;background:#f5f5f5;border-bottom:1px solid #888;}
 .login label .input:focus{border-color:#009aaa;border-bottom-width:2px;padding-bottom:8px;}
 
-#user_login,#user_pass{background:#f5f5f5 url(login_icon.png) no-repeat;padding-left:32px;}
+#user_login,#user_email,#user_pass{background:#f5f5f5 url(login_icon.png) no-repeat;padding-left:32px;}
 #user_login{background-position:0 0px;}
-#user_pass{background-position:0 -40px;}
+#user_email{background-position:0 -40px;}
+#user_pass{background-position:0 -80px;}
 
 #login form .forgetmenot,#login form .submit{}
 #login form p.forgetmenot,#login form .forgetmenot label{height:32px;font-size:14px;line-height:32px;}
@@ -29,4 +30,5 @@ body.login{background:#e5e5e5 url(logo_bg.png) repeat;}
 .login #login_error,.login .message,.login .success{padding:8px 16px;}
 .login #login_error{background:#c62828;border:none;border-radius:2px;box-shadow:0 1px 5px 0 rgba(0,0,0,.24);color:#fff;}
 .login #login_error a{color:#fff;}
+
 
