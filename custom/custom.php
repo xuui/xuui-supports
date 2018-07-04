@@ -5,7 +5,8 @@
  */
 /* Wordpress 个性化定制.*/
 
-add_action('login_head','xuui_login_style');//自定义登录样式
+//自定义登录样式
+add_action('login_head','xuui_login_style');
 function xuui_login_style(){
   echo "<style type=\"text/css\">@import url(\"".XUUI_PLUGIN_URL.'custom/login.css'."\");</style>\n";
 }
@@ -20,9 +21,20 @@ function xuui_login_script(){
   if(user_pass)user_pass.setAttribute('placeholder','密码');\n
   </script>\n";
 }
-add_action('wp_before_admin_bar_render','xuui_adminbar_remove',0);//移除 Admin Bar 上的 WordPress Logo
+//移除 Admin Bar 上的 WordPress Logo
+add_action('wp_before_admin_bar_render','xuui_adminbar_remove',0);
 function xuui_adminbar_remove(){
   global $wp_admin_bar;
   $wp_admin_bar->remove_menu('wp-logo');
 }
+
+//自定义后台样式
+function xuui_admin_style(){
+	echo '<style>#wpbody-content h1{color:#009aaa;}</style>';
+}
+add_action('admin_head','xuui_admin_style');
+function xuui_admin_cript(){
+	echo "<script type=\"text/javascript\">console.log('admin script')</script>";
+}
+add_action('admin_head','xuui_admin_cript');
 ?>
