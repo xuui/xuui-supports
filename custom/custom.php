@@ -16,9 +16,9 @@ add_action('register_form','xuui_login_script');//自定义注册表单
 function xuui_login_script(){
   echo "<script type=\"text/javascript\">\n
   var user_login=document.querySelector('#user_login'),user_email=document.querySelector('#user_email'),user_pass=document.querySelector('#user_pass');
-  if(user_login)user_login.setAttribute('placeholder','用户名或电子邮件地址');\n
-  if(user_email)user_email.setAttribute('placeholder','电子邮件');\n
-  if(user_pass)user_pass.setAttribute('placeholder','密码');\n
+  if(user_login)user_login.setAttribute('placeholder','用户名或电子邮件地址');
+  if(user_email)user_email.setAttribute('placeholder','电子邮件');
+  if(user_pass)user_pass.setAttribute('placeholder','密码');
   document.querySelector('#login h1 a').href='".home_url()."';
   document.querySelector('#login h1 a').title='".get_bloginfo('name')."';
   document.querySelector('#login h1 a').text='".get_bloginfo('name')."';
@@ -33,11 +33,11 @@ function xuui_adminbar_remove(){
 
 //自定义后台样式
 function xuui_admin_style(){
-	echo '<style>#wpbody-content h1{color:#009aaa;}</style>';
+  echo "<style type=\"text/css\">@import url(\"".XUUI_PLUGIN_URL.'custom/dashboard.css'."\");</style>\n";
 }
 add_action('admin_head','xuui_admin_style');
 function xuui_admin_cript(){
-	echo "<script type=\"text/javascript\">console.log('admin script')</script>";
+	echo "<script type=\"text/javascript\">console.log('admin script')</script>\n";
 }
 add_action('admin_head','xuui_admin_cript');
 ?>
