@@ -19,6 +19,9 @@ function xuui_login_script(){
   if(user_login)user_login.setAttribute('placeholder','用户名或电子邮件地址');\n
   if(user_email)user_email.setAttribute('placeholder','电子邮件');\n
   if(user_pass)user_pass.setAttribute('placeholder','密码');\n
+  document.querySelector('#login h1 a').href='".home_url()."';
+  document.querySelector('#login h1 a').title='".get_bloginfo('name')."';
+  document.querySelector('#login h1 a').text='".get_bloginfo('name')."';
   </script>\n";
 }
 //移除 Admin Bar 上的 WordPress Logo

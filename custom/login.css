@@ -25,9 +25,10 @@ body.login{background:#e5e5e5 url(logo_bg.jpg) no-repeat 50% 100% fixed;backgrou
 .login #login_error,.login .message,.login .success{padding:8px 16px;}
 .login #login_error{background:#c62828;border:none;border-radius:2px;box-shadow:0 1px 5px 0 rgba(0,0,0,.24);color:#fff;}
 .login #login_error a{color:#fff;}
-.login #backtoblog a,.login #nav,.login #nav a{color:#eee;color:rgba(255,255,255,.64)}
-.login #backtoblog a:hover,.login #nav a:hover,.login h1 a:hover{color:#fff;color:rgba(255,255,255,.96)}
-.login #backtoblog a:focus,.login #nav a:focus,.login h1 a:focus{color:#fff;color:rgba(255,255,255,.96)}
+.login #backtoblog a,.login #nav,.login #nav a{color:#eee;color:rgba(255,255,255,.72)}
+.login #backtoblog a:hover,.login #nav a:hover,.login h1 a:hover,
+.login #backtoblog a:focus,.login #nav a:focus,.login h1 a:focus{color:#fff;color:rgba(255,255,255,.99)}
+.login #backtoblog a:active,.login #nav a:active,.login h1 a:active{color:#fff;color:rgba(255,255,255,.64)}
 
 @media(min-width:576px){
 #login{padding:24px 0 0;}
