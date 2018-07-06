@@ -8,6 +8,7 @@
 //自定义登录样式
 add_action('login_head','xuui_login_style');
 function xuui_login_style(){
+  echo "<meta name=\"viewport\" content=\"width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=yes,shrink-to-fit=no\" />\n";
   echo "<style type=\"text/css\">@import url(\"".XUUI_PLUGIN_URL.'custom/login.css'."\");</style>\n";
 }
 add_action('login_form','xuui_login_script');//自定义登录表单
