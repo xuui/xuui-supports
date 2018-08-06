@@ -28,8 +28,6 @@ add_filter('rest_jsonp_enabled','__return_false');
 remove_action('wp_head','rest_output_link_wp_head',10);
 remove_action('template_redirect','rest_output_link_header',11);
 
-// Disable auto-embeds for WordPress >= v3.5
-remove_filter('the_content',array($GLOBALS['wp_embed'],'autoembed'),8);
 
 // 移除 WordPress 自动修正 WordPress 大小写函数.
 remove_filter('the_content','capital_P_dangit');
@@ -47,7 +45,10 @@ add_filter('pre_site_transient_update_plugins','__return_null');
 remove_action('load-update-core.php','wp_update_themes');
 add_filter('pre_site_transient_update_themes','__return_null');
 
+// Disable auto-embeds for WordPress >= v3.5
+remove_filter('the_content',array($GLOBALS['wp_embed'],'autoembed'),8);
 
+// 屏蔽文章 Embed 功能.
 remove_action('rest_api_init','wp_oembed_register_route');
 remove_filter('rest_pre_serve_request','_oembed_rest_pre_serve_request',10,4);
 remove_filter('oembed_dataparse','wp_filter_oembed_result',10 );
