@@ -28,4 +28,6 @@ add_filter('rest_jsonp_enabled','__return_false');
 remove_action('wp_head','rest_output_link_wp_head',10);
 remove_action('template_redirect','rest_output_link_header',11);
 
+// Disable auto-embeds for WordPress >= v3.5
+remove_filter('the_content',array($GLOBALS['wp_embed'],'autoembed'),8);
 ?>
