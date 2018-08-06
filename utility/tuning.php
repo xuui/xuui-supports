@@ -28,6 +28,16 @@ add_filter('rest_jsonp_enabled','__return_false');
 remove_action('wp_head','rest_output_link_wp_head',10);
 remove_action('template_redirect','rest_output_link_header',11);
 
+//禁用 Emoji 功能.
+remove_action('admin_print_scripts','print_emoji_detection_script');
+remove_action('admin_print_styles','print_emoji_styles');
+remove_action('wp_head','print_emoji_detection_script',7);
+remove_action('wp_print_styles','print_emoji_styles');
+remove_action('embed_head','print_emoji_detection_script');
+remove_filter('the_content_feed','wp_staticize_emoji');
+remove_filter('comment_text_rss','wp_staticize_emoji');
+remove_filter('wp_mail','wp_staticize_emoji_for_email');
+add_filter('emoji_svg_url','__return_false');
 
 // 移除 WordPress 自动修正 WordPress 大小写函数.
 remove_filter('the_content','capital_P_dangit');
