@@ -73,10 +73,10 @@ function xuui_id_manage_posts_custom_column($column_name,$id){
 }
 
 // 给管理员显示 PHP 错误.
-if(current_user_can('manage_options')){
-  define('WP_DEBUG_DISPLAY',true);
-  @ini_set('display_errors',1);
-}
+//if(current_user_can('manage_options')){
+//  define('WP_DEBUG_DISPLAY',true);
+//  @ini_set('display_errors',1);
+//}
 
 // 按照用户注册时间排序.
 add_filter('manage_users_columns','xuui_add_users_column_reg_time');

@@ -46,4 +46,12 @@ remove_action('load-update-core.php','wp_update_plugins');
 add_filter('pre_site_transient_update_plugins','__return_null');
 remove_action('load-update-core.php','wp_update_themes');
 add_filter('pre_site_transient_update_themes','__return_null');
+
+
+remove_action('rest_api_init','wp_oembed_register_route');
+remove_filter('rest_pre_serve_request','_oembed_rest_pre_serve_request',10,4);
+remove_filter('oembed_dataparse','wp_filter_oembed_result',10 );
+remove_filter('oembed_response_data','get_oembed_response_data_rich',10,4);
+remove_action('wp_head','wp_oembed_add_discovery_links');
+remove_action('wp_head','wp_oembed_add_host_js');
 ?>
