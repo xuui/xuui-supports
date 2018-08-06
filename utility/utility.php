@@ -56,4 +56,20 @@ function xuui_admin_post_thumbnail_html($content,$post_id){
 	}
 	return $content;
 }
+
+// 在后台显示 ID.
+add_filter('manage_posts_columns', 'xuui_id_manage_posts_columns');
+add_filter('manage_pages_columns', 'xuui_id_manage_posts_columns');
+add_action('manage_posts_custom_column','xuui_id_manage_posts_custom_column',10,2);
+add_action('manage_pages_custom_column','xuui_id_manage_posts_custom_column',10,2);
+function xuui_id_manage_posts_columns($columns){
+  $columns['post_id']='ID';
+  return $columns;
+}
+function xuui_id_manage_posts_custom_column($column_name,$id){
+  if ($column_nam =='post_id'){
+      echo $id;
+  }
+}
+
 ?>
