@@ -126,4 +126,10 @@ add_filter('image_size_names_choose',function($image_sizes){
 	return $image_sizes;
 });
 
+// 防止上传的图片重名，加上时间戳.
+add_filter('wp_handle_upload_prefilter',function($file){
+	if(strlen($file['name'])<=7){$file['name']=time().'-'.$file['name'];}
+	return $file;
+});
+
 ?>
