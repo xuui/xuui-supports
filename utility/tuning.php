@@ -80,4 +80,26 @@ remove_filter('oembed_dataparse','wp_filter_oembed_result',10 );
 remove_filter('oembed_response_data','get_oembed_response_data_rich',10,4);
 remove_action('wp_head','wp_oembed_add_discovery_links');
 remove_action('wp_head','wp_oembed_add_host_js');
+
+// 移除后台隐私相关的页面 for China.
+add_action('admin_menu',function(){
+  global $menu,$submenu;
+  // 移除设置菜单下的隐私子菜单。
+  unset($submenu['options-general.php'][45]);
+  // 移除工具彩带下的相关页面
+  remove_action('admin_menu','_wp_privacy_hook_requests_page');
+  remove_filter('wp_privacy_personal_data_erasure_page','wp_privacy_process_personal_data_erasure_page',10,5);
+  remove_filter('wp_privacy_personal_data_export_page','wp_privacy_process_personal_data_export_page',10,7);
+  remove_filter('wp_privacy_personal_data_export_file','wp_privacy_generate_personal_data_export_file',10);
+  remove_filter('wp_privacy_personal_data_erased','_wp_privacy_send_erasure_fulfillment_notification',10);
+  // Privacy policy text changes check.
+  remove_action('admin_init',array( 'WP_Privacy_Policy_Content','text_change_check'),100);
+  // Show a "postbox" with the text suggestions for a privacy policy.
+  remove_action('edit_form_after_title',array( 'WP_Privacy_Policy_Content','notice'));
+  // Add the suggested policy text from WordPress.
+  remove_action('admin_init',array( 'WP_Privacy_Policy_Content','add_suggested_content'),1);
+  // Update the cached policy info when the policy page is updated.
+  remove_action('post_updated',array( 'WP_Privacy_Policy_Content','_policy_page_updated'));
+},9);
+
 ?>

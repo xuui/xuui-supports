@@ -31,6 +31,7 @@ add_action('current_screen',function($current_screen){
   }
 });
 
+
 /* 给管理员显示 PHP 错误. 
 if(current_user_can('manage_options')){
   define('WP_DEBUG_DISPLAY',true);
