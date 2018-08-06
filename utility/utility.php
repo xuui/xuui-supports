@@ -46,4 +46,14 @@ add_filter('get_avatar',function($avatar){
 	return $avatar;
 });
 
+// 给后台特色图片加上大小说明.
+add_filter('admin_post_thumbnail_html', 'xuui_admin_post_thumbnail_html',10,2);
+function xuui_admin_post_thumbnail_html($content,$post_id){
+	$post=get_post($post_id);
+	$post_type=$post->post_type;
+	if($post_type=='post'){
+		return $content.'大小：390x200';
+	}
+	return $content;
+}
 ?>
