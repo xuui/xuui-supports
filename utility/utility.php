@@ -78,4 +78,33 @@ if(current_user_can('manage_options')){
   @ini_set('display_errors',1);
 }
 
+// 按照用户注册时间排序.
+add_filter('manage_users_columns','xuui_add_users_column_reg_time');
+add_filter('manage_users_custom_column','xuui_show_users_column_reg_time',11,3);
+add_filter('manage_users_sortable_columns','xuui_users_sortable_columns');
+add_action('pre_user_query','xuui_users_search_order');
+function xuui_add_users_column_reg_time($column_headers){
+	$column_headers['reg_time']='注册时间';
+	return $column_headers;
+}
+function xuui_show_users_column_reg_time($value,$column_name,$user_id){
+	if($column_name=='reg_time'){
+		$user=get_userdata($user_id);
+		return get_date_from_gmt($user->user_registered);
+	}else{
+		return $value;
+	}
+}
+function xuui_users_sortable_columns($sortable_columns){
+	$sortable_columns['reg_time']='reg_time';
+	return $sortable_columns;
+}
+function xuui_users_search_order($obj){
+	if(!isset($_REQUEST['orderby']) || $_REQUEST['orderby']=='reg_time' ){
+		if( !in_array($_REQUEST['order'],array('asc','desc')) ){
+			$_REQUEST['order']='desc';
+		}
+		$obj->query_orderby ="ORDER BY user_registered ".$_REQUEST['order']."";
+	}
+}
 ?>
