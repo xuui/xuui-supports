@@ -132,4 +132,13 @@ add_filter('wp_handle_upload_prefilter',function($file){
 	return $file;
 });
 
+/* 屏蔽 DEMO 账号修改密码. DEMO 账号ID=50.
+add_filter('show_password_fields',function($status,$profileuser){
+	if($profileuser->ID==50){
+		return false;
+	}
+	return $status;
+},10,2);
+*/
+
 ?>
