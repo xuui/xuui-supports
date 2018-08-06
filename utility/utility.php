@@ -31,6 +31,22 @@ add_action('current_screen',function($current_screen){
   }
 });
 
+/* 给管理员显示 PHP 错误. 
+if(current_user_can('manage_options')){
+  define('WP_DEBUG_DISPLAY',true);
+  @ini_set('display_errors',1);
+}
+*/
+
+/* 屏蔽 DEMO 账号修改密码. DEMO 账号ID=50.
+add_filter('show_password_fields',function($status,$profileuser){
+	if($profileuser->ID==50){
+		return false;
+	}
+	return $status;
+},10,2);
+*/
+
 // 支持上传 SVG 图片.
 add_filter('upload_mimes',function($mimes=array()){
   $mimes['svg']='image/svg+xml';
@@ -72,11 +88,6 @@ function xuui_id_manage_posts_custom_column($column_name,$id){
   }
 }
 
-// 给管理员显示 PHP 错误.
-//if(current_user_can('manage_options')){
-//  define('WP_DEBUG_DISPLAY',true);
-//  @ini_set('display_errors',1);
-//}
 
 // 按照用户注册时间排序.
 add_filter('manage_users_columns','xuui_add_users_column_reg_time');
@@ -132,13 +143,5 @@ add_filter('wp_handle_upload_prefilter',function($file){
 	return $file;
 });
 
-/* 屏蔽 DEMO 账号修改密码. DEMO 账号ID=50.
-add_filter('show_password_fields',function($status,$profileuser){
-	if($profileuser->ID==50){
-		return false;
-	}
-	return $status;
-},10,2);
-*/
 
 ?>
