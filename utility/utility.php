@@ -143,5 +143,29 @@ add_filter('wp_handle_upload_prefilter',function($file){
 	return $file;
 });
 
-
+// 简化 WordPress 后台用户名称设置.
+//隐藏 姓，名 和 显示的名称，三个字段
+add_action('show_user_profile','xuui_edit_user_profile');
+add_action('edit_user_profile','xuui_edit_user_profile');
+function xuui_edit_user_profile($user){?>
+<script>
+jQuery(document).ready(function($){
+	$('#first_name').parent().parent().hide();
+	$('#last_name').parent().parent().hide();
+	$('#display_name').parent().parent().hide();
+	$('.show-admin-bar').hide();
+});
+</script>
+<?php }
+//更新时候，强制设置显示名称为昵称
+add_action('personal_options_update','xuui_edit_user_profile_update');
+add_action('edit_user_profile_update','xuui_edit_user_profile_update');
+function xuui_edit_user_profile_update($user_id){
+	if(!current_user_can('edit_user',$user_id)){return false;}
+	$user = get_userdata($user_id);
+	$_POST['nickname']=($_POST['nickname'])?:$user->user_login;
+	$_POST['display_name']=$_POST['nickname'];
+	$_POST['first_name']='';
+	$_POST['last_name']='';
+}
 ?>
