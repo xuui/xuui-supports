@@ -30,4 +30,10 @@ remove_action('template_redirect','rest_output_link_header',11);
 
 // Disable auto-embeds for WordPress >= v3.5
 remove_filter('the_content',array($GLOBALS['wp_embed'],'autoembed'),8);
+
+// 移除 WordPress 自动修正 WordPress 大小写函数.
+remove_filter('the_content','capital_P_dangit');
+remove_filter('the_title','capital_P_dangit');
+remove_filter('comment_text','capital_P_dangit');
+
 ?>
