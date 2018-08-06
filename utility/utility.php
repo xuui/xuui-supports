@@ -31,4 +31,12 @@ add_action('current_screen',function($current_screen){
   }
 });
 
+// 支持上传 SVG 图片.
+add_filter('upload_mimes',function($mimes=array()){
+  $mimes['svg']='image/svg+xml';
+  return $mimes;
+});
+
+
+
 ?>
