@@ -117,4 +117,13 @@ if(strlen($_SERVER['REQUEST_URI'])>255 ||
 		@header("Connection: Close");
 		@exit;
 }
+
+// 在后台插入图片时候，尺寸选择框只保留完整尺寸格式.
+add_filter('image_size_names_choose',function($image_sizes){
+	unset($image_sizes['thumbnail']);
+	unset($image_sizes['medium']);
+	unset($image_sizes['large']);
+	return $image_sizes;
+});
+
 ?>
