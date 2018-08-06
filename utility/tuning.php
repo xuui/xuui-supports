@@ -36,4 +36,8 @@ remove_filter('the_content','capital_P_dangit');
 remove_filter('the_title','capital_P_dangit');
 remove_filter('comment_text','capital_P_dangit');
 
+//移除 Shortcode 中自动添加的 br 和 p 标签.
+remove_filter('the_content','wpautop');
+add_filter('the_content','wpautop',12);
+
 ?>
