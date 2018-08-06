@@ -169,4 +169,16 @@ function xuui_edit_user_profile_update($user_id){
 	$_POST['first_name']='';
 	$_POST['last_name']='';
 }
+
+// 让搜索支持自定义字段. ?s=product_id
+add_action('posts_search',function($search,$query){
+	global $wpdb;
+	if($query->is_main_query() && !empty($query->query['s'])){
+		$sql=" OR EXISTS (SELECT * FROM {$wpdb->postmeta} WHERE post_id={$wpdb->posts}.ID and meta_key = 'product_id' and meta_value like %s)";
+		$like='%'.$wpdb->esc_like($query->query['s']).'%';
+		$search.= $wpdb->prepare($sql,$like);
+	}
+	return $search;
+},2,2);
+
 ?>
