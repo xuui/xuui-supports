@@ -24,6 +24,15 @@ remove_action('wp_head','adjacent_posts_rel_link');//Post relational links.
 // 禁用 XML-RPC 接口.
 add_filter('xmlrpc_enabled','__return_false');
 
+//彻底关闭 pingback
+add_filter('xmlrpc_methods',function($methods){
+	$methods['pingback.ping']='__return_false';
+	$methods['pingback.extensions.getPingbacks']='__return_false';
+	return $methods;
+});
+remove_action('do_pings','do_all_pings',10);//禁用 pingbacks, enclosures, trackbacks
+remove_action('publish_post','_publish_post_hook',5);//去掉 _encloseme 和 do_ping 操作。
+
 // 屏蔽 REST API.
 add_filter('rest_enabled','__return_false');
 add_filter('rest_jsonp_enabled','__return_false');
