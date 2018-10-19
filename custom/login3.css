@@ -6,36 +6,36 @@ html{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
 body{font:400 14px/24px -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'PingFang SC','Hiragino Sans GB','Microsoft YaHei UI','Microsoft YaHei','Helvetica Neue',Helvetica,Arial,sans-serif;}
 body.login{background:#d8e3e7 no-repeat 50% 100% fixed;background-size:cover;color:#757575;color:rgba(0,0,0,.54);}
 
-.login h1{color:#212121;color:rgba(0,0,0,.87);}
-.login h1 a{background:#fff url(login_logo2.png) no-repeat 50% 50%;background-size:192px 48px;margin:0 auto;width:auto;height:200px;}
-.login form{border-radius:2px;margin-top:0;padding:0 32px;height:300px;box-shadow:none;}
+.login h1{color:#212121;color:rgba(0,0,0,.87);margin-bottom:16px;}
+.login h1 a{background:#fff url(login_logo2.png) no-repeat 0% 44px;background-size:auto 40px;margin:0 auto;width:auto;height:96px;}
+.login form{border-radius:2px;margin-top:0;padding:0;box-shadow:none;}
 
-#login{position:relative;background:#f3f3f1 url(logo_draw.png) no-repeat 0 0;margin-top:6.4%; padding:0 0 0 500px;width:800px;height:500px;}
-#login form p,.login label{display:block;height:40px;}
+#login{position:relative;background:#fff url(signbg0.png) no-repeat 0 0;margin-top:10%;padding:0 100px 0 320px;width:640px;height:360px;
+box-shadow:0 3px 12px 0 rgba(0,0,0,.16);}
+#login form p,.login label{display:block;height:32px;}
 #login form p{margin-bottom:16px;}
-.login label{position:relative;}
-.login label,.login form .input{color:#212121;color:rgba(0,0,0,.87)}
-.login form .input,.login input[type="text"]{margin:0;padding:8px 8px;height:40px;line-height:24px;font-size:14px;border:0;box-shadow:none;}
-.login label .input{position:absolute;z-index:1;top:0;background:#fff;border-bottom:1px solid #888;}
-.login label .input:focus{border-color:#2376b7;border-bottom-width:2px;padding-bottom:7px;}
-#user_login,#user_email,#user_pass{background:#fff url(login_icon.svg) no-repeat;padding-left:24px;background-size:24px 120px;}
-#user_login{background-position:0 0px;}
-#user_email{background-position:0 -40px;}
-#user_pass{background-position:0 -80px;}
-#login form .forgetmenot,#login form .submit{}
+.login label{position:relative;font-size:12px;line-height:1;color:#9a9a9a;color:rgba(0,0,0,0.54);}
+.login form .input,.login input[type="text"]{margin:0;padding:4px 0;height:32px;line-height:24px;font-size:16px;border:0;box-shadow:none;}
+.login label .input{position:absolute;z-index:1;top:0;background:#fff;border-bottom:1px solid #b8b8b8;color:#404040;color:rgba(0,0,0,0.87);}
+.login label .input:focus{border-color:#2376b7;border-bottom-width:2px;padding-bottom:3px;}
+
+#user_login,#user_email,#user_pass{background:#fff;}
 #login form p.forgetmenot,#login form .forgetmenot label{height:32px;font-size:14px;line-height:32px;}
-#login form .forgetmenot{float:none;padding-top:0;}
-#login form .forgetmenot label{height:32px;font-size:14px;line-height:32px;}
-#login .button-primary{background:#2376b7;border-color:#2376b7;border-radius:23px;margin:0;padding:8px 20px;width:100%;height:40px;line-height:24px;font-size:16px;font-weight:300;box-shadow:none;text-shadow:0 1px 1px rgba(0,0,0,.24);}
-#login .button-primary:hover{background-color:#1a94bc;border-color:#1a94bc;}
+#login form .forgetmenot,#login form .submit{margin-bottom:48px;}
+#login form .forgetmenot{padding-top:0;}
+#login form .forgetmenot label{height:32px;font-size:12px;line-height:32px;}
+
+#login form .submit{float:right;}
+#login .button-primary{background:#2376b7;border-color:#2376b7;border-radius:5px;margin:0;padding:4px 20px;width:88px;height:32px;line-height:23px;font-size:14px;font-weight:400;box-shadow:none;text-shadow:0 1px 1px rgba(0,0,0,.24);}
+#login .button-primary:hover{background-color:#1661ab;border-color:#1661ab;}
 #login .button-primary:active{background-color:#1661ab;border-color:#1661ab;}
 
 .login #login_error,.login .message,.login .success{padding:8px 16px;}
-.login #login_error{background:#c62828;border:none;border-radius:2px;box-shadow:0 1px 5px 0 rgba(0,0,0,.24);color:#fff;}
+.login #login_error{background:#c62828;border:none;border-radius:0;box-shadow:0 1px 5px 0 rgba(0,0,0,.24);margin:-20px -100px 16px -64px;font-size:12px;color:#fff;}
 .login #login_error a{color:#fff;}
 
-.login #nav{float:right;margin:16px 0;}
-.login #backtoblog,.login #nav{position:relative;margin-top:-40px;padding:0 24px;}
+.login #backtoblog,.login #nav{position:relative;margin:0;padding:0;font-size:12px;}
+.login #nav{clear:both;float:right;}
 .login #backtoblog a,.login #nav,.login #nav a{color:#555;color:rgba(0,0,0,.84)}
 .login #backtoblog a:hover,.login #nav a:hover,.login h1 a:hover,
 .login #backtoblog a:focus,.login #nav a:focus,.login h1 a:focus{color:#222;color:rgba(0,0,0,.99)}
