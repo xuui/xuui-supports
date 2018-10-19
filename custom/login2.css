@@ -1,5 +1,5 @@
 :root{
---pColor:#117ccc;
+--pColor:#2376b7;
 }
 *{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;}
 ::-webkit-input-placeholder{color:#bdbdbd;color:rgba(0,0,0,.26);}
@@ -7,7 +7,7 @@
 :-ms-input-placeholder{color:#bdbdbd;color:rgba(0,0,0,.26);}
 html{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
 body{font:400 14px/24px -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'PingFang SC','Hiragino Sans GB','Microsoft YaHei UI','Microsoft YaHei','Helvetica Neue',Helvetica,Arial,sans-serif;}
-body.login{background:#ebebeb none no-repeat 50% 100% fixed;background-size:cover;color:#757575;color:rgba(0,0,0,.54);}
+body.login{background:#d8e3e7 none no-repeat 50% 100% fixed;background-size:cover;color:#757575;color:rgba(0,0,0,.54);}
 
 .login h1{color:#212121;color:rgba(0,0,0,.87);}
 .login h1 a{background-image:url(login_logo2.png);background-size:192px 48px;margin:0 auto 24px;width:auto;height:48px;}
@@ -20,7 +20,7 @@ body.login{background:#ebebeb none no-repeat 50% 100% fixed;background-size:cove
 .login label,.login form .input{color:#212121;color:rgba(0,0,0,.87)}
 .login form .input,.login input[type="text"]{margin:0;padding:8px 4px;height:40px;line-height:24px;font-size:14px;border:0;box-shadow:none;}
 .login label .input{position:absolute;z-index:1;top:0;background:#fff;border-bottom:1px solid #888;}
-.login label .input:focus{background-color:#f5f6fa;border-color:#117ccc;border-bottom-width:2px;padding-bottom:7px;}
+.login label .input:focus{background-color:#f5f6fa;border-color:#2376b7;border-bottom-width:2px;padding-bottom:7px;}
 #user_login,#user_email,#user_pass{background-image:none;background-repeat:no-repeat;background-size:24px 120px;}
 #user_login{background-position:0 0;}
 #user_email{background-position:0 -40px;}
@@ -29,9 +29,9 @@ body.login{background:#ebebeb none no-repeat 50% 100% fixed;background-size:cove
 #login form p.forgetmenot,#login form .forgetmenot label{height:32px;font-size:14px;line-height:32px;}
 #login form .forgetmenot{float:none;padding-top:0;}
 #login form .forgetmenot label{height:32px;font-size:14px;line-height:32px;}
-#login .button-primary{background:#117ccc;border-color:#117ccc;border-radius:23px;margin:0;padding:8px 20px;width:100%;height:40px;line-height:24px;font-size:15px;font-weight:400;text-shadow:0 1px 1px rgba(0,0,0,.16);box-shadow:0 8px 16px 0 rgba(17,124,204,.32);}
-#login .button-primary:hover{background-color:#4664a3;border-color:#4664a3;}
-#login .button-primary:active{background-color:#354b7a;border-color:#354b7a;}
+#login .button-primary{background:#2376b7;border-color:#2376b7;border-radius:23px;margin:0;padding:8px 20px;width:100%;height:40px;line-height:24px;font-size:15px;font-weight:400;text-shadow:0 1px 1px rgba(0,0,0,.16);box-shadow:0 8px 16px 0 rgba(35,118,183,.32);}
+#login .button-primary:hover{background-color:#1a94bc;border-color:#1a94bc;}
+#login .button-primary:active{background-color:#1661ab;border-color:#1661ab;}
 
 .login #backtoblog,.login #nav{padding:0;}
 .login #nav{float:right;margin:16px 0;}
@@ -40,7 +40,7 @@ body.login{background:#ebebeb none no-repeat 50% 100% fixed;background-size:cove
 .login #login_error a{color:#fff;}
 .login #backtoblog a,.login #nav,.login #nav a{color:#757575;color:rgba(0,0,0,.54);}
 .login #backtoblog a:hover,.login #nav a:hover,.login h1 a:hover,
-.login #backtoblog a:focus,.login #nav a:focus,.login h1 a:focus{color:#117ccc;}
+.login #backtoblog a:focus,.login #nav a:focus,.login h1 a:focus{color:#2376b7;}
 .login #backtoblog a:active,.login #nav a:active,.login h1 a:active{color:#354b7a;}
 
 @media(min-width:480px)and(orientation:portrait){
