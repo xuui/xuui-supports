@@ -1,5 +1,5 @@
 :root{
---pColor:#1661ab;
+--pColor:#2376b7;
 }
 *{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;}
 ::-webkit-input-placeholder{color:#bdbdbd;color:rgba(0,0,0,.26);}
@@ -10,8 +10,8 @@ body{font:400 14px/24px -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Ping
 body.login{background:#d8e3e7 none no-repeat 50% 100% fixed;background-size:cover;color:#757575;color:rgba(0,0,0,.54);}
 
 .login h1{color:#212121;color:rgba(0,0,0,.87);}
-.login h1 a{background-image:url(login_logo2.png);background-size:192px 48px;margin:0 auto 24px;width:auto;height:48px;}
-.login form{border-radius:8px;margin-top:0;padding:32px 40px;box-shadow:0 1px 4px rgba(0,0,0,.08);}
+.login h1 a{/*background-image:url(login_logo.png);*/background-image:url(xuui.svg);background-size:192px 48px;margin:0 auto 24px;width:auto;height:48px;}
+.login form{border-radius:5px;margin-top:0;padding:32px 40px;box-shadow:0 1px 4px 0 rgba(0,0,0,.12);}
 
 #login{padding:32px 0 0;width:300px;}
 #login form p,.login label{display:block;height:40px;}
