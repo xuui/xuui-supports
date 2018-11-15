@@ -35,6 +35,7 @@ function xuui_adminbar_remove(){
 
 //自定义后台样式
 function xuui_admin_style(){
+  echo "<meta name=\"theme-color\" content=\"#2376b7\">\n";
   echo "<style type=\"text/css\">@import url(\"".XUUI_PLUGIN_URL.'custom/dashboard.css'."\");</style>\n";
 }
 add_action('admin_head','xuui_admin_style');
