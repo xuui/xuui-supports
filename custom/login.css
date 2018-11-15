@@ -11,9 +11,10 @@ body.login{background:#d8e3e7 none no-repeat 50% 100% fixed;background-size:cove
 
 .login h1{color:#212121;color:rgba(0,0,0,.87);}
 .login h1 a{/*background-image:url(login_logo.png);*/background-image:url(xuui.svg);background-size:192px 48px;margin:0 auto 24px;width:auto;height:48px;}
-.login form{border-radius:5px;margin-top:0;padding:32px 40px;box-shadow:0 1px 4px 0 rgba(0,0,0,.12);}
+.login form{border-radius:5px;margin-top:0;padding:32px;box-shadow:0 1px 4px 0 rgba(0,0,0,.12);}
 
 #login{padding:32px 0 0;width:300px;}
+
 #login form p,.login label{display:block;height:40px;}
 #login form p{margin-bottom:8px;}
 #login form p + p{margin-bottom:16px;}
@@ -27,7 +28,7 @@ body.login{background:#d8e3e7 none no-repeat 50% 100% fixed;background-size:cove
 #user_email{background-position:0 -40px;}
 #user_pass{background-position:0 -80px;}
 #login form p.forgetmenot,#login form .forgetmenot label{font-size:14px;line-height:36px;}
-#login form .forgetmenot{float:none;padding-top:0;}
+#login form .forgetmenot{float:none;}
 #login form .forgetmenot label{font-size:14px;}
 #login .button-primary{background:var(--pColor);border-color:var(--pColor);border-radius:23px;margin:0;padding:8px 20px;width:100%;height:40px;line-height:24px;font-size:15px;font-weight:400;text-shadow:0 1px 1px rgba(0,0,0,.16);box-shadow:0 8px 16px 0 rgba(35,118,183,.32);}
 #login .button-primary:hover{filter:alpha(opacity=90);
@@ -36,8 +37,8 @@ background-image:linear-gradient(transparent,rgba(0,0,0,.05) 40%,rgba(0,0,0,.1))
 }
 #login .button-primary:active{box-shadow:0 0 0 1px rgba(0,0,0,.15) inset,0 0 6px rgba(0,0,0,.2) inset;}
 
-.login #backtoblog,.login #nav{padding:0;}
-.login #nav{float:right;margin:16px 0;}
+.login #backtoblog,.login #nav{position:absolute;bottom:0;margin:16px 0;padding:0;}
+.login #nav{right:0;}
 .login #login_error,.login .message,.login .success{border-color:var(--pColor);padding:8px 16px;}
 .login #login_error{background:#c62828;border:none;border-radius:2px;box-shadow:0 1px 5px 0 rgba(0,0,0,.24);color:#fff;}
 .login #login_error a{color:#fff;}
@@ -46,7 +47,15 @@ background-image:linear-gradient(transparent,rgba(0,0,0,.05) 40%,rgba(0,0,0,.1))
 .login #backtoblog a:focus,.login #nav a:focus,.login h1 a:focus{color:var(--pColor);}
 .login #backtoblog a:active,.login #nav a:active,.login h1 a:active{color:#354b7a;}
 
+
+@media(min-width:576px){
+.login #backtoblog,.login #nav{position:relative;margin:24px 0;}
+.login #nav{float:right;right:0;}
+}
+/*
 @media(min-width:480px)and(orientation:portrait){
+
+.login #nav{float:right;}
 }
 @media(min-width:576px)and(orientation:landscape){
 #login{padding:24px 0 0;}
@@ -60,3 +69,4 @@ background-image:linear-gradient(transparent,rgba(0,0,0,.05) 40%,rgba(0,0,0,.1))
 @media(min-width:1200px){
 #login{padding:9% 0 0;}
 }
+*/
