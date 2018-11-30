@@ -16,15 +16,9 @@ add_action('login_form','xuui_login_script');//自定义登录表单
 add_action('lostpassword_form','xuui_login_script');//自定义找回密码表单
 add_action('register_form','xuui_login_script');//自定义注册表单
 function xuui_login_script(){
-  echo "<script type=\"text/javascript\">\n
-  var user_login=document.querySelector('#user_login'),user_email=document.querySelector('#user_email'),user_pass=document.querySelector('#user_pass');
-  if(user_login)user_login.setAttribute('placeholder','用户名或电子邮件地址');
-  if(user_email)user_email.setAttribute('placeholder','电子邮件');
-  if(user_pass)user_pass.setAttribute('placeholder','密码');
-  document.querySelector('#login h1 a').href='".home_url()."';
-  document.querySelector('#login h1 a').title='".get_bloginfo('name')."';
-  document.querySelector('#login h1 a').text='".get_bloginfo('name')."';
-  </script>\n";
+  echo "<script type=\"text/javascript\">
+  var sign={href:'".home_url()."',title:'".get_bloginfo('name')."'};
+  </script>\n<script type=\"text/javascript\" src=\"".XUUI_PLUGIN_URL."custom/login.js\"></script>";
 }
 //移除 Admin Bar 上的 WordPress Logo
 add_action('wp_before_admin_bar_render','xuui_adminbar_remove',0);
