@@ -7,7 +7,7 @@ document.querySelector('#login h1 a').href=sign.href;
 document.querySelector('#login h1 a').title=sign.title;
 document.querySelector('#login h1 a').text=sign.title;
 document.querySelector('#user_login').addEventListener('click',function(){
-  document.querySelector('#login h1 a').setAttribute('style','background:#f0f');
+  document.querySelector('#login h1 a').setAttribute('style','background:-#f0f');
   console.log('Hello World');
   console.log(sign);
   console.log(sign.href);
