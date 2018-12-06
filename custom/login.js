@@ -20,10 +20,10 @@ setTimeout(function(){
   var node=document.createElement('span');
   var textnode=document.createTextNode('');
   node.appendChild(textnode);
-  document.querySelector('#loginform p.forgetmenot label').appendChild(node);
+  document.querySelector('#login p.forgetmenot label').appendChild(node);
 },200);
 
 
 
 //document.oncontextmenu=function(){return false;}
-document.querySelector('#loginform').oncontextmenu=function(){return false;}
+document.querySelector('#login form').oncontextmenu=function(){return false;}
