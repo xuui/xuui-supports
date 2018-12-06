@@ -64,36 +64,33 @@ box-shadow:0 5px 5px -3px rgba(0,0,0,.2),0 8px 10px 1px rgba(0,0,0,.14),0 3px 14
 
 
 #loginform .forgetmenot label{
-  padding-left:40px;
+padding-left:40px;
 }
 #rememberme{display:none;}
-
 #rememberme+span,#rememberme+span:before{
-  display:block;
-  border-radius:9px;
-  height:16px;
-  transition:all .2s ease-out;
+display:block;
+border-radius:9px;
+height:16px;
+transition:all .2s ease-out;
 }
 #rememberme+span{
-  position:absolute;
-  top:13px;left:0;
-  background:#fff;
-  border:1px solid #a2b0b8;
-  width:32px;
+position:absolute;top:13px;left:0;
+background:#a2b0b8;
+border:2px solid #a2b0b8;
+width:32px;
 }
 #rememberme+span:before{
-  position:absolute;
-  top:-1px;left:-1px;
-  background:#a2b0b8;
-  width:16px;
-  content:'';
+position:absolute;top:0;left:0;
+background:#fff;
+width:12px;height:12px;
+content:'';
 }
 #rememberme:checked+span{
 border-color:var(--pColor);
+background:var(--pColor);
 }
 #rememberme:checked+span:before{
-left:15px;
-background:var(--pColor);
+left:16px;
 }
 
 
