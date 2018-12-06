@@ -30,49 +30,37 @@ p{line-height:24px;}
 
 #login form p,#login form label{position:relative;display:block;height:40px;line-height:40px;}
 
-#login form .input{position:absolute;z-index:1;top:0;background:var(--bgColor);border:0;border-bottom:1px solid #888;border-color:rgba(0,0,0,.32);margin:0;padding:4px;height:40px;line-height:24px;font-size:15px;color:#212121;color:rgba(0,0,0,.87);box-shadow:none;}
+#login form .input{position:absolute;z-index:1;top:0;background:var(--bgColor);border:0;border-bottom:1px solid #888;border-color:rgba(0,0,0,.32);margin:0;padding:4px;height:40px;line-height:24px;font-size:15px;color:#212121;color:rgba(0,0,0,.87);box-shadow:none;transition:all .28s ease-in-out;}
 #login form .input:focus{border-color:var(--pColor);border-bottom-width:2px;padding-bottom:3px;}
-#login form .input{transition:border-bottom-width .28s cubic-bezier(.4,0,.2,1);}
 
 #login form .forgetmenot,#login form .button-primary{float:none;}
 #login form .forgetmenot{margin-bottom:16px;}
-#login form .button-primary{background:var(--pColor);border-color:var(--pColor);border-radius:23px;margin:0;padding:8px 20px;width:100%;height:40px;line-height:24px;font-size:15px;font-weight:400;text-shadow:0 1px 1px rgba(0,0,0,.16);
+#login form .button-primary{background:var(--pColor);border-color:var(--pColor);border-radius:23px;margin:0;padding:8px 20px;width:100%;height:40px;line-height:24px;font-size:15px;font-weight:400;text-shadow:0 1px 1px rgba(0,0,0,.16);transition:box-shadow .28s cubic-bezier(.4,0,.2,1);
 /*box-shadow:0 8px 16px 0 rgba(35,118,183,.32);*/
-transition:box-shadow .28s cubic-bezier(.4,0,.2,1);
 box-shadow:0 3px 1px -2px rgba(0,0,0,.2),0 2px 2px 0 rgba(0,0,0,.14),0 1px 5px 0 rgba(0,0,0,.12);
 }
-#login form .button-primary:hover{box-shadow:0 2px 4px -1px rgba(0,0,0,.2),0 4px 5px 0 rgba(0,0,0,.14),0 1px 10px 0 rgba(0,0,0,.12);
+#login form .button-primary:hover{
+box-shadow:0 2px 4px -1px rgba(0,0,0,.2),0 4px 5px 0 rgba(0,0,0,.14),0 1px 10px 0 rgba(0,0,0,.12);
 }
-#login form .button-primary:active{box-shadow:0 5px 5px -3px rgba(0,0,0,.2),0 8px 10px 1px rgba(0,0,0,.14),0 3px 14px 2px rgba(0,0,0,.12);
+#login form .button-primary:active{
+box-shadow:0 5px 5px -3px rgba(0,0,0,.2),0 8px 10px 1px rgba(0,0,0,.14),0 3px 14px 2px rgba(0,0,0,.12);
 }
+
+#login .button-primary{
+  position:relative;
+  background:var(--pColor);border-color:var(--pColor);border-radius:23px;margin:0;padding:8px 20px;width:100%;height:40px;line-height:24px;font-size:15px;font-weight:400;text-shadow:0 1px 1px rgba(0,0,0,.16);
+}
+  
+
+
 
 #login form .forgetmenot label{padding-left:40px;font-size:14px;}
 #rememberme{display:none;}
-#rememberme+span,#rememberme+span:before{
-display:block;
-border-radius:9px;
-height:16px;line-height:16px;
-transition:all .2s ease-out;
-}
-#rememberme+span{
-position:absolute;top:12px;left:0;
-background:#a2b0b8;background-color: rgba(0,0,0,.2);
-border:2px solid #a2b0b8;
-width:32px;
-}
-#rememberme+span:before{
-position:absolute;top:0;left:0;
-background:#fff;
-width:12px;height:12px;
-content:'';
-}
-#rememberme:checked+span{
-border-color:var(--pColor);
-background:var(--pColor);
-}
-#rememberme:checked+span:before{
-left:16px;
-}
+#rememberme+span,#rememberme+span:before{position:absolute;top:0;left:0;display:block;border-radius:9px;height:16px;line-height:16px;transition:all .2s ease-out;}
+#rememberme+span{top:12px;background:#a2b0b8;background-color:rgba(0,0,0,.24);border:2px solid #a2b0b8;width:32px;}
+#rememberme+span:before{background:#fff;width:12px;height:12px;content:'';}
+#rememberme:checked+span{border-color:var(--pColor);background:var(--pColor);}
+#rememberme:checked+span:before{left:16px;}
 
 
 
@@ -110,14 +98,10 @@ padding:0 40px;
 #user_login{background-position:0 0;}
 #user_email{background-position:0 -40px;}
 #user_pass{background-position:0 -80px;}
+
 #login form p.forgetmenot,#login form .forgetmenot label{font-size:14px;line-height:36px;}
 #login form .forgetmenot{float:none;}
 #login form .forgetmenot label{font-size:14px;}
-#login .button-primary{
-position:relative;
-background:var(--pColor);border-color:var(--pColor);border-radius:23px;margin:0;padding:8px 20px;width:100%;height:40px;line-height:24px;font-size:15px;font-weight:400;text-shadow:0 1px 1px rgba(0,0,0,.16);
-/*box-shadow:0 8px 16px 0 rgba(35,118,183,.32);*
-}
 
 .login #backtoblog,.login #nav{position:absolute;bottom:0;margin:16px 0;padding:0;}
 .login #nav{right:0;}
