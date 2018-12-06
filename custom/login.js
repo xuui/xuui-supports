@@ -14,5 +14,16 @@ document.querySelector('#user_login').addEventListener('click',function(){
   console.log(sign.title);
 });
 
+//document.querySelector('#rememberme').appendChild( document.createComment('span') );
+
+setTimeout(function(){
+  var node=document.createElement('span');
+  var textnode=document.createTextNode('');
+  node.appendChild(textnode);
+  document.querySelector('#loginform p.forgetmenot label').appendChild(node);
+},200);
+
+
+
 //document.oncontextmenu=function(){return false;}
 document.querySelector('#loginform').oncontextmenu=function(){return false;}
