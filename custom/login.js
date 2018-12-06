@@ -13,3 +13,6 @@ document.querySelector('#user_login').addEventListener('click',function(){
   console.log(sign.href);
   console.log(sign.title);
 });
+
+//document.oncontextmenu=function(){return false;}
+document.querySelector('#loginform').oncontextmenu=function(){return false;}
