@@ -15,8 +15,6 @@ p{line-height:24px;}
 .wp-core-ui .button-primary:active{vertical-align:baseline;}
 #login form p{margin-bottom:16px;}
 
-/*a,input,button,label{outline:none;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-user-modify:read-write-plaintext-only;}*/
-
 /* Logo */
 #login{width:auto;padding:0;}
 #login h1{background:var(--pColor);}
@@ -61,15 +59,6 @@ box-shadow:0 3px 1px -2px rgba(0,0,0,.2),0 2px 2px 0 rgba(0,0,0,.14),0 1px 5px 0
 ::-moz-placeholder{color:#bdbdbd;color:rgba(0,0,0,.26);}
 :-ms-input-placeholder{color:#bdbdbd;color:rgba(0,0,0,.26);}
 
-#login form{border-radius:5px;margin-top:0;padding:32px;box-shadow:0 1px 4px 0 rgba(0,0,0,.12);}
-
-#login form p{margin-bottom:8px;}
-#login form p + p{margin-bottom:16px;}
-
-.login label,.login form .input{}
-
-
-
 .login #backtoblog,.login #nav{position:absolute;bottom:0;margin:16px 0;padding:0;}
 .login #nav{right:0;}
 .login #login_error,.login .message,.login .success{border-color:var(--pColor);padding:8px 16px;}
@@ -94,7 +83,7 @@ box-shadow:0 3px 1px -2px rgba(0,0,0,.2),0 2px 2px 0 rgba(0,0,0,.14),0 1px 5px 0
 #login{padding:24px 0 0;}
 }
 @media(min-width:768px){
-#login{padding:10% 0 0;}
+#login form{border-radius:5px;box-shadow:0 1px 4px 0 rgba(0,0,0,.12);}
 }
 @media(min-width:992px){
 #login{padding:11% 0 0;}
