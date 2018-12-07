@@ -30,7 +30,7 @@ p{line-height:24px;}
 
 #login form p,#login form label{position:relative;display:block;height:40px;line-height:40px;}
 
-#login form .input{position:absolute;z-index:1;top:0;background:var(--bgColor);border:0;border-bottom:1px solid #888;border-color:rgba(0,0,0,.32);margin:0;padding:4px;height:40px;line-height:24px;font-size:15px;color:#212121;color:rgba(0,0,0,.87);box-shadow:none;transition:all .28s ease-in-out;}
+#login form .input{position:absolute;z-index:1;top:0;background:var(--bgColor);border:0;border-bottom:1px solid #888;border-color:rgba(0,0,0,.32);margin:0;padding:4px;height:40px;line-height:24px;font-size:15px;color:#212121;color:rgba(0,0,0,.87);box-shadow:none;transition:all .28s ease-in;}
 #login form .input:focus{border-color:var(--pColor);border-bottom-width:2px;padding-bottom:3px;}
 
 #login form .forgetmenot,#login form .button-primary{float:none;}
