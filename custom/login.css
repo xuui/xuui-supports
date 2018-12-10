@@ -2,12 +2,11 @@
 --pColor:#2376b7;
 --bgColor:#d8e3e7;
 --formBg:#d8e3e7;
+--ptcoty:#ff6f61;
 }
 *{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;}
 html{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
-body{background:var(--bgColor) none no-repeat 50% 100% fixed;background-size:cover;font:400 14px/1.71428571 -apple-system,BlinkMacSystemFont,'Segoe UI',SegoeUI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',Helvetica,'PingFang SC','Hiragino Sans GB','Microsoft Yahei UI','Microsoft YaHei','Noto Sans',SimSun,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';color:#757575;color:rgba(0,0,0,.54);
-  -webkit-tap-highlight-color:transparent;-webkit-touch-callout:none;-webkit-user-select:none;user-select:none;
-}
+body{background:var(--bgColor) none no-repeat 50% 100% fixed;background-size:cover;font:400 14px/1.71428571 -apple-system,BlinkMacSystemFont,'Segoe UI',SegoeUI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',Helvetica,'PingFang SC','Hiragino Sans GB','Microsoft Yahei UI','Microsoft YaHei','Noto Sans',SimSun,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';color:#757575;color:rgba(0,0,0,.54);-webkit-tap-highlight-color:transparent;-webkit-touch-callout:none;-webkit-user-select:none;user-select:none;}
 
 /* Fix wp-login.css */
 p{line-height:24px;}
@@ -53,6 +52,26 @@ box-shadow:0 3px 1px -2px rgba(0,0,0,.2),0 2px 2px 0 rgba(0,0,0,.14),0 1px 5px 0
 
 
 
+
+/* Small devices (landscape phones, 576px and up) */
+@media(min-width:576px){
+#login{width:360px;}
+#login h1{background:transparent;}
+#login h1 a{background-image:url(login_logo_.png);background-image:url(xuui.svg);}
+#login form,#login form .input{background:#fff;}
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media(min-width:768px){
+}
+
+/* Large devices (desktops, 992px and up) */
+@media(min-width:992px){
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media(min-width:1200px){
+}
 
 /*
 ::-webkit-input-placeholder{color:#bdbdbd;color:rgba(0,0,0,.26);}
