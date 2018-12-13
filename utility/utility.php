@@ -181,4 +181,15 @@ add_action('posts_search',function($search,$query){
 	return $search;
 },2,2);
 
+//禁止使用 admin 用户名尝试登录
+add_filter('wp_authenticate','wpjam_no_admin_user');
+function wpjam_no_admin_user($user){
+	if($user=='admin'){exit;}
+}
+add_filter('sanitize_user','wpjam_sanitize_user_no_admin',10,3);
+function wpjam_sanitize_user_no_admin($username,$raw_username,$strict){
+	if($raw_username=='admin' || $username=='admin'){exit;}
+	return $username;
+}
+
 ?>
