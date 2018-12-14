@@ -16,7 +16,9 @@ document.querySelector('#user_login').addEventListener('click',function(){
 
 //document.querySelector('#rememberme').appendChild( document.createComment('span') );
 
-document.querySelector('#login p.forgetmenot label').appendChild(document.createElement('span'));
+
+if(document.querySelector('#login p.forgetmenot label'))document.querySelector('#login p.forgetmenot label').appendChild(document.createElement('span'));
+
 var btn=document.createElement('button');
 btn.appendChild(document.createTextNode(document.querySelector('#wp-submit').value));
 btn.type='submit';
@@ -25,10 +27,10 @@ btn.name='wp-submit';
 btn.setAttribute('data-ripple','');
 //btn.id='wp-submit';
 btn.appendChild(document.createElement('span'));
-document.querySelector('#login .submit').appendChild(btn);
+document.querySelector('#login form p.submit').appendChild(btn);
 document.querySelector('#wp-submit').parentNode.removeChild(document.querySelector('#wp-submit'));
 
-Array.prototype.forEach.call(document.querySelectorAll('[data-ripple]'), function(element){
+Array.prototype.forEach.call(document.querySelectorAll('[data-ripple]'),function(element){
   // find all elements and attach effect
   new RippleEffect(element); // element is instance of javascript element node
 });
