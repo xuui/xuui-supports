@@ -20,6 +20,7 @@ remove_action('wp_head','wp_generator');//WordPress Ver.
 remove_action('wp_head','start_post_rel_link');//Post relational links.
 remove_action('wp_head','index_rel_link');//Post relational links.
 remove_action('wp_head','adjacent_posts_rel_link');//Post relational links.
+remove_action('wp_head','wp_resource_hints',2);
 
 // 禁用 XML-RPC 接口.
 add_filter('xmlrpc_enabled','__return_false');

@@ -175,11 +175,11 @@ add_action('posts_search',function($search,$query){
 },2,2);
 
 //禁止使用 admin 用户名尝试登录
-add_filter('wp_authenticate','xuui_no_admin_user');
+//add_filter('wp_authenticate','xuui_no_admin_user');
 function xuui_no_admin_user($user){
   if($user=='admin'){exit;}
 }
-add_filter('sanitize_user','xuui_sanitize_user_no_admin',10,3);
+//add_filter('sanitize_user','xuui_sanitize_user_no_admin',10,3);
 function xuui_sanitize_user_no_admin($username,$raw_username,$strict){
   if($raw_username=='admin' || $username=='admin'){exit;}
   return $username;
