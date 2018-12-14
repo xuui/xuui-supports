@@ -38,12 +38,9 @@ background-size:192px 48px;margin:0 auto;width:auto;height:128px;
 box-shadow:0 3px 1px -2px rgba(0,0,0,.2),0 2px 2px 0 rgba(0,0,0,.14),0 1px 5px 0 rgba(0,0,0,.12);
 box-shadow:0 8px 16px 0 rgba(35,118,183,.32);
 }
-#login form .button-primary:hover{box-shadow:0 2px 4px -1px rgba(0,0,0,.2),0 4px 5px 0 rgba(0,0,0,.14),0 1px 10px 0 rgba(0,0,0,.12);
-box-shadow:0 8px 8px 0 rgba(35,118,183,.4);
+#login form .button-primary:hover{box-shadow:0 2px 4px -1px rgba(35,118,183,.2),0 4px 5px 0 rgba(35,118,183,.14),0 1px 10px 0 rgba(35,118,183,.12);
 }
-#login form .button-primary:active{box-shadow:0 5px 5px -3px rgba(0,0,0,.2),0 8px 10px 1px rgba(0,0,0,.14),0 3px 14px 2px rgba(0,0,0,.12);
-box-shadow:0 8px 16px 0 rgba(35,118,183,.32);
-}
+#login form .button-primary:active{box-shadow:0 5px 5px -3px rgba(35,118,183,.2),0 8px 10px 1px rgba(35,118,183,.14),0 3px 14px 2px rgba(35,118,183,.12);}
   
 #login form .forgetmenot label{padding-left:40px;font-size:14px;}
 #rememberme{display:none;}
@@ -60,7 +57,23 @@ box-shadow:0 8px 16px 0 rgba(35,118,183,.32);
 .login #nav a{font-size:14px;color:var(--pColor);}
 
 
-
+.ripple-container{
+position:relative;
+outline:none;
+overflow:hidden;
+}
+.ripple-container .ripple{
+background-color: rgba(255,255,255,.32);
+animation:ripple 2s forwards cubic-bezier(0,0,0.2,1);
+}
+@keyframes ripple{
+0%{
+transform:scale(0);
+opacity:1;
+}
+80%{transform:scale(2.0239754526687217);}
+100%{opacity:0;}
+}
 
 
 

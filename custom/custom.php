@@ -17,10 +17,18 @@ add_action('login_form','xuui_login_script');//自定义登录表单
 add_action('lostpassword_form','xuui_login_script');//自定义找回密码表单
 add_action('register_form','xuui_login_script');//自定义注册表单
 function xuui_login_script(){
-  echo "<script type=\"text/javascript\">
-  var sign={href:'".home_url()."',title:'".get_bloginfo('name')."'};
-  </script>\n<script type=\"text/javascript\" src=\"".XUUI_PLUGIN_URL."custom/login.js\"></script>";
+  echo "<script type=\"text/javascript\">var sign={href:'".home_url()."',title:'".get_bloginfo('name')."'};
+  </script>";//\n<script type=\"text/javascript\" src=\"".XUUI_PLUGIN_URL."custom/login.js\"></script>";
 }
+function my_login_stylesheet(){
+  wp_enqueue_style('custom-login',XUUI_PLUGIN_URL.'custom/style-login.css');
+  wp_enqueue_script('login-ripple',XUUI_PLUGIN_URL.'custom/ripple.js',false,'1.0.0',true);
+  wp_enqueue_script('login-scripts',XUUI_PLUGIN_URL.'custom/login.js',array('login-ripple'),'1.0.0',true);
+}
+add_action('login_enqueue_scripts','my_login_stylesheet');
+
+
+
 //移除 Admin Bar 上的 WordPress Logo
 add_action('wp_before_admin_bar_render','xuui_adminbar_remove',0);
 function xuui_adminbar_remove(){

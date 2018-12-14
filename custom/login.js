@@ -16,18 +16,22 @@ document.querySelector('#user_login').addEventListener('click',function(){
 
 //document.querySelector('#rememberme').appendChild( document.createComment('span') );
 
-setTimeout(function(){
-  document.querySelector('#login p.forgetmenot label').appendChild(document.createElement('span'));
-  var btn=document.createElement('button');
-  btn.appendChild(document.createTextNode(document.querySelector('#wp-submit').value));
-  btn.type='submit';
-  btn.className='button button-primary button-large';
-  btn.name='wp-submit';
-  //btn.id='wp-submit';
-  btn.appendChild(document.createElement('span'));
-  document.querySelector('#login .submit').appendChild(btn);
-  document.querySelector('#wp-submit').parentNode.removeChild(document.querySelector('#wp-submit'));
-},100);
+document.querySelector('#login p.forgetmenot label').appendChild(document.createElement('span'));
+var btn=document.createElement('button');
+btn.appendChild(document.createTextNode(document.querySelector('#wp-submit').value));
+btn.type='submit';
+btn.className='button button-primary button-large ripple';
+btn.name='wp-submit';
+btn.setAttribute('data-ripple','');
+//btn.id='wp-submit';
+btn.appendChild(document.createElement('span'));
+document.querySelector('#login .submit').appendChild(btn);
+document.querySelector('#wp-submit').parentNode.removeChild(document.querySelector('#wp-submit'));
+
+Array.prototype.forEach.call(document.querySelectorAll('[data-ripple]'), function(element){
+  // find all elements and attach effect
+  new RippleEffect(element); // element is instance of javascript element node
+});
 
 
 
