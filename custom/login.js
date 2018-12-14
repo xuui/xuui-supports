@@ -17,11 +17,17 @@ document.querySelector('#user_login').addEventListener('click',function(){
 //document.querySelector('#rememberme').appendChild( document.createComment('span') );
 
 setTimeout(function(){
-  var node=document.createElement('span');
-  var textnode=document.createTextNode('');
-  node.appendChild(textnode);
-  document.querySelector('#login p.forgetmenot label').appendChild(node);
-},200);
+  document.querySelector('#login p.forgetmenot label').appendChild(document.createElement('span'));
+  var btn=document.createElement('button');
+  btn.appendChild(document.createTextNode(document.querySelector('#wp-submit').value));
+  btn.type='submit';
+  btn.className='button button-primary button-large';
+  btn.name='wp-submit';
+  //btn.id='wp-submit';
+  btn.appendChild(document.createElement('span'));
+  document.querySelector('#login .submit').appendChild(btn);
+  document.querySelector('#wp-submit').parentNode.removeChild(document.querySelector('#wp-submit'));
+},100);
 
 
 
