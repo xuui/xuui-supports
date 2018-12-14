@@ -8,7 +8,7 @@ Plugin Name: xuui Supports
 Plugin URI: http://xuui.net/plugins/xuui-supports/
 Description: This is Xu.Design WordPress Supports Plugin.
 Author: Xu.hel
-Version: 0.5.0
+Version: 0.6.0
 Author URI: http://xuui.net/
 */
 
