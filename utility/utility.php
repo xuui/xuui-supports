@@ -201,4 +201,10 @@ add_filter('handle_bulk_actions-users',function($sendback,$action,$user_ids){
 	return admin_url();
 },10,3);
 
+//移除 WordPress 后台的主题编辑器
+function xuui_remove_editor_menu(){
+  remove_action('admin_menu','_add_themes_utility_last',101);
+}
+add_action('_admin_menu','xuui_remove_editor_menu',1);
+
 ?>
