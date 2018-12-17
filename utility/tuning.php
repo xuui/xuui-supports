@@ -115,4 +115,10 @@ add_action('admin_menu',function(){
   remove_action('post_updated',array( 'WP_Privacy_Policy_Content','_policy_page_updated'));
 },9);
 
+//防止上传的图片重名，加上时间戳
+function xuui_handle_upload_prefilter($file){
+  if(strlen($file['name'])<=7){$file['name']=time().'-'.$file['name'];}
+  return $file;
+};
+add_filter('wp_handle_upload_prefilter','xuui_handle_upload_prefilter'); 
 ?>
