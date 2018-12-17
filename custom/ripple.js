@@ -1,6 +1,6 @@
-// ripple.js
+// ripple.
 function RippleEffect(element){
-  this.element=element;this.element.addEventListener('click',this.run.bind(this),false);
+  this.element=element;this.element.addEventListener('mousedown',this.run.bind(this),false);
 }
 RippleEffect.prototype={run:function(event){
   var ripplerContainer=this.element.querySelector('.ripple-container');
