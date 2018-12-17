@@ -184,4 +184,21 @@ function xuui_sanitize_user_no_admin($username,$raw_username,$strict){
   if($raw_username=='admin' || $username=='admin'){exit;}
   return $username;
 }
+
+//管理员快速登录其他用户账户
+add_filter('user_row_actions',function($actions,$user){
+	$capability=(is_multisite())?'manage_site':'manage_options';
+	if(current_user_can($capability)){
+		$actions['login_as']='<a title="以此身份登陆" href="'.wp_nonce_url("users.php?action=login_as&users=$user->ID", 'bulk-users').'">以此身份登陆</a>';
+	}
+	return $actions;
+},10,2);
+add_filter('handle_bulk_actions-users',function($sendback,$action,$user_ids){
+	if($action=='login_as'){
+		wp_set_auth_cookie($user_ids,true);
+		wp_set_current_user($user_ids);
+	}
+	return admin_url();
+},10,3);
+
 ?>
