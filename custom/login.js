@@ -17,8 +17,10 @@ document.querySelector('#user_login').addEventListener('click',function(){
 //document.querySelector('#rememberme').appendChild( document.createComment('span') );
 
 
-if(document.querySelector('#login p.forgetmenot label'))document.querySelector('#login p.forgetmenot label').appendChild(document.createElement('span'));
-
+if(document.querySelector('#login p.forgetmenot label')){
+  document.querySelector('#login p.forgetmenot label').appendChild(document.createElement('span'));
+  //document.querySelector('#rememberme').checked=true;
+}
 var btn=document.createElement('button');
 btn.appendChild(document.createTextNode(document.querySelector('#wp-submit').value));
 btn.type='submit';
