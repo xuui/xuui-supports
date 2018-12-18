@@ -59,8 +59,11 @@ box-shadow:0 8px 16px 0 rgba(35,118,183,.32);
 .login #nav a{font-size:14px;color:var(--pColor);}
 
 #login form p.submit{padding:16px 0 0;height:auto;}
+
+
+
 .ripple-container{position:relative;outline:none;overflow:hidden;}
-.ripple-container .ripple{background-color:rgba(255,255,255,.24);animation:ripple 1.24s forwards cubic-bezier(0,0,0.2,1);}
+.ripple-container .ripple{background-color:rgba(255,255,255,.2);animation:ripple 1.24s forwards cubic-bezier(0,0,0.2,1);}
 @keyframes ripple{
 0%{transform:scale(0);opacity:1;}
 80%{transform:scale(2.12);}
