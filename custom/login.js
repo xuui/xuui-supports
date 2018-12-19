@@ -1,11 +1,13 @@
 // signin.js
+document.querySelector('#login h1 a').href=sign.href;
+document.querySelector('#login h1 a').title=sign.title;
+document.querySelector('#login h1 a').text=sign.title;
+
 var user_login=document.querySelector('#user_login'),user_email=document.querySelector('#user_email'),user_pass=document.querySelector('#user_pass');
 if(user_login)user_login.setAttribute('placeholder','用户名或电子邮件地址');
 if(user_email)user_email.setAttribute('placeholder','电子邮件');
 if(user_pass)user_pass.setAttribute('placeholder','密码');
-document.querySelector('#login h1 a').href=sign.href;
-document.querySelector('#login h1 a').title=sign.title;
-document.querySelector('#login h1 a').text=sign.title;
+
 document.querySelector('#user_login').addEventListener('click',function(){
   document.querySelector('#login h1 a').setAttribute('style','background:-#f0f');
   console.log('Hello World');
@@ -13,14 +15,14 @@ document.querySelector('#user_login').addEventListener('click',function(){
   console.log(sign.href);
   console.log(sign.title);
 });
-
 //document.querySelector('#rememberme').appendChild( document.createComment('span') );
 
-
-if(document.querySelector('#login p.forgetmenot label')){
-  document.querySelector('#login p.forgetmenot label').appendChild(document.createElement('span'));
+var forgetmenot=document.querySelector('#login p.forgetmenot label');
+if(forgetmenot){
+  forgetmenot.appendChild(document.createElement('span'));
   //document.querySelector('#rememberme').checked=true;
 }
+
 var btn=document.createElement('button');
 btn.appendChild(document.createTextNode(document.querySelector('#wp-submit').value));
 btn.type='submit';
