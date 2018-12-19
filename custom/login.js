@@ -10,12 +10,22 @@ if(user_pass)user_pass.setAttribute('placeholder','密码');
 
 document.querySelector('#user_login').addEventListener('click',function(){
   document.querySelector('#login h1 a').setAttribute('style','background:-#f0f');
+  
   console.log('Hello World');
   console.log(sign);
   console.log(sign.href);
   console.log(sign.title);
+
+
+  console.log(this.parentNode);
 });
 //document.querySelector('#rememberme').appendChild( document.createComment('span') );
+
+
+document.querySelectorAll.bind('.input').addEventListener('focus',function(){
+  console.log(this.parentNode);
+});
+
 
 var forgetmenot=document.querySelector('#login p.forgetmenot label');
 if(forgetmenot){
