@@ -1,4 +1,5 @@
 // ripple.
+/*
 function RippleEffect(element){
   this.element=element;this.element.addEventListener('mousedown',this.run.bind(this),false);
 }
@@ -27,3 +28,9 @@ RippleEffect.prototype={run:function(event){
   ripple.className='ripple';rippleContainer.appendChild(ripple);
   ripple.addEventListener('animationend',function(){rippleContainer.remove();}.bind(this),false);
 }};
+
+*/
+
+(function($,ua){var
+  isChrome=/chrome/i.exec(ua),isAndroid=/android/i.exec(ua),hasTouch='ontouchstart'in window&&!(isChrome&&!isAndroid);$.fn.ripple=function(options){var rippled=false,opts=$.extend({},{color:'#fff'},options);opts.event=(hasTouch&&'touchstart.ripple')||'mousedown.ripple';opts.end_event=(hasTouch&&'touchend.ripple touchcancel.ripple')||'mouseup.ripple mouseleave.ripple';$(this).on(opts.event,function(ev){var x,y,touch_ev,$paper=$(this),$ink=$('<div/>'),size=Math.max($paper.width(),$paper.height());rippled=true;$paper.trigger('beforeripple').addClass('ripple-active');$ink.addClass('ripple-effect').css({height:size,width:size});touch_ev=hasTouch?ev.originalEvent.touches[0]:ev;x=touch_ev.pageX-$paper.offset().left-$ink.width()/2;y=touch_ev.pageY-$paper.offset().top-$ink.height()/2;$ink.css({top:y+'px',left:x+'px',backgroundColor:opts.color}).appendTo($paper);}).on(opts.end_event,function(){var $paper=$(this),$ink=$paper.find('.ripple-effect');if(!rippled){return;}
+  rippled=false;$paper.trigger('afterripple').removeClass('ripple-active');$ink.css({backgroundColor:'transparent'}).one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend',function(){$ink.remove();});});return $(this);};}(window.jQuery,navigator.userAgent));
