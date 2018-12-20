@@ -35,7 +35,7 @@ background-size:192px 48px;margin:0 auto;width:auto;height:128px;
 #login form label{padding-top:12px;height:52px;font-size:18px;transition:all .28s cubic-bezier(.4,0,.2,1);}
 #login form label.focus{padding-top:0;font-size:12px;line-height:16px;}
 
-#login form .input{position:absolute;z-index:1;bottom:0;border:0;border-bottom:1px solid #888;border-color:rgba(0,0,0,.32);margin:12px 0 0;padding:4px 1px;height:40px;line-height:24px;font-size:18px;color:#333;color:rgba(0,0,0,.8);box-shadow:none;}
+#login form .input{position:absolute;z-index:1;bottom:0;background-color:transparent;border:0;border-bottom:1px solid #888;border-color:rgba(0,0,0,.32);margin:12px 0 0;padding:4px 1px;height:40px;line-height:24px;font-size:18px;color:#333;color:rgba(0,0,0,.8);box-shadow:none;}
 #login form .input:focus{border-color:var(--pColor);border-bottom-width:2px;padding-bottom:3px;color:var(--pColor);}
 #login form .forgetmenot,#login form .button-primary{float:none;}
 #login form .forgetmenot{margin-bottom:16px;}
@@ -94,7 +94,6 @@ box-shadow:0 8px 16px 0 rgba(35,118,183,.32);
 #login h1{background:transparent;}
 #login h1 a{background-image:url(login_logo_.png);background-image:url(xuui.svg);background-position:50% 50%;}
 #login form,#login form .input{background-color:var(--formBg);}
-#login form .input{background-color:transparent;}
 #login form{border-radius:6px;
 /*
 box-shadow:0 2px 1px -1px rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 1px 3px 0 rgba(0,0,0,.12);
