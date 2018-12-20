@@ -28,7 +28,7 @@ background-size:192px 48px;margin:0 auto;width:auto;height:128px;
 .login #login_error{background:#dc3232;color:#fff;}
 
 /* form */
-#login form,#login form .input{background-color:var(--bgColor);}
+#login form{background-color:var(--bgColor);}
 #login form{box-shadow:none;margin:0;padding:24px 40px;}
 #login form p,#login form label{position:relative;display:block;line-height:40px;}
 
