@@ -55,10 +55,5 @@ xuui('#wp-submit').parentNode.removeChild(xuui('#wp-submit'));
 //document.oncontextmenu=function(){return false;}
 xuui('#login form').oncontextmenu=function(){return false;}
 
-
-/*
-xuui('[data-ripple]').forEach(function(el,index){
-  console.log(el.innerHTML);
-});
-*/
+// ripple
 $('[data-ripple]').ripple();
