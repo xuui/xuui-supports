@@ -1,0 +1,11 @@
+/* form */
+#login form{background-color:var(--bgColor);}
+#login form{box-shadow:none;margin:0;padding:24px 40px;}
+#login form p,#login form label{position:relative;display:block;line-height:40px;}
+#login form label{padding-top:12px;height:52px;font-size:18px;transition:all .28s cubic-bezier(.4,0,.2,1);}
+#login form label.focus{padding-top:0;font-size:12px;line-height:16px;}
+#login form .input{position:absolute;z-index:1;bottom:0;background:transparent;border:0;border-bottom:1px solid #888;border-color:rgba(0,0,0,.32);margin:12px 0 0;padding:4px 1px;height:40px;line-height:24px;font-size:18px;color:#333;color:rgba(0,0,0,.8);box-shadow:none;}
+#login form .input:focus{border-color:var(--pColor);border-bottom-width:2px;padding-bottom:3px;color:var(--pColor);}
+@media(min-width:576px){
+#login form{background-color:var(--formBg);}
+}
