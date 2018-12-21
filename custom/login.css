@@ -24,7 +24,7 @@ background-size:192px 48px;margin:0 auto;width:auto;height:128px;
 
 /* message */
 .login #login_error,.login .message,.login .success{border:none;padding:12px 40px;}
-.login .message{background:var(--pColor);color:#fff;}
+.login .message{/*background:var(--pColor);color:#fff;*/margin-bottom:4px;}
 .login #login_error{background:#dc3232;color:#fff;}
 
 /* form */

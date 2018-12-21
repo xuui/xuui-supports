@@ -19,14 +19,12 @@ xuui('.input').on('focus',function(e){e.preventDefault();
   if(!this.value)this.parentNode.className='';
 });
 
-var forgetmenot=xuui('#login p.forgetmenot label');
-if(forgetmenot){
-  forgetmenot.appendChild(document.createElement('span'));
-  //xuui('#rememberme').checked=true;
+if(xuui('#login p.forgetmenot label').length>0){
+  xuui('#login p.forgetmenot label').appendChild(document.createElement('span'));
 }
 var btn=document.createElement('button');
 btn.appendChild(document.createTextNode(xuui('#wp-submit').value));
-btn.type='button';
+btn.type='submit';
 btn.className='button button-primary button-large ripple-wrapper';
 btn.name='wp-submit';
 btn.setAttribute('data-ripple','ripple');
@@ -38,10 +36,3 @@ xuui('#wp-submit').parentNode.removeChild(xuui('#wp-submit'));
 
 //document.oncontextmenu=function(){return false;}
 xuui('#login form').oncontextmenu=function(){return false;}
-
-// ripple
-//Array.prototype.forEach.call(document.querySelectorAll('[data-ripple]'),function(element){
-  // find all elements and attach effect
-  //new RippleEffect(element); // element is instance of javascript element node
-//});
-$('[data-ripple]').ripple();
