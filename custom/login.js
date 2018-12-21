@@ -33,6 +33,5 @@ btn.appendChild(document.createElement('span'));
 xuui('#login form p.submit').appendChild(btn);
 xuui('#wp-submit').parentNode.removeChild(xuui('#wp-submit'));
 
-
 //document.oncontextmenu=function(){return false;}
 xuui('#login form').oncontextmenu=function(){return false;}
