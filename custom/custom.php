@@ -22,8 +22,8 @@ function xuui_login_script(){
 }
 function my_login_stylesheet(){
   wp_enqueue_style('custom-login',XUUI_PLUGIN_URL.'custom/style-login.css');
-  wp_enqueue_script('jQuery3','https://cdn.xuui.net/js/jquery/jquery.min.js',false,'3.3.1',true);
-  //wp_enqueue_script('login-ripple',XUUI_PLUGIN_URL.'custom/ripple.js',array('jQuery'),'1.0.0',true);
+  wp_enqueue_script('jquery','https://cdn.xuui.net/js/jquery/jquery.min.js',false,'3.3.1',true);
+  //wp_enqueue_script('login-ripple',XUUI_PLUGIN_URL.'custom/ripple.js',array('jquery'),'1.0.0',true);
   wp_enqueue_script('login-ripple',XUUI_PLUGIN_URL.'custom/ripple.js',false,'1.0.0',true);
   wp_enqueue_script('login-scripts',XUUI_PLUGIN_URL.'custom/login.js',array('login-ripple'),'1.0.0',true);
 }
