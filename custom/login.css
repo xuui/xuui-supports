@@ -31,11 +31,7 @@ background-size:192px 48px;margin:0 auto;width:auto;height:128px;
 #login form,#login form .input{background-color:var(--bgColor);}
 #login form{box-shadow:none;margin:0;padding:24px 40px;}
 #login form p,#login form label{position:relative;display:block;height:40px;line-height:40px;}
-
-/*
-#login form .input{position:absolute;z-index:1;top:0;border:0;border-bottom:1px solid #888;border-color:rgba(0,0,0,.32);margin:0;padding:4px;height:40px;line-height:24px;font-size:15px;color:#333;color:rgba(0,0,0,.8);box-shadow:none;}*/
 #login form .input{position:absolute;z-index:1;bottom:0;border:0;border-bottom:1px solid #888;border-color:rgba(0,0,0,.32);margin:0;padding:4px;height:40px;line-height:24px;font-size:16px;color:#333;color:rgba(0,0,0,.8);box-shadow:none;}
-
 #login form .input:focus{border-color:var(--pColor);border-bottom-width:2px;padding-bottom:3px;color:var(--pColor);}
 #login form .forgetmenot,#login form .button-primary{float:none;}
 #login form .forgetmenot{margin-bottom:16px;}
@@ -43,12 +39,10 @@ background-size:192px 48px;margin:0 auto;width:auto;height:128px;
 box-shadow:0 3px 1px -2px rgba(0,0,0,.2),0 2px 2px 0 rgba(0,0,0,.14),0 1px 5px 0 rgba(0,0,0,.12);
 box-shadow:0 8px 16px 0 rgba(35,118,183,.32);
 }
-#login form .button-primary:hover{box-shadow:0 2px 4px -1px rgba(35,118,183,.2),0 4px 5px 0 rgba(35,118,183,.14),0 1px 10px 0 rgba(35,118,183,.12);
-}
+#login form .button-primary:hover{box-shadow:0 2px 4px -1px rgba(35,118,183,.2),0 4px 5px 0 rgba(35,118,183,.14),0 1px 10px 0 rgba(35,118,183,.12);}
 #login form .button-primary:active{box-shadow:0 5px 5px -3px rgba(35,118,183,.2),0 8px 10px 1px rgba(35,118,183,.14),0 3px 14px 2px rgba(35,118,183,.12);}
-  
 /*#login form .forgetmenot{display:none;}*/
-#login form .forgetmenot label{padding-left:40px;font-size:14px;}
+#login form .forgetmenot label{padding-left:44px;font-size:14px;}
 #rememberme{display:none;}
 #rememberme+span,#rememberme+span:before{position:absolute;top:0;left:0;display:block;border-radius:9px;height:16px;line-height:16px;transition:all .2s ease-out;}
 #rememberme+span{top:12px;background:#a2b0b8;background-color:rgba(0,0,0,.24);border:1px solid #a2b0b8;border-color:rgba(0,0,0,.05);width:35px;}
@@ -56,34 +50,22 @@ box-shadow:0 8px 16px 0 rgba(35,118,183,.32);
 #rememberme:checked+span{border-color:var(--pColor);background:var(--pColor);}
 #rememberme:checked+span:before{left:22px;}
 
-
-
 .login #backtoblog,.login #nav{padding:0 24px;}
 .login #backtoblog a,.login #nav a{padding:8px;margin:0 8px;}
 .login #nav a{font-size:14px;color:var(--pColor);}
-
-#login form p.submit{padding:16px 0 0;height:auto;}
-
+#login form p.submit{padding:8px 0 0;height:auto;}
 
 
-
-
-[data-ripple]{overflow:hidden;position:relative;-webkit-tap-highlight-color:transparent}
-.ripple-effect{display:block;position:absolute;
-  -webkit-animation:ripple 2s forwards cubic-bezier(0,0,0.2,1);
-  animation:ripple 2s forwards cubic-bezier(0,0,0.2,1);
-  -webkit-transition:background-color .25s ease .1s;
-  transition:background-color .25s ease .1s;
-}
+/* ripple */
+[data-ripple]{position:relative;overflow:hidden}
+[data-ripple] .ripple{border-radius:99999px;pointer-events:none;position:absolute;width:200px;height:200px;background:rgba(0,0,0,0.4);opacity:0;-webkit-transform:scale(0);transform:scale(0);-webkit-animation:ripple .75s cubic-bezier(.4,0,.2,1);animation:ripple .75s cubic-bezier(.4,0,.2,1);}
 @-webkit-keyframes ripple{
-0%{-webkit-transform:scale(1);opacity:.2}
-80%{-webkit-transform:scale(5);opacity:.12}
-100%{opacity:0;}
+0%{-webkit-transform:scale(0);opacity:.5}
+100%{-webkit-transform:scale(2);opacity:0}
 }
 @keyframes ripple{
-0%{transform:scale(1);opacity:.2}
-80%{transform:scale(5);opacity:.12}
-100%{opacity:0;}
+0%{transform:scale(0);opacity:.5}
+100%{transform:scale(2);opacity:0}
 }
 
 

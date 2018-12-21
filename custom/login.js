@@ -27,7 +27,7 @@ if(forgetmenot){
 var btn=document.createElement('button');
 btn.appendChild(document.createTextNode(xuui('#wp-submit').value));
 btn.type='button';
-btn.className='button button-primary button-large ripple';
+btn.className='button button-primary button-large ripple-wrapper';
 btn.name='wp-submit';
 btn.setAttribute('data-ripple','ripple');
 //btn.id='wp-submit';
@@ -44,4 +44,4 @@ xuui('#login form').oncontextmenu=function(){return false;}
   // find all elements and attach effect
   //new RippleEffect(element); // element is instance of javascript element node
 //});
-//$('[data-ripple]').ripple();
+$('[data-ripple]').ripple();
