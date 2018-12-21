@@ -31,7 +31,7 @@ background-size:192px 48px;margin:0 auto;width:auto;height:128px;
 #login form,#login form .input{background-color:var(--bgColor);}
 #login form{box-shadow:none;margin:0;padding:24px 40px;}
 #login form p,#login form label{position:relative;display:block;height:40px;line-height:40px;}
-#login form .input{position:absolute;z-index:1;bottom:0;border:0;border-bottom:1px solid #888;border-color:rgba(0,0,0,.32);margin:0;padding:4px;height:40px;line-height:24px;font-size:16px;color:#333;color:rgba(0,0,0,.8);box-shadow:none;}
+#login form .input{position:absolute;z-index:1;bottom:0;border:0;border-bottom:1px solid #888;border-color:rgba(0,0,0,.32);margin:0;padding:4px;height:40px;line-height:24px;font-size:16px;color:#333;color:rgba(0,0,0,.8);box-shadow:none;transition:color .28s cubic-bezier(.4,0,.2,1);}
 #login form .input:focus{border-color:var(--pColor);border-bottom-width:2px;padding-bottom:3px;color:var(--pColor);}
 #login form .forgetmenot,#login form .button-primary{float:none;}
 #login form .forgetmenot{margin-bottom:16px;}

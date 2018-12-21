@@ -19,7 +19,7 @@ xuui('.input').on('focus',function(e){e.preventDefault();
   if(!this.value)this.parentNode.className='';
 });
 
-if(xuui('#login p.forgetmenot label').length>0){
+if(document.querySelector('#login p.forgetmenot label')){
   xuui('#login p.forgetmenot label').appendChild(document.createElement('span'));
 }
 var btn=document.createElement('button');
