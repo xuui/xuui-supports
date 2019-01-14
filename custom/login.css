@@ -47,7 +47,7 @@ box-shadow:0 8px 16px 0 rgba(35,118,183,.32);
 .login #backtoblog a,.login #nav a{padding:8px;margin:0 8px;}
 .login #nav a{font-size:14px;color:var(--pColor);}
 #login form p.submit{padding:16px 0 0;height:auto;}
-
+.login #backtoblog{margin:8px 0 16px;}
 
 /* ripple */
 [data-ripple]{position:relative;overflow:hidden}
