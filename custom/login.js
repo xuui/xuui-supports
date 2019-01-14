@@ -19,9 +19,10 @@ xuui('.input').on('focus',function(e){e.preventDefault();
   if(!this.value)this.parentNode.className='';
 });
 
-if(document.querySelector('#login p.forgetmenot label')){
+/*if(document.querySelector('#login p.forgetmenot label')){
   xuui('#login p.forgetmenot label').appendChild(document.createElement('span'));
-}
+}*/
+
 var btn=document.createElement('button');
 btn.appendChild(document.createTextNode(xuui('#wp-submit').value));
 btn.type='submit';

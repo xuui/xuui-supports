@@ -1,0 +1,9 @@
+#login form .forgetmenot{margin-bottom:16px;}
+#login form .forgetmenot label{padding-left:44px;font-size:14px;}
+
+#rememberme{display:none;}
+#rememberme+span,#rememberme+span:before{position:absolute;top:0;left:0;display:block;border-radius:9px;height:16px;line-height:16px;transition:all .2s ease-out;}
+#rememberme+span{top:12px;background:#a2b0b8;background-color:rgba(0,0,0,.24);border:1px solid #a2b0b8;border-color:rgba(0,0,0,.05);width:35px;}
+#rememberme+span:before{top:3px;left:3px;background:#fff;width:8px;height:8px;content:'';}
+#rememberme:checked+span{border-color:var(--pColor);background:var(--pColor);}
+#rememberme:checked+span:before{left:22px;}

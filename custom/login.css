@@ -42,20 +42,11 @@ box-shadow:0 8px 16px 0 rgba(35,118,183,.32);
 #login form .button-primary:active{box-shadow:0 5px 5px -3px rgba(35,118,183,.2),0 8px 10px 1px rgba(35,118,183,.14),0 3px 14px 2px rgba(35,118,183,.12);}
 
 #login form .forgetmenot{display:none;}
-#login form .forgetmenot{margin-bottom:16px;}
-#login form .forgetmenot label{padding-left:44px;font-size:14px;}
-
-#rememberme{display:none;}
-#rememberme+span,#rememberme+span:before{position:absolute;top:0;left:0;display:block;border-radius:9px;height:16px;line-height:16px;transition:all .2s ease-out;}
-#rememberme+span{top:12px;background:#a2b0b8;background-color:rgba(0,0,0,.24);border:1px solid #a2b0b8;border-color:rgba(0,0,0,.05);width:35px;}
-#rememberme+span:before{top:3px;left:3px;background:#fff;width:8px;height:8px;content:'';}
-#rememberme:checked+span{border-color:var(--pColor);background:var(--pColor);}
-#rememberme:checked+span:before{left:22px;}
 
 .login #backtoblog,.login #nav{padding:0 24px;}
 .login #backtoblog a,.login #nav a{padding:8px;margin:0 8px;}
 .login #nav a{font-size:14px;color:var(--pColor);}
-#login form p.submit{padding:8px 0 0;height:auto;}
+#login form p.submit{padding:16px 0 0;height:auto;}
 
 
 /* ripple */
