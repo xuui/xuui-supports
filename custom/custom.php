@@ -20,14 +20,14 @@ function xuui_login_script(){
   echo "<script type=\"text/javascript\">var sign={href:'".home_url()."',title:'".get_bloginfo('name')."'};
   </script>";//\n<script type=\"text/javascript\" src=\"".XUUI_PLUGIN_URL."custom/login.js\"></script>";
 }
-function my_login_stylesheet(){
-  wp_enqueue_style('custom-login',XUUI_PLUGIN_URL.'custom/style-login.css');
+function xuui_login_stylesheet(){
+  wp_enqueue_style('custom-login',XUUI_PLUGIN_URL.'custom/style-login.css',false,'1.0.0','all');
   wp_enqueue_script('jquery');
   wp_enqueue_script('jquery-slim','https://cdn.xuui.net/js/jquery/jquery.slim.min.js',false,'3.3.1',true);
   wp_enqueue_script('login-scripts',XUUI_PLUGIN_URL.'custom/login.js',array('jquery-slim'),'1.0.0',true);
   wp_enqueue_script('login-ripple',XUUI_PLUGIN_URL.'custom/ripple.js',array('login-scripts'),'1.0.0',true);
 }
-add_action('login_enqueue_scripts','my_login_stylesheet');
+add_action('login_enqueue_scripts','xuui_login_stylesheet');
 
 
 
