@@ -73,16 +73,14 @@ function xuui_admin_post_thumbnail_html($content,$post_id){
 }
 
 // 在后台显示 ID.
-add_filter('manage_posts_columns', 'xuui_id_manage_posts_columns');
-add_filter('manage_pages_columns', 'xuui_id_manage_posts_columns');
+add_filter('manage_posts_columns','xuui_id_manage_posts_columns');
 add_action('manage_posts_custom_column','xuui_id_manage_posts_custom_column',10,2);
-add_action('manage_pages_custom_column','xuui_id_manage_posts_custom_column',10,2);
 function xuui_id_manage_posts_columns($columns){
   $columns['post_id']='ID';
   return $columns;
 }
 function xuui_id_manage_posts_custom_column($column_name,$id){
-  if ($column_nam =='post_id'){
+  if (@$column_name =='post_id'){
     echo $id;
   }
 }
@@ -109,8 +107,8 @@ function xuui_users_sortable_columns($sortable_columns){
   return $sortable_columns;
 }
 function xuui_users_search_order($obj){
-  if(!isset($_REQUEST['orderby']) || $_REQUEST['orderby']=='reg_time' ){
-    if( !in_array($_REQUEST['order'],array('asc','desc')) ){$_REQUEST['order']='desc';}
+  if(!isset($_REQUEST['orderby']) || $_REQUEST['orderby']=='reg_time'){
+    if(!in_array(@$_REQUEST['order'],array('asc','desc'))){$_REQUEST['order']='desc';}
     $obj->query_orderby ="ORDER BY user_registered ".$_REQUEST['order']."";
   }
 }
