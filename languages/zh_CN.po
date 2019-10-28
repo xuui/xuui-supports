@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: iLost CMS v1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-04 09:41+0800\n"
-"PO-Revision-Date: 2016-03-04 09:41+0800\n"
+"POT-Creation-Date: 2019-10-28 17:16+0800\n"
+"PO-Revision-Date: 2019-10-28 17:19+0800\n"
 "Last-Translator: Xu.hel <xu.hel@outlook.com>\n"
 "Language-Team: Xu.Design <xu@xuui.net>\n"
 "Language: zh_CN\n"
@@ -13,17 +13,138 @@ msgstr ""
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-Generator: Poedit 1.8.7\n"
+"X-Generator: Poedit 2.2.4\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../core.php:4
-msgid "weibo"
-msgstr "新浪微博"
+#: ../post_type.php:4
+msgid "Show images"
+msgstr ""
 
-#: ../core.php:5
-msgid "qq weibo"
-msgstr "腾讯微博"
+#: ../post_type.php:4
+msgid "Show image"
+msgstr ""
 
-#: ../core.php:6
-msgid "iMessage"
-msgstr "iMessage"
+#: ../post_type.php:4
+msgid "Add Images"
+msgstr ""
+
+#: ../post_type.php:4
+msgid "Add New Images"
+msgstr ""
+
+#: ../post_type.php:4
+msgid "Edit Image"
+msgstr ""
+
+#: ../post_type.php:4
+msgid "Add Show image"
+msgstr ""
+
+#: ../post_type.php:4
+msgid "View Image"
+msgstr ""
+
+#: ../post_type.php:4
+msgid "Search Show images"
+msgstr ""
+
+#: ../post_type.php:4
+msgid "No images found"
+msgstr ""
+
+#: ../post_type.php:4
+msgid "No images found in Trash"
+msgstr ""
+
+#: ../post_type.php:9 ../post_type.php:17
+msgid "Project"
+msgstr "项目"
+
+#: ../post_type.php:9
+msgid "Add Project"
+msgstr "添加项目"
+
+#: ../post_type.php:9
+msgid "Add New Project"
+msgstr "添加新项目"
+
+#: ../post_type.php:9
+msgid "Edit Project"
+msgstr "编辑项目"
+
+#: ../post_type.php:9
+msgid "View Project"
+msgstr "查看项目"
+
+#: ../post_type.php:9
+msgid "Search Project"
+msgstr "搜索项目"
+
+#: ../post_type.php:9
+msgid "No Project found"
+msgstr ""
+
+#: ../post_type.php:9
+msgid "No Project found in Trash"
+msgstr ""
+
+#: ../post_type.php:15
+msgid "Project Category"
+msgstr "项目分类"
+
+#: ../post_type.php:16
+msgid "Project Categories"
+msgstr "项目分类"
+
+#: ../post_type.php:18
+msgid "Search Categories"
+msgstr "搜索分类"
+
+#: ../post_type.php:19
+msgid "Popular Categories"
+msgstr "热门分类"
+
+#: ../post_type.php:20
+msgid "All Categories"
+msgstr "全部分类"
+
+#: ../post_type.php:21
+msgid "Parent Category"
+msgstr "常用分类"
+
+#: ../post_type.php:22
+msgid "Parent Category："
+msgstr "常用分类："
+
+#: ../post_type.php:23
+msgid "Edit Category"
+msgstr "编辑分类"
+
+#: ../post_type.php:24
+msgid "Update Categories"
+msgstr "更新分类"
+
+#: ../post_type.php:25
+msgid "Add New Project Category"
+msgstr "添加新项目分类"
+
+#: ../post_type.php:26
+msgid "Category Name"
+msgstr "分类名字"
+
+#: ../post_type.php:27
+msgid "Add or remove categories"
+msgstr "添加和删除分类"
+
+#: ../post_type.php:28
+msgid "Choose from most used categories"
+msgstr ""
+
+#~ msgid "weibo"
+#~ msgstr "新浪微博"
+
+#~ msgid "qq weibo"
+#~ msgstr "腾讯微博"
+
+#~ msgid "iMessage"
+#~ msgstr "iMessage"

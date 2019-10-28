@@ -31,6 +31,7 @@ function xuui_post_type(){
   ));// Project.end.
 
 }
+add_action('init','xuui_post_type');
 
 // Slide Image metabox.
 $slide_image_meta=array(
