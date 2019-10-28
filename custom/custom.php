@@ -10,7 +10,9 @@ add_action('login_head','xuui_login_style',11,1);
 function xuui_login_style(){
   echo "<meta name=\"viewport\" content=\"width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=yes,shrink-to-fit=no\" />\n";
   echo "<meta name=\"theme-color\" content=\"#2376b7\">\n";
-  echo "<style type=\"text/css\">@import url(\"".XUUI_PLUGIN_URL.'custom/login.css'."\");</style>\n";
+  //echo "<style type=\"text/css\">@import url(\"".XUUI_PLUGIN_URL.'custom/login.css'."\");</style>\n";
+  //echo "<style type=\"text/css\">@import url(\"".XUUI_PLUGIN_URL.'custom/login2.css'."\");</style>\n";
+  echo "<style type=\"text/css\">@import url(\"".XUUI_PLUGIN_URL.'custom/login3.css'."\");</style>\n";
   //echo "<style type=\"text/css\">@import url(\"".XUUI_PLUGIN_URL.'custom/login-icon.css'."\");</style>\n";
 }
 add_action('login_form','xuui_login_script');//自定义登录表单
