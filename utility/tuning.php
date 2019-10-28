@@ -95,6 +95,7 @@ remove_action('wp_head','wp_oembed_add_discovery_links');
 remove_action('wp_head','wp_oembed_add_host_js');
 
 // 移除后台隐私相关的页面 for China.
+/*
 add_action('admin_menu',function(){
   global $menu,$submenu;
   // 移除设置菜单下的隐私子菜单.
@@ -114,6 +115,7 @@ add_action('admin_menu',function(){
   // Update the cached policy info when the policy page is updated.
   remove_action('post_updated',array( 'WP_Privacy_Policy_Content','_policy_page_updated'));
 },9);
+*/
 
 //防止上传的图片重名，加上时间戳
 function xuui_handle_upload_prefilter($file){

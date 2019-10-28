@@ -16,7 +16,7 @@ define('XUUI_PLUGIN_URL',plugin_dir_url(__FILE__));
 define('XUUI_PLUGIN_DIR',plugin_dir_path(__FILE__));
 
 require_once(XUUI_PLUGIN_DIR.'utility/tuning.php');
-require_once(XUUI_PLUGIN_DIR.'utility/utility.php');
+#require_once(XUUI_PLUGIN_DIR.'utility/utility.php');
 require_once(XUUI_PLUGIN_DIR.'custom/custom.php');
 require_once(XUUI_PLUGIN_DIR.'optionpg.php');
 

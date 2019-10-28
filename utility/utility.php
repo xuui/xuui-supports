@@ -9,6 +9,7 @@
 add_filter('pre_option_link_manager_enabled','__return_true');
 
 // WordPress MU 分类上限为：20.
+/*
 add_filter('pre_insert_term',function($term,$taxonomy){
   if($taxonomy=='product_category'){
     if(wp_count_terms($taxonomy)>20){// max:20
@@ -30,7 +31,7 @@ add_action('current_screen',function($current_screen){
     }
   }
 });
-
+*/
 
 /* 给管理员显示 PHP 错误. 
 if(current_user_can('manage_options')){
@@ -73,6 +74,7 @@ function xuui_admin_post_thumbnail_html($content,$post_id){
 }
 
 // 在后台显示 ID.
+/*
 add_filter('manage_posts_columns','xuui_id_manage_posts_columns');
 add_action('manage_posts_custom_column','xuui_id_manage_posts_custom_column',10,2);
 function xuui_id_manage_posts_columns($columns){
@@ -84,6 +86,7 @@ function xuui_id_manage_posts_custom_column($column_name,$id){
     echo $id;
   }
 }
+*/
 
 // 按照用户注册时间排序.
 add_filter('manage_users_columns','xuui_add_users_column_reg_time');
@@ -200,9 +203,10 @@ add_filter('handle_bulk_actions-users',function($sendback,$action,$user_ids){
 },10,3);
 
 //移除 WordPress 后台的主题编辑器
+/*
 function xuui_remove_editor_menu(){
   remove_action('admin_menu','_add_themes_utility_last',101);
 }
 add_action('_admin_menu','xuui_remove_editor_menu',1);
-
+*/
 ?>
