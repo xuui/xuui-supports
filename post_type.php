@@ -40,7 +40,7 @@ $slide_image_meta=array(
   "link"=>array("name"=>"urlink","std"=>"http:///","title"=>"链接:"),
   "align"=>array("name"=>"align","std"=>"默认左对齐","title"=>"文字对其:")
 );
-function slide_image_meta(){
+function xuui_slide_image_meta(){
   global $post,$slide_image_meta;
   foreach($slide_image_meta as $meta_box){
     $meta_box_value=get_post_meta($post->ID,$meta_box['name'],true);
@@ -68,7 +68,7 @@ function slide_image_meta(){
   }
   echo '<input type="hidden" name="xuui_slide_image_nonce" id="xuui_slide_image_nonce" value="'.wp_create_nonce( plugin_basename(__FILE__) ).'" />';
 }
-function slide_image_save_postdata($post_id){
+function xuui_slide_image_save_postdata($post_id){
   global $slide_image_meta;
   if(!wp_verify_nonce(@$_POST['xuui_slide_image_nonce'],plugin_basename(__FILE__))){return;}
   if(!current_user_can('edit_posts',$post_id)){return;}
@@ -81,14 +81,13 @@ function slide_image_save_postdata($post_id){
     }
   }
 }
-function slide_image_metabox(){
+function xuui_slide_image_metabox(){
   if(function_exists('add_meta_box')){
-    add_meta_box('slide_image_meta','轮播文字','slide_image_meta','slideshow','normal','high');
-//    add_meta_box('slide_video_meta','轮播视频','slide_video_meta','slideshow','normal','high');
+    add_meta_box('slide_image_meta','轮播文字','xuui_slide_image_meta','slideshow','normal','high');
   }
 }
-add_action('admin_menu','slide_image_metabox');
-add_action('save_post','slide_image_save_postdata');
+add_action('admin_menu','xuui_slide_image_metabox');
+add_action('save_post','xuui_slide_image_save_postdata');
 
 
 // Slide Video metabox.
@@ -96,7 +95,7 @@ $slide_video_meta=array(
   "video"=>array("name"=>"video","std"=>"http://xxx/xxx.mp4","title"=>"视频地址:"),
   //"videocol"=>array("name"=>"videocol","std"=>"http://xxx/xxx.mp4","title"=>"视频地址:"),
 );
-function slide_video_meta(){
+function xuui_slide_video_meta(){
   global $post,$slide_video_meta;
   foreach($slide_video_meta as $meta_box){
     $meta_box_value=get_post_meta($post->ID,$meta_box['name'],true);
@@ -105,7 +104,7 @@ function slide_video_meta(){
   }
   echo '<input type="hidden" name="xuui_slide_video_nonce" id="xuui_slide_video_nonce" value="'.wp_create_nonce( plugin_basename(__FILE__) ).'" />';
 }
-function slide_video_save_postdata($post_id){
+function xuui_slide_video_save_postdata($post_id){
   global $slide_video_meta;
   if(!wp_verify_nonce(@$_POST['xuui_slide_video_nonce'],plugin_basename(__FILE__))){return;}
   if(!current_user_can('edit_posts',$post_id)){return;}
@@ -118,20 +117,20 @@ function slide_video_save_postdata($post_id){
     }
   }
 }
-function slide_video_metabox() {
+function xuui_slide_video_metabox() {
   if(function_exists('add_meta_box')){
-    add_meta_box('slide_video_meta','轮播视频','slide_video_meta','slideshow','normal','high');
+    add_meta_box('slide_video_meta','轮播视频','xuui_slide_video_meta','slideshow','normal','high');
   }
 }
-add_action('admin_menu','slide_video_metabox');
-add_action('save_post','slide_video_save_postdata');
+add_action('admin_menu','xuui_slide_video_metabox');
+add_action('save_post','xuui_slide_video_save_postdata');
 
 
 // Project Video metabox.
 $project_video_meta=array(
   "video"=>array("name"=>"video","std"=>"http://xxx/xxx.mp4","title"=>"请填入作品的视频文件地址:"),
 );
-function project_video_meta(){
+function xuui_project_video_meta(){
   global $post,$project_video_meta;
   foreach($project_video_meta as $meta_box){
     $meta_box_value=get_post_meta($post->ID,$meta_box['name'],true);
@@ -140,7 +139,7 @@ function project_video_meta(){
   }
   echo '<input type="hidden" name="xuui_slide_video_nonce" id="xuui_slide_video_nonce" value="'.wp_create_nonce( plugin_basename(__FILE__) ).'" />';
 }
-function project_video_save_postdata($post_id){
+function xuui_project_video_save_postdata($post_id){
   global $project_video_meta;
   if(!wp_verify_nonce(@$_POST['xuui_slide_video_nonce'],plugin_basename(__FILE__))){return;}
   if(!current_user_can('edit_posts',$post_id)){return;}
@@ -153,11 +152,11 @@ function project_video_save_postdata($post_id){
     }
   }
 }
-function project_video_metabox() {
+function xuui_project_video_metabox() {
   if(function_exists('add_meta_box')){
-    add_meta_box('project_video_meta','轮播视频','project_video_meta','project','normal','high');
+    add_meta_box('project_video_meta','轮播视频','xuui_project_video_meta','project','normal','high');
   }
 }
-add_action('admin_menu','project_video_metabox');
-add_action('save_post','project_video_save_postdata');
+add_action('admin_menu','xuui_project_video_metabox');
+add_action('save_post','xuui_project_video_save_postdata');
 
