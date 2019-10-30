@@ -7,7 +7,7 @@ body{font:400 14px/24px -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Ping
 body.login{background:#d8e3e7 no-repeat 50% 100% fixed;background-size:cover;color:#757575;color:rgba(0,0,0,.54);padding-top:9.296%;}
 
 .login h1{color:#212121;color:rgba(0,0,0,.87);margin-bottom:16px;}
-.login h1 a{background:#fff url(login_logo2.png) no-repeat 0% 44px;background-size:auto 40px;margin:0 auto;width:auto;height:96px;}
+.login h1 a{background:#fff url(xuui.svg) no-repeat 0% 44px;background-size:auto 40px;margin:0 auto;width:auto;height:96px;}
 .login form{border-radius:2px;margin-top:0;padding:0;box-shadow:none;}
 
 #login{position:relative;background:#fff url(signbg0.png) no-repeat 0 0;padding:0 76px 0 332px;width:640px;height:360px;
@@ -31,7 +31,7 @@ box-shadow:0 4px 12px 0 rgba(0,0,0,.12);}
 #login .button-primary:active{background-color:#1661ab;border-color:#1661ab;}
 
 .login #login_error,.login .message,.login .success{padding:8px 16px;}
-.login #login_error{background:#c62828;border:none;border-radius:0;box-shadow:0 1px 5px 0 rgba(0,0,0,.24);margin:-16px -100px 12px -64px;font-size:12px;color:#fff;}
+.login #login_error{background:#c62828;border:none;border-radius:0;box-shadow:0 1px 5px 0 rgba(0,0,0,.24);margin:-16px -76px 12px -76px;font-size:12px;color:#fff;}
 .login #login_error a{color:#fff;}
 
 .login #backtoblog,.login #nav{position:absolute;bottom:12px;margin:0;padding:0;font-size:12px;}
