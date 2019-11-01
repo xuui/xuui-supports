@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: iLost CMS v1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-28 17:16+0800\n"
-"PO-Revision-Date: 2019-10-28 17:19+0800\n"
+"POT-Creation-Date: 2019-11-01 15:57+0800\n"
+"PO-Revision-Date: 2019-11-01 15:57+0800\n"
 "Last-Translator: Xu.hel <xu.hel@outlook.com>\n"
 "Language-Team: Xu.Design <xu@xuui.net>\n"
 "Language: zh_CN\n"
@@ -18,35 +18,35 @@ msgstr ""
 
 #: ../post_type.php:4
 msgid "Show images"
-msgstr ""
+msgstr "轮播图片"
 
 #: ../post_type.php:4
 msgid "Show image"
-msgstr ""
+msgstr "轮播图片"
 
 #: ../post_type.php:4
 msgid "Add Images"
-msgstr ""
+msgstr "添加图片"
 
 #: ../post_type.php:4
 msgid "Add New Images"
-msgstr ""
+msgstr "添加新图片"
 
 #: ../post_type.php:4
 msgid "Edit Image"
-msgstr ""
+msgstr "编辑图片"
 
 #: ../post_type.php:4
 msgid "Add Show image"
-msgstr ""
+msgstr "添加新图片"
 
 #: ../post_type.php:4
 msgid "View Image"
-msgstr ""
+msgstr "查看图片"
 
 #: ../post_type.php:4
 msgid "Search Show images"
-msgstr ""
+msgstr "搜索轮播图"
 
 #: ../post_type.php:4
 msgid "No images found"
