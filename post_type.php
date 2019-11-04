@@ -161,7 +161,6 @@ add_action('admin_menu','xuui_project_video_metabox');
 add_action('save_post','xuui_project_video_save_postdata');
 
 // Project rewrites.
-/*
 function xuui_custom_project_link($link,$post=0){
   if($post->post_type=='project'){
     return home_url('project/'.$post->ID.'.html');
@@ -173,4 +172,4 @@ function xuui_project_rewrites_init(){
   add_rewrite_rule('project/([0-9]+)?.html/comment-page-([0-9]{1,})$','index.php?post_type=project&p=$matches[1]&cpage=$matches[2]','top');
 }
 add_action('init','xuui_project_rewrites_init');
-*/
+
