@@ -125,10 +125,10 @@ function xuui_slide_video_metabox() {
 add_action('admin_menu','xuui_slide_video_metabox');
 add_action('save_post','xuui_slide_video_save_postdata');
 
-
 // Project Video metabox.
 $project_video_meta=array(
   "video"=>array("name"=>"video","std"=>"http://xxx/xxx.mp4","title"=>"请填入作品的视频文件地址:"),
+  "videoimg"=>array("name"=>"videoimg","std"=>"http://xxx/xxx.jpg","title"=>"请填入作品的视频预览图的文件地址:"),
 );
 function xuui_project_video_meta(){
   global $post,$project_video_meta;
@@ -159,4 +159,15 @@ function xuui_project_video_metabox() {
 }
 add_action('admin_menu','xuui_project_video_metabox');
 add_action('save_post','xuui_project_video_save_postdata');
+
+// Project rewrites.
+function xuui_custom_project_link($link,$post=0){
+  if($post->post_type=='project'){
+    return home_url('project/project-'.$post->ID.'.html');
+  }else{return $link;}
+}add_filter('post_type_link','xuui_custom_project_link',1,3);
+function xuui_project_rewrites_init(){
+  add_rewrite_rule('project/project-([0-9]+)?.html$','index.php?post_type=project&p=$matches[1]','top');
+  add_rewrite_rule('project/project-([0-9]+)?.html/comment-page-([0-9]{1,})$','index.php?post_type=project&p=$matches[1]&cpage=$matches[2]','top');
+}add_action('init','xuuproject_rewrites_init');
 
