@@ -2,7 +2,7 @@
 function xuui_post_type(){
   //SlideShow.
   $Show_Image_labels=array('name'=>__('Show images','xuui'),'singular_name'=>__('Show image','xuui'),'add_new'=>__('Add Images','xuui'),'add_new_item'=>__('Add New Images','xuui'),'edit_item'=>__('Edit Image','xuui'),'new_item'=>__('Add Show image','xuui'),'view_item'=>__('View Image','xuui'),'search_items'=>__('Search Show images','xuui'),'not_found'=>__('No images found','xuui'),'not_found_in_trash'=>__('No images found in Trash','xuui'),'parent_item_colon'=>'');
-  $Show_Image_Aargs=array('labels'=>$Show_Image_labels,'public'=>true,'publicly_queryable'=>true,'show_ui'=>true,'query_var'=>true,'rewrite'=>true,'capability_type'=>'post','hierarchical'=>false,'menu_position'=>2,'menu_icon'=>'dashicons-slides','supports'=>array('title','thumbnail'));
+  $Show_Image_Aargs=array('labels'=>$Show_Image_labels,'public'=>true,'publicly_queryable'=>true,'show_ui'=>true,'query_var'=>true,'rewrite'=>false,'capability_type'=>'post','hierarchical'=>false,'menu_position'=>2,'menu_icon'=>'dashicons-slides','supports'=>array('title','thumbnail'));
   register_post_type('slideshow',$Show_Image_Aargs);// SlideShow.end.
 
   //Project.
@@ -164,13 +164,13 @@ add_action('save_post','xuui_project_video_save_postdata');
 /*
 function xuui_custom_project_link($link,$post=0){
   if($post->post_type=='project'){
-    return home_url('project/project-'.$post->ID.'.html');
+    return home_url('project/'.$post->ID.'.html');
   }else{return $link;}
 }
 add_filter('post_type_link','xuui_custom_project_link',1,3);
 function xuui_project_rewrites_init(){
-  add_rewrite_rule('project/project-([0-9]+)?.html$','index.php?post_type=project&p=$matches[1]','top');
-  add_rewrite_rule('project/project-([0-9]+)?.html/comment-page-([0-9]{1,})$','index.php?post_type=project&p=$matches[1]&cpage=$matches[2]','top');
+  add_rewrite_rule('project/([0-9]+)?.html$','index.php?post_type=project&p=$matches[1]','top');
+  add_rewrite_rule('project/([0-9]+)?.html/comment-page-([0-9]{1,})$','index.php?post_type=project&p=$matches[1]&cpage=$matches[2]','top');
 }
-add_action('init','xuuproject_rewrites_init');
+add_action('init','xuui_project_rewrites_init');
 */
