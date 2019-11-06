@@ -19,7 +19,7 @@ p{line-height:24px;}
 #login form p{margin-bottom:16px;}
 
 /* Logo */
-#login{width:auto;padding:0;}
+#login{width:auto;padding:0;box-shadow:0 25px 20px -20px rgba(0,0,0,.3),0 0 15px rgba(0,0,0,.06);}
 #login h1{background:var(--pColor);padding:0 40px;}
 #login h1 a{background:transparent url(login_logo_w.png) no-repeat 0% 50%;/*background-image:url(xuui.svg);*/
 background-size:192px 48px;margin:0 auto;width:auto;height:128px;

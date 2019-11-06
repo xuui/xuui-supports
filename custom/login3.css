@@ -11,7 +11,7 @@ body.login{background:#d8e3e7 no-repeat 50% 100% fixed;background-size:cover;col
 .login form{border-radius:2px;margin-top:0;padding:0;box-shadow:none;}
 
 #login{position:relative;background:#fff url(signbg0.png) no-repeat 0 0;padding:0 76px 0 332px;width:640px;height:360px;
-box-shadow:0 4px 12px 0 rgba(0,0,0,.12);}
+box-shadow:0 25px 20px -20px rgba(0,0,0,.3),0 0 15px rgba(0,0,0,.06);}
 #login form p,.login label{display:block;height:32px;}
 #login form p{margin-bottom:12px;}
 .login label{position:relative;font-size:12px;line-height:1;color:#9a9a9a;color:rgba(0,0,0,0.54);}
