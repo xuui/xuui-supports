@@ -2,4 +2,4 @@
 #login #user_login,#login #user_email,#login #user_pass{background-image:url(login_icon.png);background-image:url(login_icon.svg);background-repeat:no-repeat;background-size:24px 120px;padding-left:24px;}
 #login #user_login{background-position:0 0px;}
 #login #user_email{background-position:0 -40px;}
-#login #user_pass{background-position:0 -79px;}
+#login #user_pass{background-position:0 -80px;}
