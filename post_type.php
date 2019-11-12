@@ -89,7 +89,6 @@ function xuui_slide_image_metabox(){
 add_action('admin_menu','xuui_slide_image_metabox');
 add_action('save_post','xuui_slide_image_save_postdata');
 
-
 // Slide Video metabox.
 $slide_video_meta=array(
   "video"=>array("name"=>"video","std"=>"http://xxx/xxx.mp4","title"=>"视频地址:"),
@@ -109,7 +108,7 @@ function xuui_slide_video_save_postdata($post_id){
   if(!wp_verify_nonce(@$_POST['xuui_slide_video_nonce'],plugin_basename(__FILE__))){return;}
   if(!current_user_can('edit_posts',$post_id)){return;}
   foreach($slide_video_meta as $meta_box){
-    $data=$_POST[$meta_box['name']];
+    $data=@$_POST[$meta_box['name']];
     if($data==""){
       delete_post_meta($post_id,$meta_box['name'],get_post_meta($post_id,$meta_box['name'],true));
     }else{
@@ -127,8 +126,8 @@ add_action('save_post','xuui_slide_video_save_postdata');
 
 // Project Video metabox.
 $project_video_meta=array(
-  "video"=>array("name"=>"video","std"=>"http://xxx/xxx.mp4","title"=>"请填入作品的视频文件地址:"),
-  "videoimg"=>array("name"=>"videoimg","std"=>"http://xxx/xxx.jpg","title"=>"请填入作品的视频预览图的文件地址:"),
+  "video"=>array("name"=>"video","std"=>"http://xxx/xxx.mp4","title"=>"请填入项目的视频文件地址:"),
+  "videoimg"=>array("name"=>"videoimg","std"=>"http://xxx/xxx.jpg","title"=>"请填入项目的视频的预览图地址:"),
 );
 function xuui_project_video_meta(){
   global $post,$project_video_meta;
@@ -144,7 +143,7 @@ function xuui_project_video_save_postdata($post_id){
   if(!wp_verify_nonce(@$_POST['xuui_slide_video_nonce'],plugin_basename(__FILE__))){return;}
   if(!current_user_can('edit_posts',$post_id)){return;}
   foreach($project_video_meta as $meta_box){
-    $data=$_POST[$meta_box['name']];
+    $data=@$_POST[$meta_box['name']];
     if($data==""){
       delete_post_meta($post_id,$meta_box['name'],get_post_meta($post_id,$meta_box['name'],true));
     }else{
