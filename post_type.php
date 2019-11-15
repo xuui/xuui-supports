@@ -1,5 +1,5 @@
 <?php /** Post Type */
-function xuui_post_type(){
+function xuui_postType(){
   /* **
   //register_post_type( $post_type, $args=array() );
   $xuui_type_labels=array(
@@ -72,9 +72,9 @@ function xuui_post_type(){
   */
 
   //SlideShow.
-  $Show_Image_labels=array('name'=>__('Show images','xuui'),'singular_name'=>__('Show image','xuui'),'add_new'=>__('Add Images','xuui'),'add_new_item'=>__('Add New Images','xuui'),'edit_item'=>__('Edit Image','xuui'),'new_item'=>__('Add Show image','xuui'),'view_item'=>__('View Image','xuui'),'search_items'=>__('Search Show images','xuui'),'not_found'=>__('No images found','xuui'),'not_found_in_trash'=>__('No images found in Trash','xuui'),'parent_item_colon'=>'');
-  $Show_Image_Aargs=array('labels'=>$Show_Image_labels,'public'=>true,'publicly_queryable'=>true,'show_ui'=>true,'query_var'=>true,'has_archive'=>true,'rewrite'=>array('slug'=>'slide','with_front'=>true,'pages'=>true),'capability_type'=>'post','hierarchical'=>false,'menu_position'=>2,'menu_icon'=>'dashicons-slides','supports'=>array('title','thumbnail'));
-  register_post_type('slideshow',$Show_Image_Aargs);// SlideShow.end.
+  $slideImage_labels=array('name'=>__('Show images','xuui'),'singular_name'=>__('Show image','xuui'),'add_new'=>__('Add Images','xuui'),'add_new_item'=>__('Add New Images','xuui'),'edit_item'=>__('Edit Image','xuui'),'new_item'=>__('Add Show image','xuui'),'view_item'=>__('View Image','xuui'),'search_items'=>__('Search Show images','xuui'),'not_found'=>__('No images found','xuui'),'not_found_in_trash'=>__('No images found in Trash','xuui'),'parent_item_colon'=>'');
+  $slideImage_Aargs=array('labels'=>$slideImage_labels,'public'=>true,'publicly_queryable'=>true,'show_ui'=>true,'query_var'=>true,'has_archive'=>true,'rewrite'=>array('slug'=>'slide','with_front'=>true,'pages'=>true),'capability_type'=>'post','hierarchical'=>false,'menu_position'=>2,'menu_icon'=>'dashicons-slides','supports'=>array('title','thumbnail'));
+  register_post_type('slideshow',$slideImage_Aargs);// SlideShow.end.
 
   //Project.
   $Project_labels=array('name'=>__('Project','xuui'),'singular_name'=>__('Project','xuui'),'add_new'=>__('Add Project','xuui'),'add_new_item'=>__('Add New Project','xuui'),'edit_item'=>__('Edit Project','xuui'),'new_item'=>__('Add Project','xuui'),'view_item'=>__('View Project','xuui'),'search_items'=>__('Search Project','xuui'),'not_found'=>__('No Project found','xuui'),'not_found_in_trash'=>__('No Project found in Trash','xuui'),'parent_item_colon'=>'');
@@ -102,18 +102,18 @@ function xuui_post_type(){
   ));// Project.end.
 
 }
-add_action('init','xuui_post_type');
+add_action('init','xuui_postType');
 
 // Slide Image metabox.
-$slide_image_meta=array(
+$slideImage_meta=array(
   //"heading"=>array("name"=>"heading","std"=>"这里填图片的标题","title"=>"标题:"),
   "intro"=>array("name"=>"intro","std"=>"这里填图片的简介，30字以内","title"=>"简介:"),
   "link"=>array("name"=>"urlink","std"=>"http:///","title"=>"链接:"),
   "align"=>array("name"=>"align","std"=>"默认左对齐","title"=>"文字对其:")
 );
-function xuui_slide_image_meta(){
-  global $post,$slide_image_meta;
-  foreach($slide_image_meta as $meta_box){
+function xuui_slideImage_meta(){
+  global $post,$slideImage_meta;
+  foreach($slideImage_meta as $meta_box){
     $meta_box_value=get_post_meta($post->ID,$meta_box['name'],true);
     echo '<p>'.$meta_box['title'].'</p>';
     if($meta_box['name']=='align'){
@@ -137,13 +137,13 @@ function xuui_slide_image_meta(){
       echo '<input type="text" name="'.$meta_box['name'].'" value="'.$meta_box_value.'" class="regular-text ltr" placeholder="'.$meta_box['std'].'">';
     }
   }
-  echo '<input type="hidden" name="xuui_slide_image_nonce" id="xuui_slide_image_nonce" value="'.wp_create_nonce( plugin_basename(__FILE__) ).'" />';
+  echo '<input type="hidden" name="xuui_slideImage_nonce" id="xuui_slideImage_nonce" value="'.wp_create_nonce( plugin_basename(__FILE__) ).'" />';
 }
-function xuui_slide_image_save_postdata($post_id){
-  global $slide_image_meta;
-  if(!wp_verify_nonce(@$_POST['xuui_slide_image_nonce'],plugin_basename(__FILE__))){return;}
+function xuui_slideImage_saveData($post_id){
+  global $slideImage_meta;
+  if(!wp_verify_nonce(@$_POST['xuui_slideImage_nonce'],plugin_basename(__FILE__))){return;}
   if(!current_user_can('edit_posts',$post_id)){return;}
-  foreach($slide_image_meta as $meta_box){
+  foreach($slideImage_meta as $meta_box){
     $data=@$_POST[$meta_box['name']];
     if($data==""){
       delete_post_meta($post_id,$meta_box['name'],get_post_meta($post_id,$meta_box['name'],true));
@@ -152,33 +152,33 @@ function xuui_slide_image_save_postdata($post_id){
     }
   }
 }
-function xuui_slide_image_metabox(){
+function xuui_slideImage_metabox(){
   if(function_exists('add_meta_box')){
-    add_meta_box('slide_image_meta','轮播文字','xuui_slide_image_meta','slideshow','normal','high');
+    add_meta_box('slideImage_meta','轮播文字','xuui_slideImage_meta','slideshow','normal','high');
   }
 }
-add_action('admin_menu','xuui_slide_image_metabox');
-add_action('save_post','xuui_slide_image_save_postdata');
+add_action('admin_menu','xuui_slideImage_metabox');
+add_action('save_post','xuui_slideImage_saveData');
 
 // Slide Video metabox.
-$slide_video_meta=array(
+$slideVideo_meta=array(
   "video"=>array("name"=>"video","std"=>"http://xxx/xxx.mp4","title"=>"视频地址:"),
   //"videocol"=>array("name"=>"videocol","std"=>"http://xxx/xxx.mp4","title"=>"视频地址:"),
 );
-function xuui_slide_video_meta(){
-  global $post,$slide_video_meta;
-  foreach($slide_video_meta as $meta_box){
+function xuui_slideVideo_meta(){
+  global $post,$slideVideo_meta;
+  foreach($slideVideo_meta as $meta_box){
     $meta_box_value=get_post_meta($post->ID,$meta_box['name'],true);
     echo '<p>'.$meta_box['title'].'</p>';
     echo '<input type="text" name="'.$meta_box['name'].'" value="'.$meta_box_value.'" class="regular-text ltr" placeholder="'.$meta_box['std'].'">';
   }
-  echo '<input type="hidden" name="xuui_slide_video_nonce" id="xuui_slide_video_nonce" value="'.wp_create_nonce( plugin_basename(__FILE__) ).'" />';
+  echo '<input type="hidden" name="xuui_slideVideo_nonce" id="xuui_slideVideo_nonce" value="'.wp_create_nonce( plugin_basename(__FILE__) ).'" />';
 }
-function xuui_slide_video_save_postdata($post_id){
-  global $slide_video_meta;
-  if(!wp_verify_nonce(@$_POST['xuui_slide_video_nonce'],plugin_basename(__FILE__))){return;}
+function xuui_slideVideo_saveData($post_id){
+  global $slideVideo_meta;
+  if(!wp_verify_nonce(@$_POST['xuui_slideVideo_nonce'],plugin_basename(__FILE__))){return;}
   if(!current_user_can('edit_posts',$post_id)){return;}
-  foreach($slide_video_meta as $meta_box){
+  foreach($slideVideo_meta as $meta_box){
     $data=@$_POST[$meta_box['name']];
     if($data==""){
       delete_post_meta($post_id,$meta_box['name'],get_post_meta($post_id,$meta_box['name'],true));
@@ -187,33 +187,33 @@ function xuui_slide_video_save_postdata($post_id){
     }
   }
 }
-function xuui_slide_video_metabox() {
+function xuui_slideVideo_metabox() {
   if(function_exists('add_meta_box')){
-    add_meta_box('slide_video_meta','轮播视频','xuui_slide_video_meta','slideshow','normal','high');
+    add_meta_box('slideVideo_meta','轮播视频','xuui_slideVideo_meta','slideshow','normal','high');
   }
 }
-add_action('admin_menu','xuui_slide_video_metabox');
-add_action('save_post','xuui_slide_video_save_postdata');
+add_action('admin_menu','xuui_slideVideo_metabox');
+add_action('save_post','xuui_slideVideo_saveData');
 
 // Project Video metabox.
-$project_video_meta=array(
+$projectVideo_meta=array(
   "video"=>array("name"=>"video","std"=>"http://xxx/xxx.mp4","title"=>"请填入项目的视频文件地址:"),
   "videoimg"=>array("name"=>"videoimg","std"=>"http://xxx/xxx.jpg","title"=>"请填入项目的视频的预览图地址:"),
 );
-function xuui_project_video_meta(){
-  global $post,$project_video_meta;
-  foreach($project_video_meta as $meta_box){
+function xuui_projectVideo_meta(){
+  global $post,$projectVideo_meta;
+  foreach($projectVideo_meta as $meta_box){
     $meta_box_value=get_post_meta($post->ID,$meta_box['name'],true);
     echo '<p>'.$meta_box['title'].'</p>';
     echo '<input type="text" name="'.$meta_box['name'].'" value="'.$meta_box_value.'" class="regular-text ltr" placeholder="'.$meta_box['std'].'">';
   }
-  echo '<input type="hidden" name="xuui_slide_video_nonce" id="xuui_slide_video_nonce" value="'.wp_create_nonce( plugin_basename(__FILE__) ).'" />';
+  echo '<input type="hidden" name="xuui_projectVideo_nonce" id="xuui_projectVideo_nonce" value="'.wp_create_nonce( plugin_basename(__FILE__) ).'" />';
 }
-function xuui_project_video_save_postdata($post_id){
-  global $project_video_meta;
-  if(!wp_verify_nonce(@$_POST['xuui_slide_video_nonce'],plugin_basename(__FILE__))){return;}
+function xuui_projectVideo_saveData($post_id){
+  global $projectVideo_meta;
+  if(!wp_verify_nonce(@$_POST['xuui_projectVideo_nonce'],plugin_basename(__FILE__))){return;}
   if(!current_user_can('edit_posts',$post_id)){return;}
-  foreach($project_video_meta as $meta_box){
+  foreach($projectVideo_meta as $meta_box){
     $data=@$_POST[$meta_box['name']];
     if($data==""){
       delete_post_meta($post_id,$meta_box['name'],get_post_meta($post_id,$meta_box['name'],true));
@@ -222,13 +222,13 @@ function xuui_project_video_save_postdata($post_id){
     }
   }
 }
-function xuui_project_video_metabox() {
+function xuui_projectVideo_metabox() {
   if(function_exists('add_meta_box')){
-    add_meta_box('project_video_meta','轮播视频','xuui_project_video_meta','project','normal','high');
+    add_meta_box('projectVideo_meta','轮播视频','xuui_projectVideo_meta','project','normal','high');
   }
 }
-add_action('admin_menu','xuui_project_video_metabox');
-add_action('save_post','xuui_project_video_save_postdata');
+add_action('admin_menu','xuui_projectVideo_metabox');
+add_action('save_post','xuui_projectVideo_saveData');
 
 
 /**
@@ -238,8 +238,8 @@ $xuui_types=array(
   'slideshow'=>'slideshow',
   'project'=>'project'
 );
-add_filter('post_type_link','my_custom_post_type_link',1,3);
-function my_custom_post_type_link( $link, $post = 0 ){
+add_filter('post_type_link','xuui_postType_link',1,3);
+function xuui_postType_link( $link, $post = 0 ){
   global $xuui_types;
   if(in_array($post->post_type,array_keys($xuui_types))){
     return home_url($xuui_types[$post->post_type].'/'.$post->ID.'.html');
@@ -247,8 +247,8 @@ function my_custom_post_type_link( $link, $post = 0 ){
     return $link;
   }
 }
-add_action('init','my_custom_post_type_rewrites_init');
-function my_custom_post_type_rewrites_init(){
+add_action('init','xuui_postType_rewritesInit');
+function xuui_postType_rewritesInit(){
   global $xuui_types;
   foreach($xuui_types as $type=>$slug){
     add_rewrite_rule($slug.'/([0-9]+)?.html$','index.php?post_type='.$type.'&p=$matches[1]','top');
