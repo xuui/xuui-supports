@@ -6,7 +6,8 @@
 /* Wordpress 实用功能增强. */
 
 // Add Link Manager.
-add_filter('pre_option_link_manager_enabled','__return_true');
+//add_filter('pre_option_link_manager_enabled','__return_true');
+
 
 // WordPress MU 分类上限为：20.
 /*
@@ -48,6 +49,7 @@ add_filter('show_password_fields',function($status,$profileuser){
 */
 
 // 支持上传 SVG 图片.
+/*
 add_filter('upload_mimes',function($mimes=array()){
   $mimes['svg']='image/svg+xml';
   return $mimes;
@@ -89,6 +91,7 @@ function xuui_id_manage_posts_custom_column($column_name,$id){
 */
 
 // 按照用户注册时间排序.
+/*
 add_filter('manage_users_columns','xuui_add_users_column_reg_time');
 add_filter('manage_users_custom_column','xuui_show_users_column_reg_time',11,3);
 add_filter('manage_users_sortable_columns','xuui_users_sortable_columns');
@@ -209,4 +212,3 @@ function xuui_remove_editor_menu(){
 }
 add_action('_admin_menu','xuui_remove_editor_menu',1);
 */
-?>
