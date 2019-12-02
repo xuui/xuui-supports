@@ -116,7 +116,19 @@ add_action('admin_menu',function(){
   remove_action('post_updated',array( 'WP_Privacy_Policy_Content','_policy_page_updated'));
 },9);
 */
-
+/*
+//移除后台界面右上角的帮助
+add_action('in_admin_header',function(){
+	global $current_screen;
+	$current_screen->remove_help_tabs();
+});
+//移除后台界面右上角的选项
+add_action('in_admin_header',function(){
+	add_filter('screen_options_show_screen','__return_false');
+	add_filter('hidden_columns','__return_empty_array');
+});
+*/
+/*
 //防止上传的图片重名，加上时间戳
 function xuui_handle_upload_prefilter($file){
   if(strlen($file['name'])<=7){$file['name']=time().'-'.$file['name'];}
@@ -124,6 +136,7 @@ function xuui_handle_upload_prefilter($file){
 };
 add_filter('wp_handle_upload_prefilter','xuui_handle_upload_prefilter');
 
+/*
 //隐藏登录失败未知用户名和密码不正确的错误信息.
 add_filter('wp_login_errors',function($errors){
 	$error_code	= $errors->get_error_code();
@@ -133,7 +146,8 @@ add_filter('wp_login_errors',function($errors){
 	}
 	return $errors;
 });
-
+*/
+/*
 //后台文章列表搜索支持 ID.
 add_filter('posts_clauses',function($clauses,$wp_query){
 	if($wp_query->is_main_query() && $wp_query->is_search()){
