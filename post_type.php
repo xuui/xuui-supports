@@ -1,6 +1,9 @@
 <?php /** Post Type */
 function xuui_postType(){
-  /* **
+  /**
+   * register_post_type.
+   */
+  /*
   //register_post_type( $post_type, $args=array() );
   $xuui_type_labels=array(
     'name'=>'xuui',
