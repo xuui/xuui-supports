@@ -5,9 +5,9 @@ https://blog.wpjam.com/tag/wordpress-tips/
 WordPress 技巧：获取未打标签的文章
 -
 -
-WordPress 技巧：后台文章列表添加排序选项
+-
 WordPress 技巧：后台文章列表添加自定义分类筛选
-WordPress 技巧：彻底关闭 WordPress 自动更新和后台更新检查
+-
 WordPress 技巧：显示后台的远程请求
 WordPress 技巧：在后台插入图片时候，尺寸选择框只保留完整尺寸格式。
 WordPress 技巧：屏蔽站点管理员邮箱验证功能

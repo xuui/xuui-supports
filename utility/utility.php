@@ -4,6 +4,7 @@
  * @version 1.0
  */
 /* Wordpress 实用功能增强. */
+require_once(XUUI_PLUGIN_DIR.'utility/utility-function.php');
 
 // Add Link Manager.
 add_filter('pre_option_link_manager_enabled','__return_true');
@@ -91,6 +92,32 @@ add_action('restrict_manage_posts',function($post_type){
     'selected'=>$_REQUEST['author']?? 0
   ]);}
 });
+
+// 后台文章列表添加排序选项
+add_action('restrict_manage_posts',function($post_type){
+	global $wp_list_table;
+	list($columns,$hidden,$sortable_columns,$primary)=$wp_list_table->get_column_info();
+	foreach($sortable_columns as $sortable_column=>$data){
+		if(isset($columns[$sortable_column])){
+			$orderby_options[$sortable_column]=$columns[$sortable_column];
+		}
+	}
+	echo xuui_get_field_html([
+		'title'=>'',
+		'key'=>'orderby',
+		'type'=>'select',
+		'value'=>$_REQUEST['orderby'] ?? '',
+		'options'=>$orderby_options
+	]);
+	echo xuui_get_field_html([
+		'title'=>'',
+		'key'=>'order',
+		'type'=>'select',
+		'value'=>$_REQUEST['order'] ?? 'DESC',
+		'options'=>['desc'=>'降序','asc'=>'升序']
+	]);
+});
+
 
 
 // WordPress MU 分类上限为：20.
