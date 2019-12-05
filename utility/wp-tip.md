@@ -1,6 +1,8 @@
 # WordPress果酱 » WordPress 技巧
 https://blog.wpjam.com/tag/wordpress-tips/
 
+2019-12-05
+
 ```
 WordPress 技巧：获取未打标签的文章
 -
@@ -75,7 +77,7 @@ WordPress 技巧：正确获取文章摘要
 同个服务器多个 WordPress 网站怎么同时使用 Memcached
 使用内存缓存优化 WordPress 文章浏览统计效率
 WordPress 技巧：移除 WordPress 的 Admin Bar
-WordPress 技巧：屏蔽字符转码
+-
 -
 WordPress 技巧：WP_Query 如何同时使用 meta_key 和 ID 或 date 进行排序
 WordPress 出现了页面空白或者其他500问题，如何 Debug。

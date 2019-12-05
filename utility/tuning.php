@@ -100,6 +100,9 @@ add_filter('use_block_editor_for_post_type','__return_false');
 remove_action('plugins_loaded','wp_maybe_load_widgets',0);
 remove_action('init','wp_widgets_init',1);
 
+// 屏蔽字符转码.
+add_filter('run_wptexturize','__return_false');
+
 // 移除后台隐私相关的页面 for China.
 /*
 add_action('admin_menu',function(){
