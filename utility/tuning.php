@@ -93,6 +93,9 @@ remove_filter('oembed_response_data','get_oembed_response_data_rich',10,4);
 remove_action('wp_head','wp_oembed_add_discovery_links');
 remove_action('wp_head','wp_oembed_add_host_js');
 
+// 屏蔽 Gutenberg 编辑器.
+add_filter('use_block_editor_for_post_type','__return_false');
+
 // 移除后台隐私相关的页面 for China.
 /*
 add_action('admin_menu',function(){
@@ -153,9 +156,10 @@ add_filter('posts_clauses',function($clauses,$wp_query){
 },2,2);
 
 */
+
 //屏蔽站点Feed.
 function wpjam_feed_disabled(){
-	wp_die('Feed已经关闭, 请访问网站<a href="'.get_bloginfo('url').'">首页</a>！');
+	wp_die('Feed 已经关闭, 请访问网站<a href="'.get_bloginfo('url').'">首页</a>！');
 }
 add_action('do_feed','wpjam_feed_disabled',1);
 add_action('do_feed_rdf','wpjam_feed_disabled',1);
