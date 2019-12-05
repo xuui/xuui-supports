@@ -21,49 +21,59 @@ add_filter('wp_login_errors',function($errors){
 
 // 防止暴露用户名
 add_filter('author_link',function($link,$author_id,$author_nicename){
-	$author=get_userdata($author_id);
-	if(sanitize_title($author->user_login)==$author_nicename){
-		global $wp_rewrite;
-		$link=$wp_rewrite->get_author_permastruct();
-		$link=str_replace('%author%', $author_id, $link);
-		$link=home_url(user_trailingslashit($link));
-	}
-	return $link;
+  $author=get_userdata($author_id);
+  if(sanitize_title($author->user_login)==$author_nicename){
+    global $wp_rewrite;
+    $link=$wp_rewrite->get_author_permastruct();
+    $link=str_replace('%author%', $author_id, $link);
+    $link=home_url(user_trailingslashit($link));
+  }
+  return $link;
 },10,3);
 add_action('pre_get_posts',function($wp_query){
-	if($wp_query->is_main_query()&& $wp_query->is_author()){
-		if($author_name=$wp_query->get('author_name')){
-			$author_name=sanitize_title_for_query($author_name);
-			$author=get_user_by('slug',$author_name);
-			if($author){if(sanitize_title($author->user_login)==$author->user_nicename){
-					$wp_query->set_404();
-			}}else{
-				if(is_numeric($author_name)){
-					$wp_query->set('author_name','');
-					$wp_query->set('author',$author_name);
-				}
-			}
-		}
-	}
+  if($wp_query->is_main_query()&& $wp_query->is_author()){
+    if($author_name=$wp_query->get('author_name')){
+      $author_name=sanitize_title_for_query($author_name);
+      $author=get_user_by('slug',$author_name);
+      if($author){if(sanitize_title($author->user_login)==$author->user_nicename){
+          $wp_query->set_404();
+      }}else{
+        if(is_numeric($author_name)){
+          $wp_query->set('author_name','');
+          $wp_query->set('author',$author_name);
+        }
+      }
+    }
+  }
 });
 add_filter('body_class',function($classes){
-	if(is_author()){
-		global $wp_query;
-		$author=$wp_query->get_queried_object();
-		if(sanitize_title($author->user_login)==$author->user_nicename){
-			$author_class='author-'.sanitize_html_class($author->user_nicename,$author->ID);
-			$classes=array_diff($classes,[$author_class]);
-		}
-	}
-	return $classes;
+  if(is_author()){
+    global $wp_query;
+    $author=$wp_query->get_queried_object();
+    if(sanitize_title($author->user_login)==$author->user_nicename){
+      $author_class='author-'.sanitize_html_class($author->user_nicename,$author->ID);
+      $classes=array_diff($classes,[$author_class]);
+    }
+  }
+  return $classes;
 });
 add_filter('comment_class',function($classes){
-	foreach($classes as $key=>$class){
-		if(strstr($class,'comment-author-')){unset($classes[$key]);}
-	}
-	return $classes;
+  foreach($classes as $key=>$class){
+    if(strstr($class,'comment-author-')){unset($classes[$key]);}
+  }
+  return $classes;
 });
 
+// 管理员快速登录其他用户账户
+add_filter('user_row_actions',function($actions,$user){
+  $capability=(is_multisite())?'manage_site':'manage_options';
+  if(current_user_can($capability)){$actions['login_as']='<a title="以此身份登陆" href="'.wp_nonce_url("users.php?action=login_as&users=$user->ID",'bulk-users').'">以此身份登陆</a>';}
+  return $actions;
+},10,2);
+add_filter('handle_bulk_actions-users',function($sendback,$action,$user_ids){
+  if($action=='login_as'){wp_set_auth_cookie($user_ids,true);wp_set_current_user($user_ids);}
+  return admin_url();
+},10,3);
 
 // 去掉编辑器的 srcset
 function xuui_disable_srcset($sources){return false;}
@@ -71,21 +81,21 @@ add_filter('wp_calculate_image_srcset','xuui_disable_srcset');
 
 // 后台文章列表搜索支持 ID
 add_filter('posts_clauses',function($clauses,$wp_query){
-	if($wp_query->is_main_query() && $wp_query->is_search()){
-		global $wpdb;
-		$search_term=$wp_query->query['s'];
-		if(is_numeric($search_term)){
-			$clauses['where']=str_replace('('.$wpdb->posts.'.post_title LIKE','('.$wpdb->posts.'.ID='.$search_term.') OR ('.$wpdb->posts.'.post_title LIKE', $clauses['where']);
-		}elseif(preg_match("/^(d+)(,s*d+)*$/", $search_term)){
-			$clauses['where']=str_replace('('.$wpdb->posts.'.post_title LIKE','('.$wpdb->posts.'.ID in ('.$search_term.')) OR ('.$wpdb->posts.'.post_title LIKE', $clauses['where']);
-		}
-	}
-	return $clauses;
+  if($wp_query->is_main_query() && $wp_query->is_search()){
+    global $wpdb;
+    $search_term=$wp_query->query['s'];
+    if(is_numeric($search_term)){
+      $clauses['where']=str_replace('('.$wpdb->posts.'.post_title LIKE','('.$wpdb->posts.'.ID='.$search_term.') OR ('.$wpdb->posts.'.post_title LIKE', $clauses['where']);
+    }elseif(preg_match("/^(d+)(,s*d+)*$/", $search_term)){
+      $clauses['where']=str_replace('('.$wpdb->posts.'.post_title LIKE','('.$wpdb->posts.'.ID in ('.$search_term.')) OR ('.$wpdb->posts.'.post_title LIKE', $clauses['where']);
+    }
+  }
+  return $clauses;
 },2,2);
 
 // 后台文章列表添加作者筛选
 add_action('restrict_manage_posts',function($post_type){
-	if(post_type_supports($post_type,'author')){wp_dropdown_users([
+  if(post_type_supports($post_type,'author')){wp_dropdown_users([
     'name'=>'author','who'=>'authors',
     'show_option_all'=>'所有作者',
     'hide_if_only_one_author'=>true,
@@ -95,50 +105,50 @@ add_action('restrict_manage_posts',function($post_type){
 
 // 后台文章列表添加排序选项
 add_action('restrict_manage_posts',function($post_type){
-	global $wp_list_table;
-	list($columns,$hidden,$sortable_columns,$primary)=$wp_list_table->get_column_info();
-	foreach($sortable_columns as $sortable_column=>$data){
-		if(isset($columns[$sortable_column])){
-			$orderby_options[$sortable_column]=$columns[$sortable_column];
-		}
-	}
-	echo xuui_get_field_html([
-		'title'=>'',
-		'key'=>'orderby',
-		'type'=>'select',
-		'value'=>$_REQUEST['orderby'] ?? '',
-		'options'=>$orderby_options
-	]);
-	echo xuui_get_field_html([
-		'title'=>'',
-		'key'=>'order',
-		'type'=>'select',
-		'value'=>$_REQUEST['order'] ?? 'DESC',
-		'options'=>['desc'=>'降序','asc'=>'升序']
-	]);
+  global $wp_list_table;
+  list($columns,$hidden,$sortable_columns,$primary)=$wp_list_table->get_column_info();
+  foreach($sortable_columns as $sortable_column=>$data){
+    if(isset($columns[$sortable_column])){
+      $orderby_options[$sortable_column]=$columns[$sortable_column];
+    }
+  }
+  echo xuui_get_field_html([
+    'title'=>'',
+    'key'=>'orderby',
+    'type'=>'select',
+    'value'=>$_REQUEST['orderby'] ?? '',
+    'options'=>$orderby_options
+  ]);
+  echo xuui_get_field_html([
+    'title'=>'',
+    'key'=>'order',
+    'type'=>'select',
+    'value'=>$_REQUEST['order'] ?? 'DESC',
+    'options'=>['desc'=>'降序','asc'=>'升序']
+  ]);
 });
 
 // 后台文章列表添加自定义分类筛选
 add_action('restrict_manage_posts',function($post_type){
-	if($taxonomies=get_object_taxonomies($post_type,'objects')){
-		foreach($taxonomies as $taxonomy){
-			if(empty($taxonomy->hierarchical) || empty($taxonomy->show_admin_column)){continue;}
-			if($taxonomy->name=='category'){$taxonomy_key='cat';}else{$taxonomy_key=$taxonomy->name.'_id';}
-			$selected=0;
-			if(!empty($_REQUEST[$taxonomy_key])){
-				$selected=$_REQUEST[$taxonomy_key];
-			}elseif(!empty($_REQUEST['taxonomy']) && ($_REQUEST['taxonomy']==$taxonomy->name) && !empty($_REQUEST['term'])){
-				if($term=get_term_by('slug', $_REQUEST['term'], $taxonomy->name)){$selected=$term->term_id;}
-			}elseif(!empty($taxonomy->query_var) && !empty($_REQUEST[$taxonomy->query_var])){
-				if($term=get_term_by('slug', $_REQUEST[$taxonomy->query_var], $taxonomy->name)){$selected=$term->term_id;}
-			}
-			wp_dropdown_categories(array(
-				'taxonomy'=>$taxonomy->name,'show_option_all'=>$taxonomy->labels->all_items,
-				'show_option_none'=>'没有设置',
-				'hide_if_empty'=>true,'hide_empty'=>0,'hierarchical'=>1,'show_count'=>0,'orderby'=>'name','name'=>$taxonomy_key,'selected'=>$selected
-			));
-		}
-	}
+  if($taxonomies=get_object_taxonomies($post_type,'objects')){
+    foreach($taxonomies as $taxonomy){
+      if(empty($taxonomy->hierarchical) || empty($taxonomy->show_admin_column)){continue;}
+      if($taxonomy->name=='category'){$taxonomy_key='cat';}else{$taxonomy_key=$taxonomy->name.'_id';}
+      $selected=0;
+      if(!empty($_REQUEST[$taxonomy_key])){
+        $selected=$_REQUEST[$taxonomy_key];
+      }elseif(!empty($_REQUEST['taxonomy']) && ($_REQUEST['taxonomy']==$taxonomy->name) && !empty($_REQUEST['term'])){
+        if($term=get_term_by('slug', $_REQUEST['term'], $taxonomy->name)){$selected=$term->term_id;}
+      }elseif(!empty($taxonomy->query_var) && !empty($_REQUEST[$taxonomy->query_var])){
+        if($term=get_term_by('slug', $_REQUEST[$taxonomy->query_var], $taxonomy->name)){$selected=$term->term_id;}
+      }
+      wp_dropdown_categories(array(
+        'taxonomy'=>$taxonomy->name,'show_option_all'=>$taxonomy->labels->all_items,
+        'show_option_none'=>'没有设置',
+        'hide_if_empty'=>true,'hide_empty'=>0,'hierarchical'=>1,'show_count'=>0,'orderby'=>'name','name'=>$taxonomy_key,'selected'=>$selected
+      ));
+    }
+  }
 });
 
 
@@ -324,18 +334,18 @@ function xuui_sanitize_user_no_admin($username,$raw_username,$strict){
 
 //管理员快速登录其他用户账户
 add_filter('user_row_actions',function($actions,$user){
-	$capability=(is_multisite())?'manage_site':'manage_options';
-	if(current_user_can($capability)){
-		$actions['login_as']='<a title="以此身份登陆" href="'.wp_nonce_url("users.php?action=login_as&users=$user->ID", 'bulk-users').'">以此身份登陆</a>';
-	}
-	return $actions;
+  $capability=(is_multisite())?'manage_site':'manage_options';
+  if(current_user_can($capability)){
+    $actions['login_as']='<a title="以此身份登陆" href="'.wp_nonce_url("users.php?action=login_as&users=$user->ID", 'bulk-users').'">以此身份登陆</a>';
+  }
+  return $actions;
 },10,2);
 add_filter('handle_bulk_actions-users',function($sendback,$action,$user_ids){
-	if($action=='login_as'){
-		wp_set_auth_cookie($user_ids,true);
-		wp_set_current_user($user_ids);
-	}
-	return admin_url();
+  if($action=='login_as'){
+    wp_set_auth_cookie($user_ids,true);
+    wp_set_current_user($user_ids);
+  }
+  return admin_url();
 },10,3);
 
 //移除 WordPress 后台的主题编辑器

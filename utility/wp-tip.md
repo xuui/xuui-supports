@@ -28,7 +28,7 @@ WordPress 技巧：限制素材数量
 WordPress 技巧：限制文章数量
 WordPress 技巧：限制分类数量
 WordPress 技巧：彻底关闭全高度编辑器和免打扰功能。
-WordPress 技巧：管理员快速登录其他用户账户
+-
 WordPress 技巧：简化 WordPress 后台用户名称设置
 在 WordPress 后台如何使用颜色选择器
 WordPress 技巧：屏蔽 DEMO 账号修改密码
