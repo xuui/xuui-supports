@@ -76,7 +76,7 @@ WordPress 技巧：正确获取文章摘要
 使用内存缓存优化 WordPress 文章浏览统计效率
 WordPress 技巧：移除 WordPress 的 Admin Bar
 WordPress 技巧：屏蔽字符转码
-WordPress 技巧：彻底取消 Widget
+-
 WordPress 技巧：WP_Query 如何同时使用 meta_key 和 ID 或 date 进行排序
 WordPress 出现了页面空白或者其他500问题，如何 Debug。
 WordPress 技巧：修正自定义文章类型更新提示

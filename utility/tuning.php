@@ -93,8 +93,12 @@ remove_filter('oembed_response_data','get_oembed_response_data_rich',10,4);
 remove_action('wp_head','wp_oembed_add_discovery_links');
 remove_action('wp_head','wp_oembed_add_host_js');
 
-// 屏蔽 Gutenberg 编辑器.
+// 屏蔽 Gutenberg 编辑器.cms.
 add_filter('use_block_editor_for_post_type','__return_false');
+
+// 彻底取消 Widget.cms.
+remove_action('plugins_loaded','wp_maybe_load_widgets',0);
+remove_action('init','wp_widgets_init',1);
 
 // 移除后台隐私相关的页面 for China.
 /*
