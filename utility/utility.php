@@ -68,6 +68,19 @@ add_filter('comment_class',function($classes){
 function xuui_disable_srcset($sources){return false;}
 add_filter( 'wp_calculate_image_srcset','xuui_disable_srcset');
 
+// 后台文章列表搜索支持 ID
+add_filter('posts_clauses',function($clauses,$wp_query){
+	if($wp_query->is_main_query() && $wp_query->is_search()){
+		global $wpdb;
+		$search_term=$wp_query->query['s'];
+		if(is_numeric($search_term)){
+			$clauses['where']=str_replace('('.$wpdb->posts.'.post_title LIKE','('.$wpdb->posts.'.ID = '.$search_term.') OR ('.$wpdb->posts.'.post_title LIKE', $clauses['where']);
+		}elseif(preg_match("/^(d+)(,s*d+)*$/", $search_term)){
+			$clauses['where']=str_replace('('.$wpdb->posts.'.post_title LIKE','('.$wpdb->posts.'.ID in ('.$search_term.')) OR ('.$wpdb->posts.'.post_title LIKE', $clauses['where']);
+		}
+	}
+	return $clauses;
+},2,2);
 
 // WordPress MU 分类上限为：20.
 /*

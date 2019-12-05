@@ -3,7 +3,7 @@ https://blog.wpjam.com/tag/wordpress-tips/
 
 ```
 WordPress 技巧：获取未打标签的文章
-WordPress 技巧：后台文章列表搜索支持 ID
+-
 WordPress 技巧：后台文章列表添加作者筛选
 WordPress 技巧：后台文章列表添加排序选项
 WordPress 技巧：后台文章列表添加自定义分类筛选
@@ -11,16 +11,16 @@ WordPress 技巧：彻底关闭 WordPress 自动更新和后台更新检查
 WordPress 技巧：显示后台的远程请求
 WordPress 技巧：在后台插入图片时候，尺寸选择框只保留完整尺寸格式。
 WordPress 技巧：屏蔽站点管理员邮箱验证功能
-WordPress 技巧：移除后台界面右上角的选项
-WordPress 技巧：移除后台界面右上角的帮助
-WordPress 技巧：屏蔽站点Feed
-
+-
+-
+-
+-
 使用内存缓存优化 WordPress 文章编辑锁定功能
 使用内存缓存优化 WordPress 主循环，实现首页 0 SQL
 使用内存缓存优化 WordPress 后台媒体库加载
 优化多用户博客 WordPress 文章列表页加载
 使用内存缓存优化 WordPress 防止暴力破解密码功能
-WordPress 技巧：防止用户名暴露
+-
 WordPress 技巧：重置 WordPress 所有的用户角色和权限
 WordPress 技巧：如何防止网站标题中的 “-” 被转义成 “& #8211;”
 WordPress 技巧：如何去掉分类目录 URL 中的 category
