@@ -82,6 +82,17 @@ add_filter('posts_clauses',function($clauses,$wp_query){
 	return $clauses;
 },2,2);
 
+// 后台文章列表添加作者筛选
+add_action('restrict_manage_posts',function($post_type){
+	if(post_type_supports($post_type,'author')){wp_dropdown_users([
+    'name'=>'author','who'=>'authors',
+    'show_option_all'=>'所有作者',
+    'hide_if_only_one_author'=>true,
+    'selected'=>$_REQUEST['author']?? 0
+  ]);}
+});
+
+
 // WordPress MU 分类上限为：20.
 /*
 add_filter('pre_insert_term',function($term,$taxonomy){
