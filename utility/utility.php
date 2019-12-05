@@ -11,7 +11,7 @@ add_filter('pre_option_link_manager_enabled','__return_true');
 
 // 隐藏登录失败未知用户名和密码不正确的错误信息.
 add_filter('wp_login_errors',function($errors){
-  $error_code	= $errors->get_error_code();
+  $error_code=$errors->get_error_code();
   if(in_array($error_code,['invalid_username','invalid_email','incorrect_password'])){
   $errors->remove($error_code);
     $errors->add($error_code,'用户名或者密码错误。');
@@ -67,7 +67,7 @@ add_filter('comment_class',function($classes){
 
 // 去掉编辑器的 srcset
 function xuui_disable_srcset($sources){return false;}
-add_filter( 'wp_calculate_image_srcset','xuui_disable_srcset');
+add_filter('wp_calculate_image_srcset','xuui_disable_srcset');
 
 // 后台文章列表搜索支持 ID
 add_filter('posts_clauses',function($clauses,$wp_query){
@@ -75,7 +75,7 @@ add_filter('posts_clauses',function($clauses,$wp_query){
 		global $wpdb;
 		$search_term=$wp_query->query['s'];
 		if(is_numeric($search_term)){
-			$clauses['where']=str_replace('('.$wpdb->posts.'.post_title LIKE','('.$wpdb->posts.'.ID = '.$search_term.') OR ('.$wpdb->posts.'.post_title LIKE', $clauses['where']);
+			$clauses['where']=str_replace('('.$wpdb->posts.'.post_title LIKE','('.$wpdb->posts.'.ID='.$search_term.') OR ('.$wpdb->posts.'.post_title LIKE', $clauses['where']);
 		}elseif(preg_match("/^(d+)(,s*d+)*$/", $search_term)){
 			$clauses['where']=str_replace('('.$wpdb->posts.'.post_title LIKE','('.$wpdb->posts.'.ID in ('.$search_term.')) OR ('.$wpdb->posts.'.post_title LIKE', $clauses['where']);
 		}
@@ -118,6 +118,28 @@ add_action('restrict_manage_posts',function($post_type){
 	]);
 });
 
+// 后台文章列表添加自定义分类筛选
+add_action('restrict_manage_posts',function($post_type){
+	if($taxonomies=get_object_taxonomies($post_type,'objects')){
+		foreach($taxonomies as $taxonomy){
+			if(empty($taxonomy->hierarchical) || empty($taxonomy->show_admin_column)){continue;}
+			if($taxonomy->name=='category'){$taxonomy_key='cat';}else{$taxonomy_key=$taxonomy->name.'_id';}
+			$selected=0;
+			if(!empty($_REQUEST[$taxonomy_key])){
+				$selected=$_REQUEST[$taxonomy_key];
+			}elseif(!empty($_REQUEST['taxonomy']) && ($_REQUEST['taxonomy']==$taxonomy->name) && !empty($_REQUEST['term'])){
+				if($term=get_term_by('slug', $_REQUEST['term'], $taxonomy->name)){$selected=$term->term_id;}
+			}elseif(!empty($taxonomy->query_var) && !empty($_REQUEST[$taxonomy->query_var])){
+				if($term=get_term_by('slug', $_REQUEST[$taxonomy->query_var], $taxonomy->name)){$selected=$term->term_id;}
+			}
+			wp_dropdown_categories(array(
+				'taxonomy'=>$taxonomy->name,'show_option_all'=>$taxonomy->labels->all_items,
+				'show_option_none'=>'没有设置',
+				'hide_if_empty'=>true,'hide_empty'=>0,'hierarchical'=>1,'show_count'=>0,'orderby'=>'name','name'=>$taxonomy_key,'selected'=>$selected
+			));
+		}
+	}
+});
 
 
 // WordPress MU 分类上限为：20.
@@ -195,7 +217,7 @@ function xuui_id_manage_posts_columns($columns){
   return $columns;
 }
 function xuui_id_manage_posts_custom_column($column_name,$id){
-  if (@$column_name =='post_id'){
+  if (@$column_name=='post_id'){
     echo $id;
   }
 }
@@ -226,7 +248,7 @@ function xuui_users_sortable_columns($sortable_columns){
 function xuui_users_search_order($obj){
   if(!isset($_REQUEST['orderby']) || $_REQUEST['orderby']=='reg_time'){
     if(!in_array(@$_REQUEST['order'],array('asc','desc'))){$_REQUEST['order']='desc';}
-    $obj->query_orderby ="ORDER BY user_registered ".$_REQUEST['order']."";
+    $obj->query_orderby="ORDER BY user_registered ".$_REQUEST['order']."";
   }
 }
 
@@ -271,7 +293,7 @@ add_action('personal_options_update','xuui_edit_user_profile_update');
 add_action('edit_user_profile_update','xuui_edit_user_profile_update');
 function xuui_edit_user_profile_update($user_id){
   if(!current_user_can('edit_user',$user_id)){return false;}
-  $user = get_userdata($user_id);
+  $user=get_userdata($user_id);
   $_POST['nickname']=($_POST['nickname'])?:$user->user_login;
   $_POST['display_name']=$_POST['nickname'];
   $_POST['first_name']='';
@@ -282,9 +304,9 @@ function xuui_edit_user_profile_update($user_id){
 add_action('posts_search',function($search,$query){
   global $wpdb;
   if($query->is_main_query() && !empty($query->query['s'])){
-    $sql=" OR EXISTS (SELECT * FROM {$wpdb->postmeta} WHERE post_id={$wpdb->posts}.ID and meta_key = 'product_id' and meta_value like %s)";
+    $sql=" OR EXISTS (SELECT * FROM {$wpdb->postmeta} WHERE post_id={$wpdb->posts}.ID and meta_key='product_id' and meta_value like %s)";
     $like='%'.$wpdb->esc_like($query->query['s']).'%';
-    $search.= $wpdb->prepare($sql,$like);
+    $search.=$wpdb->prepare($sql,$like);
   }
   return $search;
 },2,2);
