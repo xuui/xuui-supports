@@ -4,7 +4,7 @@ https://blog.wpjam.com/tag/wordpress-tips/
 ```
 WordPress 技巧：获取未打标签的文章
 -
-WordPress 技巧：后台文章列表添加作者筛选
+-
 WordPress 技巧：后台文章列表添加排序选项
 WordPress 技巧：后台文章列表添加自定义分类筛选
 WordPress 技巧：彻底关闭 WordPress 自动更新和后台更新检查
