@@ -3,11 +3,11 @@ Login 1.0
 */
 
 :root{
---pColor:#1a94bc;
---bgColor:#d8e3e7;
---bgColor:#e5e5e5;
---formBg:#fff;
---ptcoty:#ff6f61;
+  --pColor:#1a94bc;
+  --bgColor:#d8e3e7;
+  --bgColor:#e5e5e5;
+  --formBg:#fff;
+  --ptcoty:#ff6f61;
 }
 *{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;}
 html{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
@@ -41,7 +41,7 @@ background-size:192px 48px;margin:0 auto;width:auto;height:128px;
 #login form .forgetmenot,#login form .button-primary{float:none;}
 #login form .forgetmenot{display:none;}
 #login form .button-primary{background:var(--pColor);border-color:var(--pColor);border:0;border-radius:23px;margin:0;padding:8px 32px;width:100%;height:40px;line-height:24px;font-size:15px;font-weight:400;text-shadow:0 1px 1px rgba(0,0,0,.16);transition:box-shadow .28s cubic-bezier(.4,0,.2,1);
- box-shadow:0 8px 16px 0 rgba(0,0,0,.16);
+box-shadow:0 2px 8px 0 rgba(0,0,0,.2) /*0 8px 16px 0 rgba(0,0,0,.16)*/;
 }
 #login form .button-primary:hover{box-shadow:0 2px 4px -1px rgba(0,0,0,.2),0 4px 5px 0 rgba(0,0,0,.14),0 1px 10px 0 rgba(0,0,0,.12);}
 #login form .button-primary:active{box-shadow:0 5px 5px -3px rgba(0,0,0,.2),0 8px 10px 1px rgba(0,0,0,.14),0 3px 14px 2px rgba(0,0,0,.12);}
