@@ -116,11 +116,60 @@ add_action('admin_menu',function(){
   remove_action('post_updated',array( 'WP_Privacy_Policy_Content','_policy_page_updated'));
 },9);
 */
-
+/*
+//移除后台界面右上角的帮助
+add_action('in_admin_header',function(){
+	global $current_screen;
+	$current_screen->remove_help_tabs();
+});
+//移除后台界面右上角的选项
+add_action('in_admin_header',function(){
+	add_filter('screen_options_show_screen','__return_false');
+	add_filter('hidden_columns','__return_empty_array');
+});
+*/
+/*
 //防止上传的图片重名，加上时间戳
 function xuui_handle_upload_prefilter($file){
   if(strlen($file['name'])<=7){$file['name']=time().'-'.$file['name'];}
   return $file;
 };
-add_filter('wp_handle_upload_prefilter','xuui_handle_upload_prefilter'); 
+add_filter('wp_handle_upload_prefilter','xuui_handle_upload_prefilter');
+
+/*
+//隐藏登录失败未知用户名和密码不正确的错误信息.
+add_filter('wp_login_errors',function($errors){
+	$error_code	= $errors->get_error_code();
+	if(in_array($error_code,['invalid_username','invalid_email','incorrect_password'])){
+		$errors->remove($error_code);
+		$errors->add($error_code,'用户名或者密码错误。');
+	}
+	return $errors;
+});
+*/
+/*
+//后台文章列表搜索支持 ID.
+add_filter('posts_clauses',function($clauses,$wp_query){
+	if($wp_query->is_main_query() && $wp_query->is_search()){
+		global $wpdb;
+		$search_term=$wp_query->query['s'];
+		if(is_numeric($search_term)){
+			$clauses['where']=str_replace('('.$wpdb->posts.'.post_title LIKE', '('.$wpdb->posts.'.ID = '.$search_term.') OR ('.$wpdb->posts.'.post_title LIKE', $clauses['where']);
+		}elseif(preg_match("/^(d+)(,s*d+)*$/", $search_term)){
+			$clauses['where']=str_replace('('.$wpdb->posts.'.post_title LIKE', '('.$wpdb->posts.'.ID in ('.$search_term.')) OR ('.$wpdb->posts.'.post_title LIKE', $clauses['where']);
+		}
+	}
+	return $clauses;
+},2,2);
+
+//屏蔽站点Feed.
+function wpjam_feed_disabled(){
+	wp_die('Feed已经关闭, 请访问网站<a href="'.get_bloginfo('url').'">首页</a>！');
+}
+add_action('do_feed','wpjam_feed_disabled',1);
+add_action('do_feed_rdf','wpjam_feed_disabled',1);
+add_action('do_feed_rss','wpjam_feed_disabled',1);
+add_action('do_feed_rss2','wpjam_feed_disabled',1);
+add_action('do_feed_atom','wpjam_feed_disabled',1);
+
 ?>
