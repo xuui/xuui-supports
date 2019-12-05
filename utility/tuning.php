@@ -16,7 +16,6 @@
 remove_action('wp_head','rsd_link');//XML-RPC.
 remove_action('wp_head','wlwmanifest_link');//Windows Live Writer.
 remove_action('wp_head','wp_generator');//WordPress Ver.
-
 remove_action('wp_head','start_post_rel_link');//Post relational links.
 remove_action('wp_head','index_rel_link');//Post relational links.
 remove_action('wp_head','adjacent_posts_rel_link');//Post relational links.
@@ -27,9 +26,9 @@ add_filter('xmlrpc_enabled','__return_false');
 
 //彻底关闭 pingback
 add_filter('xmlrpc_methods',function($methods){
-	$methods['pingback.ping']='__return_false';
-	$methods['pingback.extensions.getPingbacks']='__return_false';
-	return $methods;
+  $methods['pingback.ping']='__return_false';
+  $methods['pingback.extensions.getPingbacks']='__return_false';
+  return $methods;
 });
 remove_action('do_pings','do_all_pings',10);//禁用 pingbacks, enclosures, trackbacks
 remove_action('publish_post','_publish_post_hook',5);//去掉 _encloseme 和 do_ping 操作。
@@ -116,17 +115,19 @@ add_action('admin_menu',function(){
   remove_action('post_updated',array( 'WP_Privacy_Policy_Content','_policy_page_updated'));
 },9);
 */
-/*
+
 //移除后台界面右上角的帮助
 add_action('in_admin_header',function(){
-	global $current_screen;
-	$current_screen->remove_help_tabs();
+  global $current_screen;
+  $current_screen->remove_help_tabs();
 });
 //移除后台界面右上角的选项
 add_action('in_admin_header',function(){
-	add_filter('screen_options_show_screen','__return_false');
-	add_filter('hidden_columns','__return_empty_array');
+  add_filter('screen_options_show_screen','__return_false');
+  add_filter('hidden_columns','__return_empty_array');
 });
+
+/*
 */
 /*
 //防止上传的图片重名，加上时间戳
@@ -136,17 +137,6 @@ function xuui_handle_upload_prefilter($file){
 };
 add_filter('wp_handle_upload_prefilter','xuui_handle_upload_prefilter');
 
-/*
-//隐藏登录失败未知用户名和密码不正确的错误信息.
-add_filter('wp_login_errors',function($errors){
-	$error_code	= $errors->get_error_code();
-	if(in_array($error_code,['invalid_username','invalid_email','incorrect_password'])){
-		$errors->remove($error_code);
-		$errors->add($error_code,'用户名或者密码错误。');
-	}
-	return $errors;
-});
-*/
 /*
 //后台文章列表搜索支持 ID.
 add_filter('posts_clauses',function($clauses,$wp_query){
@@ -162,6 +152,7 @@ add_filter('posts_clauses',function($clauses,$wp_query){
 	return $clauses;
 },2,2);
 
+*/
 //屏蔽站点Feed.
 function wpjam_feed_disabled(){
 	wp_die('Feed已经关闭, 请访问网站<a href="'.get_bloginfo('url').'">首页</a>！');
@@ -171,5 +162,3 @@ add_action('do_feed_rdf','wpjam_feed_disabled',1);
 add_action('do_feed_rss','wpjam_feed_disabled',1);
 add_action('do_feed_rss2','wpjam_feed_disabled',1);
 add_action('do_feed_atom','wpjam_feed_disabled',1);
-
-?>

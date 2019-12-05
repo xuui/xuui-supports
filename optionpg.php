@@ -17,7 +17,7 @@ function xuui_supports_options(){
 
 //Add Option Menu.
 function xuui_supports_options_admin(){
-  add_options_page('xuui_supports', 'xuu:Supports', 'manage_options', __FILE__,'xuui_supports_options');
+  add_options_page('xuui_supports', 'xuu: Supports', 'manage_options', __FILE__,'xuui_supports_options');
 }
 add_action('admin_menu', 'xuui_supports_options_admin');
 

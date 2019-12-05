@@ -6,7 +6,17 @@
 /* Wordpress 实用功能增强. */
 
 // Add Link Manager.
-//add_filter('pre_option_link_manager_enabled','__return_true');
+add_filter('pre_option_link_manager_enabled','__return_true');
+
+// 隐藏登录失败未知用户名和密码不正确的错误信息.
+add_filter('wp_login_errors',function($errors){
+  $error_code	= $errors->get_error_code();
+  if(in_array($error_code,['invalid_username','invalid_email','incorrect_password'])){
+  $errors->remove($error_code);
+    $errors->add($error_code,'用户名或者密码错误。');
+  }
+  return $errors;
+});
 
 
 // WordPress MU 分类上限为：20.
