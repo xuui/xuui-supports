@@ -39,6 +39,9 @@ add_filter('rest_jsonp_enabled','__return_false');
 // 移除头部 wp-json 标签和 HTTP header 中的 link.
 remove_action('wp_head','rest_output_link_wp_head',10);
 remove_action('template_redirect','rest_output_link_header',11);
+add_filter('rest_authentication_errors',function($access){
+	return new WP_Error('rest_cannot_acess','REST API不再提供访问',array('status'=>403));
+});
 
 //禁用 Emoji 功能.
 remove_action('admin_print_scripts','print_emoji_detection_script');
@@ -102,6 +105,7 @@ remove_action('init','wp_widgets_init',1);
 
 // 屏蔽字符转码.
 add_filter('run_wptexturize','__return_false');
+
 
 // 移除后台隐私相关的页面 for China.
 /*
