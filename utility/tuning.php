@@ -141,29 +141,12 @@ add_action('in_admin_header',function(){
   global $current_screen;
   $current_screen->remove_help_tabs();
 });
+
 //移除后台界面右上角的选项
 add_action('in_admin_header',function(){
   add_filter('screen_options_show_screen','__return_false');
   add_filter('hidden_columns','__return_empty_array');
 });
-
-
-/*
-//后台文章列表搜索支持 ID.
-add_filter('posts_clauses',function($clauses,$wp_query){
-	if($wp_query->is_main_query() && $wp_query->is_search()){
-		global $wpdb;
-		$search_term=$wp_query->query['s'];
-		if(is_numeric($search_term)){
-			$clauses['where']=str_replace('('.$wpdb->posts.'.post_title LIKE', '('.$wpdb->posts.'.ID = '.$search_term.') OR ('.$wpdb->posts.'.post_title LIKE', $clauses['where']);
-		}elseif(preg_match("/^(d+)(,s*d+)*$/", $search_term)){
-			$clauses['where']=str_replace('('.$wpdb->posts.'.post_title LIKE', '('.$wpdb->posts.'.ID in ('.$search_term.')) OR ('.$wpdb->posts.'.post_title LIKE', $clauses['where']);
-		}
-	}
-	return $clauses;
-},2,2);
-
-*/
 
 //屏蔽站点Feed.
 function wpjam_feed_disabled(){

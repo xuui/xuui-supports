@@ -269,14 +269,14 @@ function get_post_excerpt($post,$excerpt_length=240){
   return $post_excerpt;
 }
 
-/* 给管理员显示 PHP 错误. 
+/* //给管理员显示 PHP 错误
 if(current_user_can('manage_options')){
   define('WP_DEBUG_DISPLAY',true);
   @ini_set('display_errors',1);
 }
 */
 
-/* 屏蔽 DEMO 账号修改密码. DEMO 账号ID=50.
+/* //屏蔽 DEMO 账号修改密码. DEMO 账号ID=50
 add_filter('show_password_fields',function($status,$profileuser){
   if($profileuser->ID==50){return false;}
   return $status;
@@ -356,11 +356,6 @@ if(strlen($_SERVER['REQUEST_URI'])>255 || strpos($_SERVER['REQUEST_URI'],"eval("
 */
 
 /*
-// 防止上传的图片重名，加上时间戳.
-add_filter('wp_handle_upload_prefilter',function($file){
-  if(strlen($file['name'])<=7){$file['name']=time().'-'.$file['name'];}
-  return $file;
-});
 
 // 简化 WordPress 后台用户名称设置.
 //隐藏 姓，名 和 显示的名称，三个字段
