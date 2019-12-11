@@ -286,15 +286,19 @@ add_filter('show_password_fields',function($status,$profileuser){
 // 支持上传 SVG 图片.
 add_filter('upload_mimes',function($mimes=array()){$mimes['svg']='image/svg+xml';return $mimes;});
 
-/*
+//防止上传的图片重名，加上时间戳.
+function xuui_handle_upload_prefilter($file){
+  if(strlen($file['name'])<=7){$file['name']=time().'-'.$file['name'];}
+  return $file;
+};
+add_filter('wp_handle_upload_prefilter','xuui_handle_upload_prefilter');
+
+
 // 给后台特色图片加上大小说明.
 add_filter('admin_post_thumbnail_html', 'xuui_admin_post_thumbnail_html',10,2);
 function xuui_admin_post_thumbnail_html($content,$post_id){
-  $post=get_post($post_id);
-  $post_type=$post->post_type;
-  if($post_type=='post'){
-    return $content.'大小：390x200';
-  }
+  $post=get_post($post_id);$post_type=$post->post_type;
+  if($post_type=='post'){return $content.'大小：360x360';}
   return $content;
 }
 

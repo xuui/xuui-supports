@@ -147,15 +147,6 @@ add_action('in_admin_header',function(){
   add_filter('hidden_columns','__return_empty_array');
 });
 
-/*
-*/
-/*
-//防止上传的图片重名，加上时间戳
-function xuui_handle_upload_prefilter($file){
-  if(strlen($file['name'])<=7){$file['name']=time().'-'.$file['name'];}
-  return $file;
-};
-add_filter('wp_handle_upload_prefilter','xuui_handle_upload_prefilter');
 
 /*
 //后台文章列表搜索支持 ID.

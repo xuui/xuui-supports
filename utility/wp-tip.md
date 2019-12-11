@@ -35,7 +35,7 @@ WordPress 技巧：简化 WordPress 后台用户名称设置
 在 WordPress 后台如何使用颜色选择器
 -
 WordPress 技巧：如何添加自定义 Post Formats
-WordPress 技巧：给后台特色图片加上大小说明
+-
 WordPress 技巧：限制 WordPress 评论最小字数
 WordPress 技巧：在下拉菜单中添加日历
 WordPress 技巧：设置媒体文件的默认链接
@@ -47,7 +47,7 @@ WordPress 技巧：快速添加友情链接
 WordPress 技巧：设置好评并输出
 WordPress 技巧：不通过登陆后台禁用插件
 WordPress 教程：自定义页面（Page）的模板样式
-WordPress 技巧：禁用 Auto Embeds (oEmbed)
+-
 WordPress 技巧：获取上下篇日志的链接、标题、特色图像
 WordPress 技巧：自定义上传路径和生成文件的 URL 地址
 WordPress 技巧：在 WordPress 后台隐藏自定义字段
@@ -56,7 +56,7 @@ WordPress 技巧：在日志下添加作者头像和版权申明
 使用 WordPress 的导航菜单
 WordPress 日志缩略图（Post Thumbnail）详细介绍和使用
 WordPress 快捷管理工具条：WordPress Admin Toolbar Bookmarklet
-给 WordPress 博客添加 Google Buzz 按钮
+-
 WordPress 技巧：自定义后台用户联系方式
 WordPress 技巧：在后台显示日志浏览数
 13 个 WordPress 提速技巧
@@ -87,7 +87,7 @@ WordPress 技巧：列出博客中所有的角色
 ```
 
 ```
-WordPress 技巧：防止上传的图片重名，加上时间戳
+-
 -
 禁止 admin 用户之后，登录不了后台怎么处理？
 -
