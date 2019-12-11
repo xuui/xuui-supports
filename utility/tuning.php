@@ -195,3 +195,17 @@ add_filter('get_avatar','dmeng_get_https_avatar');
 // 彻底关闭全高度编辑器和免打扰功能.
 add_action('admin_init',function(){wp_deregister_script('editor-expand');});
 add_filter('tiny_mce_before_init',function($init){unset($init['wp_autoresize_on']);return $init;});
+
+// 在后台插入图片时候，尺寸选择框只保留完整尺寸格式.
+add_filter('image_size_names_choose',function($image_sizes){
+  unset($image_sizes['thumbnail']);
+  unset($image_sizes['medium']);
+  unset($image_sizes['large']);
+  return $image_sizes;
+});
+
+// 显示后台的远程请求.
+add_filter('pre_http_request','wpjam_admin_display_http_request',10,3);
+function wpjam_admin_display_http_request($status,$r,$url){if(is_admin() && isset($_GET['debug'])){echo 'http_request：'.$url."\n<br />";return $status;}}
+add_filter('http_request_timeout','wpjam_admin_short_http_request_timeout');
+function wpjam_admin_short_http_request_timeout($timeout){if(is_admin()){return 1;}return $timeout;}

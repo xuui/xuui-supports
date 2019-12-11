@@ -349,15 +349,9 @@ if(strlen($_SERVER['REQUEST_URI'])>255 || strpos($_SERVER['REQUEST_URI'],"eval("
   @header("Connection: Close");
   @exit;
 }
+*/
 
-// 在后台插入图片时候，尺寸选择框只保留完整尺寸格式.
-add_filter('image_size_names_choose',function($image_sizes){
-  unset($image_sizes['thumbnail']);
-  unset($image_sizes['medium']);
-  unset($image_sizes['large']);
-  return $image_sizes;
-});
-
+/*
 // 防止上传的图片重名，加上时间戳.
 add_filter('wp_handle_upload_prefilter',function($file){
   if(strlen($file['name'])<=7){$file['name']=time().'-'.$file['name'];}
