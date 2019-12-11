@@ -110,6 +110,8 @@ remove_action('init','wp_widgets_init',1);
 // 屏蔽字符转码.
 add_filter('run_wptexturize','__return_false');
 
+// 屏蔽站点管理员邮箱验证功能.
+#add_filter('admin_email_check_interval','__return_false');
 
 // 移除后台隐私相关的页面 for China.
 /*
