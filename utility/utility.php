@@ -19,6 +19,15 @@ add_filter('wp_login_errors',function($errors){
   return $errors;
 });
 
+// 禁止使用 admin 用户名尝试登录.
+function wpjam_no_admin_user($user){if($user=='admin'){exit;}}
+function wpjam_sanitize_user_no_admin($username,$raw_username,$strict){
+	if($raw_username=='admin' || $username=='admin'){exit;}
+	return $username;
+}
+add_filter('wp_authenticate','wpjam_no_admin_user');
+add_filter('sanitize_user','wpjam_sanitize_user_no_admin',10,3);
+
 // 防止暴露用户名
 add_filter('author_link',function($link,$author_id,$author_nicename){
   $author=get_userdata($author_id);

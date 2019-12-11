@@ -73,7 +73,7 @@ WordPress 技巧：通过前台不加载语言包来提高博客速度
 WordPress 技巧：改进 404 页面跳转到正确的页面的效率
 WordPress 技巧：移除自动修正 WordPress 大小写函数
 WordPress 技巧：删除 wp_head 中无关紧要的代码
-WordPress 技巧：正确获取文章摘要
+-
 同个服务器多个 WordPress 网站怎么同时使用 Memcached
 使用内存缓存优化 WordPress 文章浏览统计效率
 WordPress 技巧：移除 WordPress 的 Admin Bar
@@ -88,12 +88,12 @@ WordPress 技巧：列出博客中所有的角色
 
 ```
 WordPress 技巧：防止上传的图片重名，加上时间戳
-WordPress 技巧：屏蔽 Gutenberg 编辑器
+-
 禁止 admin 用户之后，登录不了后台怎么处理？
-WordPress 技巧：禁止使用 admin 用户名尝试登录
-WordPress 技巧：禁用 Emoji 功能
+-
+-
 WordPress 技巧：移除后台隐私相关的页面
-WordPress 技巧：屏蔽 REST API
+-
 WordPress 技巧：禁用 XML-RPC 服务
 WordPress 技巧：彻底关闭 Trackbacks
 WordPress 技巧：屏蔽文章修订功能
