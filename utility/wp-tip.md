@@ -94,8 +94,8 @@ WordPress 技巧：防止上传的图片重名，加上时间戳
 -
 WordPress 技巧：移除后台隐私相关的页面
 -
-WordPress 技巧：禁用 XML-RPC 服务
-WordPress 技巧：彻底关闭 Trackbacks
+-
+-
 WordPress 技巧：屏蔽文章修订功能
 WordPress 技巧：让搜索支持自定义字段
 WordPress 技巧：千万不要在全局中把 $blog_id 作为变量名

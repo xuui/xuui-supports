@@ -24,7 +24,7 @@ remove_action('wp_head','wp_resource_hints',2);
 // 禁用 XML-RPC 接口.
 add_filter('xmlrpc_enabled','__return_false');
 
-//彻底关闭 pingback
+//彻底关闭 pingback. sql: UPDATE `wp_posts` SET ping_status="closed";
 add_filter('xmlrpc_methods',function($methods){
   $methods['pingback.ping']='__return_false';
   $methods['pingback.extensions.getPingbacks']='__return_false';
@@ -53,6 +53,7 @@ remove_filter('the_content_feed','wp_staticize_emoji');
 remove_filter('comment_text_rss','wp_staticize_emoji');
 remove_filter('wp_mail','wp_staticize_emoji_for_email');
 add_filter('emoji_svg_url','__return_false');//屏蔽头部加载 s.w.org.
+
 
 // 移除 WordPress 自动修正 WordPress 大小写函数.
 remove_filter('the_content','capital_P_dangit');
