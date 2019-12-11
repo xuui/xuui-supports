@@ -151,6 +151,23 @@ add_action('restrict_manage_posts',function($post_type){
   }
 });
 
+// 屏蔽 DEMO 账号修改密码: ID=50.
+function wpjam_disable_demo_show_password_fields($status,$profileuser){
+	if($profileuser->ID==50){return false;}
+	return $status;
+}
+add_filter('show_password_fields','wpjam_disable_demo_show_password_fields',10,2);
+
+// 搜索结果只有一篇时直接跳转到文章页面.
+function wpjam_redirect_single_post(){
+  if(is_search()){
+    global $wp_query;
+    if ($wp_query->post_count==1){
+      wp_redirect(get_permalink($wp_query->posts['0']->ID));
+    }
+  }
+}
+add_action('template_redirect','wpjam_redirect_single_post');
 
 // WordPress MU 分类上限为：20.
 /*

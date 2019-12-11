@@ -33,7 +33,7 @@ WordPress 技巧：彻底关闭全高度编辑器和免打扰功能。
 -
 WordPress 技巧：简化 WordPress 后台用户名称设置
 在 WordPress 后台如何使用颜色选择器
-WordPress 技巧：屏蔽 DEMO 账号修改密码
+-
 WordPress 技巧：如何添加自定义 Post Formats
 WordPress 技巧：给后台特色图片加上大小说明
 WordPress 技巧：限制 WordPress 评论最小字数
@@ -69,7 +69,7 @@ WordPress 自定义字段（Custom Fields）详细介绍和使用
 把分类作成下拉菜单
 WordPress 技巧：按照用户注册时间排序
 WordPress 技巧：通过前台不加载语言包来提高博客速度
-WordPress 技巧：当搜索结果只有一篇时直接跳转到文章页面
+-
 WordPress 技巧：改进 404 页面跳转到正确的页面的效率
 WordPress 技巧：移除自动修正 WordPress 大小写函数
 WordPress 技巧：删除 wp_head 中无关紧要的代码
