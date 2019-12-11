@@ -178,3 +178,11 @@ add_action('do_feed_rdf','wpjam_feed_disabled',1);
 add_action('do_feed_rss','wpjam_feed_disabled',1);
 add_action('do_feed_rss2','wpjam_feed_disabled',1);
 add_action('do_feed_atom','wpjam_feed_disabled',1);
+
+// 替换 Gravatar 头像的服务器地址.
+function dmeng_get_https_avatar($avatar){
+	$avatar=str_replace(array("www.gravatar.com","0.gravatar.com","1.gravatar.com","2.gravatar.com"),"secure.gravatar.com",$avatar);
+	$avatar=str_replace("http://","https://",$avatar);
+	return $avatar;
+}
+add_filter('get_avatar','dmeng_get_https_avatar');
