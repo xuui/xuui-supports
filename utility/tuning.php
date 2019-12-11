@@ -54,7 +54,6 @@ remove_filter('comment_text_rss','wp_staticize_emoji');
 remove_filter('wp_mail','wp_staticize_emoji_for_email');
 add_filter('emoji_svg_url','__return_false');//屏蔽头部加载 s.w.org.
 
-
 // 移除 WordPress 自动修正 WordPress 大小写函数.
 remove_filter('the_content','capital_P_dangit');
 remove_filter('the_title','capital_P_dangit');
@@ -190,3 +189,7 @@ function dmeng_get_https_avatar($avatar){
 	return $avatar;
 }
 add_filter('get_avatar','dmeng_get_https_avatar');
+
+// 彻底关闭全高度编辑器和免打扰功能.
+add_action('admin_init',function(){wp_deregister_script('editor-expand');});
+add_filter('tiny_mce_before_init',function($init){unset($init['wp_autoresize_on']);return $init;});

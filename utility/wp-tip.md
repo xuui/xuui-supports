@@ -26,10 +26,10 @@ WordPress 技巧：屏蔽站点管理员邮箱验证功能
 WordPress 技巧：重置 WordPress 所有的用户角色和权限
 WordPress 技巧：如何防止网站标题中的 “-” 被转义成 “& #8211;”
 WordPress 技巧：如何去掉分类目录 URL 中的 category
-WordPress 技巧：限制素材数量
-WordPress 技巧：限制文章数量
-WordPress 技巧：限制分类数量
-WordPress 技巧：彻底关闭全高度编辑器和免打扰功能。
+-
+-
+-
+-
 -
 WordPress 技巧：简化 WordPress 后台用户名称设置
 在 WordPress 后台如何使用颜色选择器
