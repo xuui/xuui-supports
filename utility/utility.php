@@ -84,11 +84,24 @@ add_filter('handle_bulk_actions-users',function($sendback,$action,$user_ids){
   return admin_url();
 },10,3);
 
-// 去掉编辑器的 srcset
-function xuui_disable_srcset($sources){return false;}
-add_filter('wp_calculate_image_srcset','xuui_disable_srcset');
+// 用户注册时候不能含有非法关键字.
+function wpjam_blacklist_check($str){
+  $moderation_keys=trim(get_option('moderation_keys'));
+  $blacklist_keys=trim(get_option('blacklist_keys'));
+  $keys=$moderation_keys."\n".$blacklist_keys;
+  $words=explode("\n",$keys);
+  foreach((array)$words as $word){
+      $word=trim($word);
+      if(empty($word)){continue;}
+      $word=preg_quote($word,'#');
+      $pattern="#$word#i";
+      if(preg_match($pattern,$str))return true;
+  }
+  return false;
+}
 
-// 后台文章列表搜索支持 ID
+
+// 后台文章列表搜索支持 ID.
 add_filter('posts_clauses',function($clauses,$wp_query){
   if($wp_query->is_main_query() && $wp_query->is_search()){
     global $wpdb;
