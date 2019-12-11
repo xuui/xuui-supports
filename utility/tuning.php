@@ -100,7 +100,7 @@ remove_action('wp_head','wp_oembed_add_host_js');
 // 屏蔽 Gutenberg 编辑器.cms.
 add_filter('use_block_editor_for_post_type','__return_false');
 
-// 去掉编辑器的 srcset
+// 去掉编辑器的 srcset.
 function xuui_disable_srcset($sources){return false;}
 add_filter('wp_calculate_image_srcset','xuui_disable_srcset');
 

@@ -28,7 +28,7 @@ function wpjam_sanitize_user_no_admin($username,$raw_username,$strict){
 add_filter('wp_authenticate','wpjam_no_admin_user');
 add_filter('sanitize_user','wpjam_sanitize_user_no_admin',10,3);
 
-// 防止暴露用户名
+// 防止暴露用户名.
 add_filter('author_link',function($link,$author_id,$author_nicename){
   $author=get_userdata($author_id);
   if(sanitize_title($author->user_login)==$author_nicename){
@@ -72,6 +72,24 @@ add_filter('comment_class',function($classes){
   }
   return $classes;
 });
+
+// 自动隐藏邮件地址防止垃圾邮件.
+add_filter('the_content','wpjam_hide_emails',99);
+add_filter('widget_text','wpjam_hide_emails',99);
+function wpjam_hide_emails($content){
+	$pattern='/([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4})/i';
+	return preg_replace_callback($pattern,"wpjam_hide_emails_callback",$content);
+}
+function wpjam_hide_emails_callback($match) {
+	return antispambot($match[1]);
+}
+
+// 防止博客内容中的 Email 地址被收集.
+function wpjam_email_shortcode_handler($atts,$content=''){
+    extract(shortcode_atts(array('mailto'=>'0'),$atts));
+    return antispambot($content,$mailto);
+}
+add_shortcode('email','wpjam_email_shortcode_handler');
 
 // 管理员快速登录其他用户账户
 add_filter('user_row_actions',function($actions,$user){

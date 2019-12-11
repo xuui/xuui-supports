@@ -149,8 +149,8 @@ WordPress 技巧：在设置菜单下面增加所有设置的页面
 WordPress 技巧：在后台页面列表显示使用的页面模板
 WordPress 技巧：使用 defer 延迟加载 JavaScript 程序，加快页面渲染
 WordPress 技巧：使用文件缓存侧边栏
-WordPress 技巧：防止博客内容中的 Email 地址被收集
-WordPress 技巧：自动隐藏邮件地址防止垃圾邮件
+-
+-
 WordPress 技巧：将 WordPress 后台仪表盘恢复成一栏
 WordPress 技巧：如何把时间显示成“xxx前”格式
 WordPress 技巧：把页面从搜索结果中排除
@@ -159,7 +159,7 @@ WordPress 技巧：提高 WordPress 搜索的相关性
 WordPress 技巧：给 wp_nav_menu 函数添加缓存，提高页面效率
 WordPress 技巧：用户注册后重定向到自定义页面
 WordPress 技巧：设置不同的访问设备加载不同的主题
-WordPress 技巧：用户注册时候不能含有非法关键字
+-
 WordPress 技巧：增强 WordPress 用户搜索
 WordPress 技巧：获取特色图片地址
 WordPress 技巧：给 quicktags 编辑器添加自定义按钮
