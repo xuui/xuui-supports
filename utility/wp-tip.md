@@ -104,7 +104,7 @@ WordPress 技巧：创建博客时不创建 links 表
 WordPress 技巧：获取 WordPress 后台当前页面的 Post type
 如何判断当前页面是 WordPress 的登录页
 提速 WP_Query 和 query_posts 函数的小技巧
-WordPress 技巧：屏蔽头部加载 s.w.org
+-
 WordPress 技巧：加载最小化的 WordPress
 WordPress 技巧：使用 size_format 格式化字节
 WordPress 技巧：使用 wp_list_sort 对二维关联数组进行排序
@@ -117,7 +117,7 @@ WordPress 技巧：防止遭受恶意 URL 请求
 WordPress 技巧：在 WP_Query 使用 post__in 的时候注意要 ignore_sticky_posts
 WordPress 技巧：屏蔽文章 Embed 功能
 WordPress 技巧：移除后台核心，插件和主题的更新提示
-WordPress 技巧：优先执行 Shortcode，移除 Shortcode 中自动添加的 br 和 p 标签
+-
 WordPress 技巧：禁用 WP Cron
 WordPress 技巧：给管理员显示 PHP 错误
 WordPress 技巧：移除特定页面模板下的内容编辑器

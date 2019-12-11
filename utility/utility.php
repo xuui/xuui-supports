@@ -178,6 +178,16 @@ function wpjam_redirect_single_post(){
 }
 add_action('template_redirect','wpjam_redirect_single_post');
 
+// 优先执行 Shortcode，移除 Shortcode 中自动添加的 br 和 p 标签
+remove_filter('the_content','wpautop');
+add_filter('the_content','wpautop',12);
+function bio_shortcode($atts,$content=null){
+  $content = wpautop(trim($content));
+  return '<div class="bio">'.$content.'</div>';
+}
+add_shortcode('bio','bio_shortcode');
+
+
 // WordPress MU 分类上限为：20.
 /*
 add_filter('pre_insert_term',function($term,$taxonomy){
