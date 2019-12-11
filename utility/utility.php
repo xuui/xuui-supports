@@ -243,12 +243,9 @@ add_filter('show_password_fields',function($status,$profileuser){
 */
 
 // 支持上传 SVG 图片.
-/*
-add_filter('upload_mimes',function($mimes=array()){
-  $mimes['svg']='image/svg+xml';
-  return $mimes;
-});
+add_filter('upload_mimes',function($mimes=array()){$mimes['svg']='image/svg+xml';return $mimes;});
 
+/*
 // 给后台特色图片加上大小说明.
 add_filter('admin_post_thumbnail_html', 'xuui_admin_post_thumbnail_html',10,2);
 function xuui_admin_post_thumbnail_html($content,$post_id){

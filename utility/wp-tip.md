@@ -132,7 +132,7 @@ WordPress 技巧：去除非法字符
 WordPress 技巧：让编辑也可以更新 Setting API
 WordPress 技巧：通过图片地址获取 ID
 -
-WordPress 技巧：支持上传 SVG 图片
+-
 WordPress 技巧：移除加载的 JS 和 CSS 文件后面的 ver 参数
 WordPress 技巧：缓存自定义菜单，加快博客速度
 如何判断 WordPress 当前执行的 AJAX 操作
