@@ -289,5 +289,5 @@ WordPress Hack 技巧
 如何在博客的日志之间显示广告
 定制化 WordPress More 标签
 调用最新日志的最简单方法
-ThinkPad 使用提示
+-
 ```

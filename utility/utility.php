@@ -91,7 +91,7 @@ function wpjam_email_shortcode_handler($atts,$content=''){
 }
 add_shortcode('email','wpjam_email_shortcode_handler');
 
-// 管理员快速登录其他用户账户
+// 管理员快速登录其他用户账户.
 add_filter('user_row_actions',function($actions,$user){
   $capability=(is_multisite())?'manage_site':'manage_options';
   if(current_user_can($capability)){$actions['login_as']='<a title="以此身份登陆" href="'.wp_nonce_url("users.php?action=login_as&users=$user->ID",'bulk-users').'">以此身份登陆</a>';}
@@ -118,7 +118,6 @@ function wpjam_blacklist_check($str){
   return false;
 }
 
-
 // 后台文章列表搜索支持 ID.
 add_filter('posts_clauses',function($clauses,$wp_query){
   if($wp_query->is_main_query() && $wp_query->is_search()){
@@ -133,7 +132,7 @@ add_filter('posts_clauses',function($clauses,$wp_query){
   return $clauses;
 },2,2);
 
-// 后台文章列表添加作者筛选
+// 后台文章列表添加作者筛选.
 add_action('restrict_manage_posts',function($post_type){
   if(post_type_supports($post_type,'author')){wp_dropdown_users([
     'name'=>'author','who'=>'authors',
@@ -143,7 +142,7 @@ add_action('restrict_manage_posts',function($post_type){
   ]);}
 });
 
-// 后台文章列表添加排序选项
+// 后台文章列表添加排序选项.
 add_action('restrict_manage_posts',function($post_type){
   global $wp_list_table;
   list($columns,$hidden,$sortable_columns,$primary)=$wp_list_table->get_column_info();
@@ -168,7 +167,7 @@ add_action('restrict_manage_posts',function($post_type){
   ]);
 });
 
-// 后台文章列表添加自定义分类筛选
+// 后台文章列表添加自定义分类筛选.
 add_action('restrict_manage_posts',function($post_type){
   if($taxonomies=get_object_taxonomies($post_type,'objects')){
     foreach($taxonomies as $taxonomy){
@@ -209,7 +208,7 @@ function wpjam_redirect_single_post(){
 }
 add_action('template_redirect','wpjam_redirect_single_post');
 
-// 优先执行 Shortcode，移除 Shortcode 中自动添加的 br 和 p 标签
+// 优先执行 Shortcode，移除 Shortcode 中自动添加的 br 和 p 标签.
 remove_filter('the_content','wpautop');
 add_filter('the_content','wpautop',12);
 function bio_shortcode($atts,$content=null){
@@ -230,17 +229,28 @@ add_filter('pre_insert_term',function($term,$taxonomy){
   return $term;
 },10,2);
 
-// WordPress MU 限制文章数量
+// WordPress MU 限制文章数量.
 add_action('current_screen',function($current_screen){
   global $pagenow;
   if($pagenow=='post-new.php'){
     $post_type=$current_screen->post_type;
-    if($post_type=='product'){// 这里可以改成你需要限制的日志类型
+    if($post_type=='product'){// 这里 product 可以改成你需要限制的日志类型
       $counts=wp_count_posts($post_type);
       $total=array_sum((array)$counts);
       if($total>5000){wp_die('商品上限为：5000。');}
     }
   }
+});
+
+// WordPress MU 限制素材数量
+add_filter('wp_handle_upload_prefilter',function($file){
+	$counts=wp_count_posts('attachment');
+	$total=array_sum((array)$counts);
+	if($total> WPJAM_ShopCountLimit::get_limit('attachment')){
+		$error= WPJAM_ShopCountLimit::get_error('attachment');
+		$file['error']=$error->get_error_message();
+	}
+	return $file;
 });
 */
 
@@ -391,32 +401,7 @@ add_action('posts_search',function($search,$query){
   return $search;
 },2,2);
 
-//禁止使用 admin 用户名尝试登录
-//add_filter('wp_authenticate','xuui_no_admin_user');
-function xuui_no_admin_user($user){
-  if($user=='admin'){exit;}
-}
-//add_filter('sanitize_user','xuui_sanitize_user_no_admin',10,3);
-function xuui_sanitize_user_no_admin($username,$raw_username,$strict){
-  if($raw_username=='admin' || $username=='admin'){exit;}
-  return $username;
-}
 
-//管理员快速登录其他用户账户
-add_filter('user_row_actions',function($actions,$user){
-  $capability=(is_multisite())?'manage_site':'manage_options';
-  if(current_user_can($capability)){
-    $actions['login_as']='<a title="以此身份登陆" href="'.wp_nonce_url("users.php?action=login_as&users=$user->ID", 'bulk-users').'">以此身份登陆</a>';
-  }
-  return $actions;
-},10,2);
-add_filter('handle_bulk_actions-users',function($sendback,$action,$user_ids){
-  if($action=='login_as'){
-    wp_set_auth_cookie($user_ids,true);
-    wp_set_current_user($user_ids);
-  }
-  return admin_url();
-},10,3);
 
 //移除 WordPress 后台的主题编辑器
 /*
